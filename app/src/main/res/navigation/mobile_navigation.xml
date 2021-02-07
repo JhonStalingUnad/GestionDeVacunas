@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_family">
+
+    <fragment
+        android:id="@+id/nav_family"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.home.HomeFragment"
+        android:label="@string/nucleo_familiar"
+        tools:layout="@layout/fragment_family" />
+
+    <fragment
+        android:id="@+id/nav_pvacunacion"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.gallery.GalleryFragment"
+        android:label="@string/plan_vacunacion"
+        tools:layout="@layout/fragment_pvacunacion" />
+
+    <fragment
+        android:id="@+id/nav_cvacunacion"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.slideshow.SlideshowFragment"
+        android:label="@string/carnet_vacunacion"
+        tools:layout="@layout/fragment_cvacunacion" />
+
+    <fragment
+        android:id="@+id/nav_recordatorios"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.slideshow.SlideshowFragment"
+        android:label="@string/recordatorios"
+        tools:layout="@layout/fragment_recordatorio" />
+
+    <fragment
+        android:id="@+id/nav_informacion"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.slideshow.SlideshowFragment"
+        android:label="@string/Informacion"
+        tools:layout="@layout/fragment_informacion" />
+
+
+</navigation>

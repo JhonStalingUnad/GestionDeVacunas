@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_family"
+            android:icon="@drawable/ic_family"
+            android:title="@string/nucleo_familiar" />
+        <item
+            android:id="@+id/nav_pvacunacion"
+            android:icon="@drawable/ic_plan_vacunacion"
+            android:title="@string/plan_vacunacion" />
+        <item
+            android:id="@+id/nav_cvacunacion"
+            android:icon="@drawable/ic_carnet"
+            android:title="@string/carnet_vacunacion" />
+        <item
+            android:id="@+id/nav_recordatorios"
+            android:icon="@drawable/ic_recordatorio"
+            android:title="@string/recordatorios" />
+        <item
+            android:id="@+id/nav_informacion"
+            android:icon="@drawable/ic_informacion"
+            android:title="@string/Informacion" />
+
+    </group>
+</menu>
