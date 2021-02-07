@@ -52,6 +52,10 @@
     <string name="listar_miembros">Listar Miembros</string>
     <string name="modificar_miembros">Modificar Miembros</string>
     <string name="eliminar_miembros">Eliminar Miembros</string>
+    <string name="ingresa_nombre">Ingresa los Nombres</string>
+    <string name="ingresa_apellidos">Ingresa los Apellidos</string>
+    <string name="registrar">Registrar</string>
+    <string name="cancelar">Cancelar</string>
 
 
 </resources>

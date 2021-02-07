@@ -1,7 +1,10 @@
 package com.gestion_de_vacunas.Vakunapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -27,6 +30,12 @@ class MenuActivity : AppCompatActivity() {
         if (toolbar != null)
             setSupportActionBar(toolbar)
 
+        /*val registrarMiembros:NavigationView = findViewById(R.id.nav_registrar_miembros)
+
+        registrarMiembros.setOnClickListener{
+            val intent = Intent(this,RegistrarMiembrosActivity::class.java)
+            startActivity(intent);
+        }*/
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
