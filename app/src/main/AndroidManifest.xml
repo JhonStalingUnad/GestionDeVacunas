@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".RegistrarMiembrosActivity"></activity>
         <activity android:name=".ui.recordatorio.RecordatorioActivity"></activity>
+        <activity android:name=".ui.miembro.MiembroActivity"></activity>
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
