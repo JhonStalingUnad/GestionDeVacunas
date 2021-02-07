@@ -53,5 +53,8 @@
     <string name="modificar_miembros">Modificar Miembros</string>
     <string name="eliminar_miembros">Eliminar Miembros</string>
 
+    <!-- RECORDATORIOS -->
+    <string name="crear">Crear Nuevo</string>
+    <string name="tituloRecordatorio">Recordatorios</string>
 
 </resources>
