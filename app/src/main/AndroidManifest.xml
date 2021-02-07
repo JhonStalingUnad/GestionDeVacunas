@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.unadgrupo2.gestiondevacunas">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gestion_de_vacunas.Vakunapp">
 
     <application
         android:allowBackup="true"
@@ -10,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/app_name">
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

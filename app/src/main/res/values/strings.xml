@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Gestion de Vacunas</string>
+    <string name="app_name">Vakunapp</string>
+    <string name="app_text">VAKUNAPP</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -9,4 +10,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="campo_requerido">Campo Requerido</string>
+    <string name="numero_documento">Ingrese el número del documento</string>
+    <string name="contrasena">Ingrese la contraseña</string>
+    <string name="tipo_documento">Tipo de documento</string>
+    <string name="olvidaste_tu_contrasena"><u>¿Olvidaste tu contraseña?</u></string>
+    <string name="continuar">Continuar</string>
+    <string name="crear_cuenta"><u>Crear Cuenta</u></string>
 </resources>
