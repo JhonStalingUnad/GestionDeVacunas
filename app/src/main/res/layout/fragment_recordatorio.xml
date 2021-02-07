@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margen_default"
-                    android:text="@string/continuar"
+                    android:text="@string/crear"
                     android:layout_gravity="center"
                     android:paddingBottom="@dimen/margen_default"
                     android:textStyle="bold" />
