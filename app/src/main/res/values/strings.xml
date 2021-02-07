@@ -40,14 +40,18 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <!-- Menu -->
-    <string name="nucleo_familiar">Nucleo Familiar</string>
+    <string name="nucleo_familiar">Núcleo Familiar</string>
     <string name="plan_vacunacion">Plan de Vacunación</string>
     <string name="carnet_vacunacion">Carnet de Vacunación</string>
     <string name="recordatorios">Recordatorios</string>
     <string name="Informacion">Información</string>
-    <string name="Vakunapp">VAKUNAPP</string>
-    <string name="vakunapp">VAKUNAPP</string>
     <string name="unad">UNAD</string>
+    <string name="action_opciones">Opciones</string>
+    <string name="nombre_usuario">Nombre de Usuario</string>
+    <string name="registrar_miembros">     Registrar Miembros</string>
+    <string name="listar_miembros">Listar Miembros</string>
+    <string name="modificar_miembros">Modificar Miembros</string>
+    <string name="eliminar_miembros">Eliminar Miembros</string>
 
 
 </resources>

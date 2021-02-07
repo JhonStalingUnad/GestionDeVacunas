@@ -21,8 +21,11 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+
+        if (toolbar != null)
+            setSupportActionBar(toolbar)
 
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

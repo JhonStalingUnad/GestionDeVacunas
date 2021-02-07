@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_family"
-            android:icon="@drawable/ic_family"
-            android:title="@string/nucleo_familiar" />
+            android:title="@string/nucleo_familiar">
+            <menu>
+                <item
+                    android:id="@+id/nav_registrar_miembros"
+                    android:icon="@drawable/ic_registrar_miembros"
+                    android:title="@string/registrar_miembros"/>
+                <item
+                    android:id="@+id/nav_listar_miembros"
+                    android:icon="@drawable/ic_listar_miembros"
+                    android:title="@string/listar_miembros"/>
+                <item
+                    android:id="@+id/nav_modificar_miembros"
+                    android:icon="@drawable/ic_editar_miembros"
+                    android:title="@string/modificar_miembros"/>
+                <item
+                    android:id="@+id/nav_eliminar_miembros"
+                    android:icon="@drawable/ic_eliminar_miembros"
+                    android:title="@string/eliminar_miembros"/>
+            </menu>
+        </item>
         <item
             android:id="@+id/nav_pvacunacion"
             android:icon="@drawable/ic_plan_vacunacion"
