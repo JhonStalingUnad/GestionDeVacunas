@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="miembros">
+        <item>Javier Zapata</item>
+        <item>Angelica Valencia</item>
+        <item>David Suarez</item>
+        <item>Elquin Pedraza</item>
+        <item>Alba Florez</item>
+    </string-array>
+</resources>

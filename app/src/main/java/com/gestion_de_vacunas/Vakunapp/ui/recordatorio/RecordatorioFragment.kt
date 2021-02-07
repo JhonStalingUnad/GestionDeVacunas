@@ -1,17 +1,15 @@
 package com.gestion_de_vacunas.Vakunapp.ui.recordatorio
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.gestion_de_vacunas.Vakunapp.R
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import androidx.databinding.DataBindingUtil.setContentView
+import android.widget.Button
+import com.gestion_de_vacunas.Vakunapp.LoginActivity
 
 class RecordatorioFragment : Fragment() {
 
@@ -25,7 +23,7 @@ class RecordatorioFragment : Fragment() {
 
         recordatorioViewModel =
                 ViewModelProvider(this).get(RecordatorioViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_recordatorio, container, false)
+        val root = inflater.inflate(R.layout.fragment_recordatorio_list, container, false)
 
         /*
         val textView: TextView = root.findViewById(R.id.tituloRecordatorio)
@@ -49,6 +47,12 @@ class RecordatorioFragment : Fragment() {
                 R.layout.simple_list_item_1, users)
         mListView.adapter = arrayAdapter
         */
+
+        val buttonCrearRecordatorio: Button = root.findViewById(R.id.buttonCrearRecordatorio);
+        buttonCrearRecordatorio.setOnClickListener {
+            val intent = Intent(activity, RecordatorioActivity::class.java)
+            startActivity(intent);
+        }
 
         return root
     }

@@ -27,7 +27,7 @@
         android:id="@+id/nav_recordatorios"
         android:name="com.gestion_de_vacunas.Vakunapp.ui.recordatorio.RecordatorioFragment"
         android:label="@string/recordatorios"
-        tools:layout="@layout/fragment_recordatorio" />
+        tools:layout="@layout/fragment_recordatorio_list" />
 
     <fragment
         android:id="@+id/nav_informacion"
