@@ -57,5 +57,8 @@
     <string name="registrar">Registrar</string>
     <string name="cancelar">Cancelar</string>
 
+    <!-- RECORDATORIOS -->
+    <string name="crear">Crear Nuevo</string>
+    <string name="tituloRecordatorio">Recordatorios</string>
 
 </resources>
