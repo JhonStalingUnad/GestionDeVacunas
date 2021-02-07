@@ -60,5 +60,16 @@
     <!-- RECORDATORIOS -->
     <string name="crear">Crear Nuevo</string>
     <string name="tituloRecordatorio">Recordatorios</string>
+    ​<string-array name="Recordatorios">
+        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+    ​</string-array>
 
 </resources>

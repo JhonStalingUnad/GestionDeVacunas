@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_recordatorios"
-        android:name="com.gestion_de_vacunas.Vakunapp.ui.slideshow.SlideshowFragment"
+        android:name="com.gestion_de_vacunas.Vakunapp.ui.recordatorio.RecordatorioFragment"
         android:label="@string/recordatorios"
         tools:layout="@layout/fragment_recordatorio" />
 
