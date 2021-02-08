@@ -33,7 +33,7 @@
                     android:id="@+id/tvRegistroMiembros"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/margen_default"
+                    android:paddingBottom="8dp"
                     android:text="@string/registrar_miembros"
                     android:textAlignment="center"
                     android:textStyle="bold"
@@ -68,6 +68,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/TextInputLayout"
                     android:id="@+id/spFechaNacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
                     android:spinnerMode="dialog" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/TextInputLayout"
                     android:id="@+id/spGenero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -86,6 +88,7 @@
                     android:spinnerMode="dialog" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/TextInputLayout"
                     android:id="@+id/spTipoDocumento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -109,6 +112,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/TextInputLayout"
                     android:id="@+id/spParentesco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,6 +122,7 @@
                     android:spinnerMode="dialog"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/TextInputLayout"
                     android:id="@+id/spGrupoSanguineo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
