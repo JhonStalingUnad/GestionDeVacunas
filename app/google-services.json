@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283017014013",
+    "project_id": "vakunapp",
+    "storage_bucket": "vakunapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283017014013:android:2af7d4739dd8abff532c94",
+        "android_client_info": {
+          "package_name": "com.gestion_de_vacunas.Vakunapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283017014013-0hpt46d6qcuu94fo94lgvit30ne70ng1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoAhH10L9nzGps-dlM941KcffW2uCAphg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283017014013-0hpt46d6qcuu94fo94lgvit30ne70ng1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
