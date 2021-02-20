@@ -1,13 +1,13 @@
-package com.gestion_de_vacunas.Vakunapp.ui.home
+package com.gestion_de_vacunas.Vakunapp.home.miembro
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class MiembrosViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Recordatorio Fragment"
     }
     val text: LiveData<String> = _text
 }

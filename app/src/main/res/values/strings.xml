@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Vakunapp</string>
     <string name="app_text">VAKUNAPP</string>
+
+    <!-- REGISTRO -->
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="forgotPassword">Olvidaste tu contraseña?</string>
+    <string name="firstName">Nombre</string>
+    <string name="lastName">Apellido</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="createAct">Crear cuenta</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -61,6 +71,7 @@
     <string name="crear">Crear Nuevo</string>
     <string name="tituloRecordatorio">Recordatorios</string>
     <string name="guardar">Guardar</string>
+    <string name="Logout">Cerrar Sesión</string>
     ​<string-array name="Recordatorios">
         ​<item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
         ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
@@ -72,5 +83,10 @@
         ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
         ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
     ​</string-array>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 </resources>

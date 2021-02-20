@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.ui.recordatorio
+package com.gestion_de_vacunas.Vakunapp.home.recordatorio
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -23,9 +23,9 @@
             android:icon="@drawable/ic_recordatorio"
             android:title="@string/recordatorios" />
         <item
-            android:id="@+id/nav_informacion"
-            android:icon="@drawable/ic_informacion"
-            android:title="@string/Informacion" />
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/Logout" />
 
     </group>
 </menu>
