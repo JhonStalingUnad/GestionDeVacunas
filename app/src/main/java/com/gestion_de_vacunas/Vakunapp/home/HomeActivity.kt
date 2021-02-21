@@ -18,7 +18,7 @@ import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
-import com.gestion_de_vacunas.Vakunapp.home.miembro.RecordatorioListFragment
+import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         var title: Int = 1
-        var fragment: Fragment = MiembrosListFragment()
+        var fragment: Fragment = RecordatorioListFragment()
 
         when (item.itemId) {
             R.id.nav_family -> {
