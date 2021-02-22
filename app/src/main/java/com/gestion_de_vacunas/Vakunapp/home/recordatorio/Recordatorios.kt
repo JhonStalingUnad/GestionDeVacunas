@@ -5,7 +5,7 @@ class Recordatorios {
     private var firstName: String? = null
     private var lastName: String? = null
 
-    fun users() {}
+    fun Recordatorios() {}
 
     fun getFirstname(): String? {
         return firstName

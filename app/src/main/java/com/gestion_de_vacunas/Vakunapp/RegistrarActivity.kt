@@ -35,7 +35,6 @@ class RegistrarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar)
         initialise()
-
     }
 
 
@@ -48,10 +47,10 @@ class RegistrarActivity : AppCompatActivity() {
         txtPassword = findViewById(R.id.txtPassword)
         progressBar = ProgressDialog(this)
 
-        //BASE DE DATOS
+        //INICIALIZO LA BASE DE DATOS
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
 
-        //INSTANACIA DE LA BASE DE DATOS
+        //INICIALIZO LA AUTHENTICACION DE FIREBASE
         auth = FirebaseAuth.getInstance()
 
         //TABLA EN LA CUAL SE VA A ALMACENAR
