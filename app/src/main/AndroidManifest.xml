@@ -42,7 +42,7 @@
 
         <!-- MODULOS -->
         <activity
-            android:name=".home.miembro.RegistrarMiembrosActivity"
+            android:name=".home.miembro.Miembros"
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.miembro.MiembroFormActivity"

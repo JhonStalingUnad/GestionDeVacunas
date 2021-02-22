@@ -90,5 +90,6 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="refresh">Refrescar</string>
     <string name="database_uri">https://vakunapp-default-rtdb.firebaseio.com/</string>
+    <string name="fecha_nacimiento"> Selecciona la Fecha de Nacimiento</string>
 
 </resources>

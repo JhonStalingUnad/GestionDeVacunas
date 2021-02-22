@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".home.miembro.RegistrarMiembrosActivity">
+    tools:context=".home.miembro.Miembros">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
                     android:id="@+id/tvRegistroMiembros"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
+                    android:paddingBottom="@dimen/margen_titulo"
                     android:text="@string/registrar_miembros"
                     android:textAlignment="center"
                     android:textStyle="bold"
@@ -67,35 +67,41 @@
                         android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <com.google.android.material.textfield.TextInputLayout
                     style="@style/TextInputLayout"
-                    android:id="@+id/spFechaNacimiento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
-                    android:entries="@array/fecha_nacimiento"
-                    android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dialog" />
+                    android:layout_marginBottom="@dimen/margen_default"
+                    android:hint="@string/fecha_nacimiento">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiFechaNacimiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:drawableLeft="@drawable/ic_calendar"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    style="@style/TextInputLayout"
+                    android:background="@drawable/style_spinner"
                     android:id="@+id/spGenero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
+                    android:layout_marginBottom="@dimen/margen_default"
                     android:entries="@array/genero"
                     android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    style="@style/TextInputLayout"
+                    android:background="@drawable/style_spinner"
                     android:id="@+id/spTipoDocumento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
+                    android:layout_marginBottom="@dimen/margen_default"
                     android:entries="@array/tipo_documento"
                     android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dropdown" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/TextInputLayout"
@@ -112,44 +118,27 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    style="@style/TextInputLayout"
+                    android:background="@drawable/style_spinner"
                     android:id="@+id/spParentesco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
+                    android:layout_marginBottom="16dp"
                     android:entries="@array/parentesco"
                     android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dialog"/>
+                    android:spinnerMode="dropdown"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    style="@style/TextInputLayout"
+                    android:background="@drawable/style_spinner"
                     android:id="@+id/spGrupoSanguineo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
                     android:entries="@array/grupo_sanguineo"
                     android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dialog"/>
+                    android:spinnerMode="dropdown"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
-                    <Button
-                        android:id="@+id/btnRegistrar"
-                        style="?android:textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margen_default"
-                        android:text="@string/registrar"
-                        android:gravity="center"
-                        android:paddingBottom="@dimen/margen_default"
-                        android:textStyle="bold"
-
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/btnCancelar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/btnCancelar"
@@ -158,12 +147,27 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margen_default"
                         android:text="@string/cancelar"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/margen_default"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btnRegistrar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/btnRegistrar"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margen_default"
+                        android:text="@string/registrar"
                         android:layout_gravity="center"
                         android:paddingBottom="@dimen/margen_default"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/btnRegistrar"
+                        app:layout_constraintStart_toEndOf="@id/btnCancelar"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
