@@ -46,7 +46,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margen_default"
-                        android:entries="@array/miembros"
                         android:paddingBottom="@dimen/margen_default"
                         android:spinnerMode="dialog" />
 
