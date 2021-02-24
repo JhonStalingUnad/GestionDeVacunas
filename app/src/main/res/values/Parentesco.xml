@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="parentesco">
-        <item>Parentesco</item>
+        <item>Esposo</item>
+        <item>Esposa</item>
+        <item>Madre</item>
+        <item>Padre</item>
+        <item>Hijo</item>
+        <item>Hija</item>
+        <item>Abuelo</item>
+        <item>Abuela</item>
     </string-array>
 </resources>
