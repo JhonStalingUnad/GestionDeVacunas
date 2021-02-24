@@ -2,7 +2,9 @@ package com.gestion_de_vacunas.Vakunapp.home.recordatorio
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
@@ -49,6 +51,31 @@ class RecordatorioFormActivity : AppCompatActivity() {
         })
 
 
+
+
+        //CARGAR DATOS DE UN SPINNER
+        val miembrosArray = arrayOf("Javier Zapata", "Angelica Valencia", "Jairo Castillo")
+        val spinner: Spinner = findViewById(R.id.spinnerMiembros)
+
+/*
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter.createFromResource(
+                this,
+                miembrosArray,
+                android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
+        val categorias = arrayOf("Maquilero", "Deshebrado")
+*/
+        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, miembrosArray)
+
+
+        //EVENTO CLICK EN BOTON GUARDAR RECORDATORIO
         val btnLogin: Button = findViewById(R.id.buttonGuardarRecordatorio);
         btnLogin.setOnClickListener {
 

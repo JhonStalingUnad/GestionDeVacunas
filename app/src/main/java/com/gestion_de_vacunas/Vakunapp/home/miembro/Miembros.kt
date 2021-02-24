@@ -1,9 +1,8 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
-import org.w3c.dom.DocumentType
-
-
 class Miembros  {
+
+    fun Miembros(){}
 
     // definimos las variables de la Clase, que se van a utilizar para registrar los Miembros
     private var firstName: String? = null

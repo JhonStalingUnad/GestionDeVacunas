@@ -92,5 +92,6 @@
     <string name="database_uri">https://vakunapp-default-rtdb.firebaseio.com/</string>
     <string name="fecha_nacimiento"> Selecciona la Fecha de Nacimiento</string>
     <string name="perfil">Editar Perfil</string>
+    <string name="miembros_registrados">Miembros Registrados</string>
 
 </resources>
