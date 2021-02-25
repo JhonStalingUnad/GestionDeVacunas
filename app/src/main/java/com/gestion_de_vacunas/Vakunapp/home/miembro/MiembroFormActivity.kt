@@ -55,7 +55,7 @@ class MiembroFormActivity : AppCompatActivity() {
                 //Se recorre cada registro, para pintarlo en pantalla en tiempo real
                 children.forEach {
                     if( it.key.toString() == "firstName" ){
-                        tvFirstName.setText(it.value.toString())
+                        rvFirstName.setText(it.value.toString())
                     }
                     /*if( it.key.toString() == "lastName" ){
                         tvLastName.setText(it.value.toString())

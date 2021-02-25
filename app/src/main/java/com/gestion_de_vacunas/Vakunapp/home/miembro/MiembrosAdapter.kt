@@ -14,7 +14,7 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiembrosAdapter.miembrosViewholder {
         val view: View = LayoutInflater.from(parent.context)
                 //.inflate(R.layout.recycler_view_members, parent, false)
-                .inflate(R.layout.recicler_view_miembros, parent, false)
+                .inflate(R.layout.recycler_view_members, parent, false)
         return miembrosViewholder(view)
     }
 
@@ -26,7 +26,7 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
         holder.genderUser.setText(model.getGenderUser())
         holder.documentType.setText(model.getDocumentType())
         holder.relationship.setText(model.getRelationship())
-        holder.documentNumber.setText(model.getDocumentNumber().toString())
+        holder.documentNumber.setText(model.getDocumentNumber())
         holder.bloodType.setText(model.getBloodType())
     }
 
@@ -42,14 +42,14 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
         var bloodType: TextView
 
         init {
-            firstName = itemView.findViewById(R.id.tvFirstName)
-            lastName = itemView.findViewById(R.id.tvLastName)
-            dateOfBirth = itemView.findViewById(R.id.tvDateOfBirth)
-            genderUser = itemView.findViewById(R.id.tvGenderUser)
-            documentType = itemView.findViewById(R.id.tvDocumentType)
-            relationship = itemView.findViewById(R.id.tvRelationship)
-            documentNumber = itemView.findViewById(R.id.tvDocumentNumber)
-            bloodType = itemView.findViewById(R.id.tvBloodType)
+            firstName = itemView.findViewById(R.id.rvFirstName)
+            lastName = itemView.findViewById(R.id.rvLastName)
+            dateOfBirth = itemView.findViewById(R.id.rvDateOfBirth)
+            genderUser = itemView.findViewById(R.id.rvGenderUser)
+            documentType = itemView.findViewById(R.id.rvDocumentType)
+            relationship = itemView.findViewById(R.id.rvRelationship)
+            documentNumber = itemView.findViewById(R.id.rvDocumentNumber)
+            bloodType = itemView.findViewById(R.id.rvBloodType)
         }
     }
 }

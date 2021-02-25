@@ -10,7 +10,7 @@ class Miembros  {
     private var dateOfBirth: String? = null
     private var genderUser: String? = null
     private var documentType: String? = null
-    private var documentNumber: Int? = null
+    private var documentNumber: String? = null
     private var relationship: String? = null
     private var bloodType: String? = null
 
@@ -35,7 +35,7 @@ class Miembros  {
         this.documentType = documentType
     }
 
-    fun setDocumentNumber(documentNumber: Int?) {
+    fun setDocumentNumber(documentNumber: String?) {
         this.documentNumber = documentNumber
     }
 
@@ -67,7 +67,7 @@ class Miembros  {
         return documentType
     }
 
-    fun getDocumentNumber(): Int? {
+    fun getDocumentNumber(): String? {
         return documentNumber
     }
 

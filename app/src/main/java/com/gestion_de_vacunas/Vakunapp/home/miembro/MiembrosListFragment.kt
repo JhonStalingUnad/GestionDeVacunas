@@ -54,7 +54,7 @@ class MiembrosListFragment : Fragment() {
 
     }
 
-    /*override fun onStart() {
+    override fun onStart() {
         super.onStart()
         adapter?.startListening()
     }
@@ -64,6 +64,7 @@ class MiembrosListFragment : Fragment() {
         adapter?.stopListening()
     }
 
+    /*
     private fun deleteMembers(){
         Toast.makeText(activity, "Eliminar Miembros", Toast.LENGTH_SHORT).show()
     }

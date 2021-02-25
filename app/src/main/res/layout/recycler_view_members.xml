@@ -18,7 +18,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvMiembrosRegistrados"
+            android:id="@+id/rvMiembrosRegistrados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/margen_titulo"
@@ -28,7 +28,7 @@
             android:textSize="@dimen/texto_mediano"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFirstName"
+            android:id="@+id/rvFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombres"
@@ -36,7 +36,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvLastName"
+            android:id="@+id/rvLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Apellidos"
@@ -44,7 +44,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDateOfBirth"
+            android:id="@+id/rvDateOfBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fecha de Nacimiento"
@@ -52,7 +52,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvGenderUser"
+            android:id="@+id/rvGenderUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Genero"
@@ -60,7 +60,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDocumentType"
+            android:id="@+id/rvDocumentType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tipo de Documento"
@@ -68,7 +68,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvRelationship"
+            android:id="@+id/rvRelationship"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Parentesco"
@@ -76,7 +76,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDocumentNumber"
+            android:id="@+id/rvDocumentNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Número de documento"
@@ -84,7 +84,7 @@
             android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvBloodType"
+            android:id="@+id/rvBloodType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Grupo Sanguíneo"
