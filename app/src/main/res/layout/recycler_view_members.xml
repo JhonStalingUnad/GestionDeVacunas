@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_members"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -32,24 +31,65 @@
             android:id="@+id/tvFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Nombres"
             android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:text="JHON STALING"/>
+            android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Apellidos"
             android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:text="SEVILLANO ZEMANATE"/>
+            android:paddingBottom="@dimen/margen_minima"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Nacimiento"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGenderUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Genero"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDocumentType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Documento"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvRelationship"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Parentesco"
             android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:text="HIJO"/>
+            android:paddingBottom="@dimen/margen_minima"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDocumentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Número de documento"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBloodType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grupo Sanguíneo"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

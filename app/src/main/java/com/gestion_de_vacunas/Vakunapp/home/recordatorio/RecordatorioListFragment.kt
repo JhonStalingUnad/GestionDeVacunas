@@ -18,7 +18,6 @@ import android.widget.Toast
 
 class RecordatorioListFragment : Fragment() {
 
-
     private var recyclerView: RecyclerView? = null
     var adapter : recordatoriosAdapter? = null
     var query : Query? = null

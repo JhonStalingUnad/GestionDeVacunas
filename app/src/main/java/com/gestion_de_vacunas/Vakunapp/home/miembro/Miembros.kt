@@ -78,5 +78,4 @@ class Miembros  {
     fun getBloodType(): String? {
         return bloodType
     }
-
 }
