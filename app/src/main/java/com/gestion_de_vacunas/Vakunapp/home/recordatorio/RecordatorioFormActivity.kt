@@ -8,7 +8,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_recordatorio.*
+import kotlinx.android.synthetic.main.activity_form_recordatorio.*
 
 class RecordatorioFormActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recordatorio)
+        setContentView(R.layout.activity_form_recordatorio)
 
 
         //BASE DE DATOS

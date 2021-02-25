@@ -10,10 +10,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_registrar_miembros.*
 import kotlinx.android.synthetic.main.recycler_view_members.*
 import java.util.*
-import kotlin.properties.Delegates
 
 class MiembroFormActivity : AppCompatActivity() {
 
@@ -33,7 +31,7 @@ class MiembroFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registrar_miembros)
+        setContentView(R.layout.activity_form_registrar_miembros)
 
         //Se instancia la base de datos, pasando la referencia con el que se definió en Firebase.
         database= FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
@@ -74,7 +72,7 @@ class MiembroFormActivity : AppCompatActivity() {
             databaseReference = database.reference.child("Members")
 
             //Guardamos un elemento con el Id del Miembro Quemado para pruebas
-            val currentMembersDb = databaseReference.child("6")
+            val currentMembersDb = databaseReference.child("7")
 
             // CAPTURO LOS DATOS DEL FORMULARIO DE REGISTRO
             /*firstName = tiNombresUsuario.text.toString()
@@ -95,14 +93,14 @@ class MiembroFormActivity : AppCompatActivity() {
             currentMembersDb.child("relationship").setValue(relationship)
             currentMembersDb.child("bloodType").setValue(bloodType)*/
 
-            currentMembersDb.child("firstName").setValue("Fanny Lucia")
-            currentMembersDb.child("lastName").setValue("Zemanate Hirtado")
-            currentMembersDb.child("dateOfBirth").setValue("06/05/1968")
-            currentMembersDb.child("genderUser").setValue("Femenino")
-            currentMembersDb.child("documentType").setValue("Cédula de ciudadanía")
-            currentMembersDb.child("documentNumber").setValue("25315879")
-            currentMembersDb.child("relationship").setValue("Madre")
-            currentMembersDb.child("bloodType").setValue("0+")
+            currentMembersDb.child("firstName").setValue("Josué Martín")
+            currentMembersDb.child("lastName").setValue("Sevillano Gómez")
+            currentMembersDb.child("dateOfBirth").setValue("27/09/2017")
+            currentMembersDb.child("genderUser").setValue("Masculino")
+            currentMembersDb.child("documentType").setValue("Registro Civíl")
+            currentMembersDb.child("documentNumber").setValue("5210236923")
+            currentMembersDb.child("relationship").setValue("Hijo")
+            currentMembersDb.child("bloodType").setValue("B+")
 
             //val miembroSelected: String = spinnerMiembros.getSelectedItem().toString()
             //Log.i("miembroSelected", miembroSelected);

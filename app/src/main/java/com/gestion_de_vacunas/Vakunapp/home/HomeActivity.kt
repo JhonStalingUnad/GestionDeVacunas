@@ -32,7 +32,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_form_home)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         if (toolbar != null) setSupportActionBar(toolbar)
