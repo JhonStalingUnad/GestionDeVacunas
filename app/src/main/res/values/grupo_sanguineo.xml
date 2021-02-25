@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="grupo_sanguineo">
+        <item>Seleccione el Grupo Sanguíneo</item>
         <item>A+</item>
         <item>A-</item>
         <item>B+</item>

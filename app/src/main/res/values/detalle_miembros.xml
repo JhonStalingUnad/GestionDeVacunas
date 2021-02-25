@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="detalle_miembros">
-        ​<item name="recordatorio"><b>Fullname:</b>\nJosué Martin Sevillano Gómez\n<b>Parentesco:</b>\nHijo\n<b>Edad:</b>\n3 años</item>
-         <item name="recordatorio"><b>Fullname:</b>\nJesus David Sevillano Zemanate\n<b>Parentesco:</b>\nHermano\n<b>Edad:</b>\n24 años</item>
-        <item name="recordatorio"><b>Fullname:</b>\nJulio Stalin Sevillano González\n<b>Parentesco:</b>\nPadre\n<b>Edad:</b>\n58 años</item>
-         <item name="recordatorio"><b>Fullname:</b>\nFanny Lucia Zemanate Hurtado\n<b>Parentesco:</b>\nMadre\n<b>Edad:</b>\n55 años</item>
-        ​</string-array>
-</resources>

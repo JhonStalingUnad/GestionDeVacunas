@@ -14,4 +14,6 @@
     <dimen name="tamano_spinner">10dp</dimen>
     <dimen name="margen_titulo">8dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="altura_spinners">50dp</dimen>
+    <dimen name="altura_campos">52dp</dimen>
 </resources>

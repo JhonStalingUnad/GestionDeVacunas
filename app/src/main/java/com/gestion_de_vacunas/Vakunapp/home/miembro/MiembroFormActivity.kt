@@ -72,7 +72,7 @@ class MiembroFormActivity : AppCompatActivity() {
             databaseReference = database.reference.child("Members")
 
             //Guardamos un elemento con el Id del Miembro Quemado para pruebas
-            val currentMembersDb = databaseReference.child("7")
+            val currentMembersDb = databaseReference.child("8")
 
             // CAPTURO LOS DATOS DEL FORMULARIO DE REGISTRO
             /*firstName = tiNombresUsuario.text.toString()
@@ -98,7 +98,7 @@ class MiembroFormActivity : AppCompatActivity() {
             currentMembersDb.child("dateOfBirth").setValue("27/09/2017")
             currentMembersDb.child("genderUser").setValue("Masculino")
             currentMembersDb.child("documentType").setValue("Registro Civíl")
-            currentMembersDb.child("documentNumber").setValue("5210236923")
+            currentMembersDb.child("documentNumber").setValue("5210236985")
             currentMembersDb.child("relationship").setValue("Hijo")
             currentMembersDb.child("bloodType").setValue("B+")
 
