@@ -19,6 +19,16 @@ class RecordatorioFormActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_recordatorio)
 
+        //CAPTURAR LOS PARAMETROS QUE SE LE PASAN AL INTENT
+        val intentExtras = intent.extras
+
+        //INICIALIZAR LA VARIABLE Y PASARLE LOS DATOS A LAS VARIABLES SI SI VIENEN EN EL INTENT
+        var id = ""
+        if (intentExtras != null) {
+            id = intentExtras.getString("id")
+        }
+        Log.i("id value -->", id.toString())
+
 
         //BASE DE DATOS
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
@@ -42,8 +52,8 @@ class RecordatorioFormActivity : AppCompatActivity() {
                     //it.key.toString() --> KEY DEL REGISTRO
                     //it.value.toString() --> VALOR DEL REGISTRO
 
-                    if( it.key.toString() == "firstName" ){
-                        testField.setText( it.value.toString() )
+                    if (it.key.toString() == "firstName") {
+                        testField.setText(it.value.toString())
                     }
 
                 }
