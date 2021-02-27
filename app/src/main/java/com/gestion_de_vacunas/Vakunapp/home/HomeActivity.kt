@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -48,6 +50,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val menuItem = navigationView.menu.getItem(0)
         onNavigationItemSelected(menuItem)
         menuItem.isChecked = true
+
+
+        val headerView: View = navigationView.getHeaderView(0)
+        val accountName = headerView.findViewById<TextView>(R.id.accountName)
+        accountName.text = AppPreferences.username.toString()
 
         drawer.addDrawerListener(this)
 
