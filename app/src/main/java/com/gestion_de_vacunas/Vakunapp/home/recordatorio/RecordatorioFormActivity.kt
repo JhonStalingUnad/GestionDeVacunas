@@ -8,7 +8,7 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_recordatorio.*
+import kotlinx.android.synthetic.main.activity_form_recordatorio.*
 
 class RecordatorioFormActivity : AppCompatActivity() {
 
@@ -17,7 +17,17 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_recordatorio)
+        setContentView(R.layout.activity_form_recordatorio)
+
+        //CAPTURAR LOS PARAMETROS QUE SE LE PASAN AL INTENT
+        val intentExtras = intent.extras
+
+        //INICIALIZAR LA VARIABLE Y PASARLE LOS DATOS A LAS VARIABLES SI SI VIENEN EN EL INTENT
+        var id = ""
+        if (intentExtras != null) {
+            id = intentExtras.getString("id")
+        }
+        Log.i("id value -->", id.toString())
 
 
         //BASE DE DATOS
@@ -42,8 +52,8 @@ class RecordatorioFormActivity : AppCompatActivity() {
                     //it.key.toString() --> KEY DEL REGISTRO
                     //it.value.toString() --> VALOR DEL REGISTRO
 
-                    if( it.key.toString() == "firstName" ){
-                        testField.setText( it.value.toString() )
+                    if (it.key.toString() == "firstName") {
+                        testField.setText(it.value.toString())
                     }
 
                 }
@@ -56,22 +66,6 @@ class RecordatorioFormActivity : AppCompatActivity() {
         //CARGAR DATOS DE UN SPINNER
         val miembrosArray = arrayOf("Javier Zapata", "Angelica Valencia", "Jairo Castillo")
         val spinner: Spinner = findViewById(R.id.spinnerMiembros)
-
-/*
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter.createFromResource(
-                this,
-                miembrosArray,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
-
-        val categorias = arrayOf("Maquilero", "Deshebrado")
-*/
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, miembrosArray)
 
 

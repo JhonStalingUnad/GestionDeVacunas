@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -53,6 +54,34 @@ class MiembrosListFragment : Fragment() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        adapter?.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter?.stopListening()
+    }
+
+    /*
+    private fun deleteMembers(){
+        Toast.makeText(activity, "Eliminar Miembros", Toast.LENGTH_SHORT).show()
+    }
+
+
+    private fun editMembers(){
+        Toast.makeText(activity, "Editar Miembros", Toast.LENGTH_SHORT).show()
+    }
+
+    /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
+    fun delete(view: View) {
+        deleteMembers()
+    }
+
+    fun edit(view: View) {
+        editMembers()
+    }
 
     fun newInstance(someInt: Int): Fragment? {
         val myFragment = Fragment()
@@ -60,5 +89,6 @@ class MiembrosListFragment : Fragment() {
         args.putInt("someInt", someInt)
         myFragment.setArguments(args)
         return myFragment
-    }
+    }*/
+
 }

@@ -13,6 +13,7 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiembrosAdapter.miembrosViewholder {
         val view: View = LayoutInflater.from(parent.context)
+                //.inflate(R.layout.recycler_view_members, parent, false)
                 .inflate(R.layout.recycler_view_members, parent, false)
         return miembrosViewholder(view)
     }
@@ -21,29 +22,34 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
 
         holder.firstName.setText(model.getFirstname())
         holder.lastName.setText(model.getLastname())
-        //holder.dateOfBirth.setText(model.getDateOfBirth())
-        //holder.genderUser.setText(model.getGenderUser())
-        //holder.documentType.setText(model.getDocumentType())
-        //holder.documentNumber.setText(model.getDocumentNumber().toString())
+        holder.dateOfBirth.setText(model.getDateOfBirth())
+        holder.genderUser.setText(model.getGenderUser())
+        holder.documentType.setText(model.getDocumentType())
         holder.relationship.setText(model.getRelationship())
-        //holder.bloodType.setText(model.getBloodType())
+        holder.documentNumber.setText(model.getDocumentNumber())
+        holder.bloodType.setText(model.getBloodType())
     }
 
     inner class miembrosViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        lateinit var firstName: TextView
-        lateinit var lastName: TextView
-        //lateinit var dateOfBirth: TextView
-        //lateinit var genderUser: TextView
-        //lateinit var documentType: TextView
-        //lateinit var documentNumber: TextView
-        lateinit var relationship: TextView
-        //lateinit var bloodType: TextView
+        var firstName: TextView
+        var lastName: TextView
+        var dateOfBirth: TextView
+        var genderUser: TextView
+        var documentType: TextView
+        var relationship: TextView
+        var documentNumber: TextView
+        var bloodType: TextView
 
         init {
-            firstName = itemView.findViewById(R.id.tvFirstName)
-            lastName = itemView.findViewById(R.id.tvLastName)
-            relationship = itemView.findViewById(R.id.tvRelationship)
+            firstName = itemView.findViewById(R.id.rvFirstName)
+            lastName = itemView.findViewById(R.id.rvLastName)
+            dateOfBirth = itemView.findViewById(R.id.rvDateOfBirth)
+            genderUser = itemView.findViewById(R.id.rvGenderUser)
+            documentType = itemView.findViewById(R.id.rvDocumentType)
+            relationship = itemView.findViewById(R.id.rvRelationship)
+            documentNumber = itemView.findViewById(R.id.rvDocumentNumber)
+            bloodType = itemView.findViewById(R.id.rvBloodType)
         }
     }
 }

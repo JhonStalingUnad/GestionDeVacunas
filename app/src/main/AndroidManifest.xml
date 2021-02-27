@@ -46,15 +46,16 @@
         </activity>
 
         <!-- MODULOS -->
-        <activity
+        <!--<activity
             android:name=".home.miembro.Miembros"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /> -->
         <activity
             android:name=".home.miembro.MiembroFormActivity"
+            android:label="@string/registro_de_miembros"
             android:screenOrientation="portrait" />
-        <activity
+        <!-- <activity
             android:name=".home.recordatorio.RecordatorioListFragment"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" /> -->
         <activity
             android:name=".home.recordatorio.RecordatorioFormActivity"
             android:screenOrientation="portrait" />

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="counter_max_name">25</integer>
+    <integer name="counter_max_lastname">25</integer>
+    <integer name="counter_max_documentnumber">20</integer>
+</resources>
