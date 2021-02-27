@@ -9,7 +9,7 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".Informacion"
+    tools:context=".home.Informacion.Informacion"
     tools:listitem="@layout/fragment_informacion" >
 
     <Spinner

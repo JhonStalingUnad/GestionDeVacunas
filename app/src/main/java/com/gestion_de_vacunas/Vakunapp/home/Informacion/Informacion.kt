@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp
+package com.gestion_de_vacunas.Vakunapp.home.Informacion
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.gestion_de_vacunas.Vakunapp.MyItemRecyclerViewAdapter
+import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.dummy.DummyContent
 
 /**
@@ -27,7 +29,7 @@ class Informacion : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_informacion_list, container, false)
+        val view = inflater.inflate(R.layout.activity_maps, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
