@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="vacunas">
+        <item>FIEBRE AMARILLA</item>
         <item>NEUMOCOCO</item>
         <item>INFLUENZA</item>
         <item>SARS-2</item>

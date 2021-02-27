@@ -27,33 +27,49 @@ class recordatoriosAdapter(options: FirebaseRecyclerOptions<Recordatorios?>) : F
 
         val context = holder.btnEdit.context
 
-        holder.firstname.setText(model.getFirstname())
-        holder.lastname.setText(model.getLastname())
+        holder.fullname.setText(model.getFullname())
+        holder.vacunaname.setText(model.getVacunaname())
+        holder.aplicationdate.setText(model.getAplicationdate())
 
         holder.btnEdit.setOnClickListener {
             v: View -> Unit
-            Log.i("onItemClick", "onItemClick for ID: " + holder.firstname.text)
 
             val intent = Intent(context, RecordatorioFormActivity::class.java)
-            intent.putExtra("id", holder.firstname.text)
+            intent.putExtra("id",  model.getId().toString())
+            intent.putExtra("fullname",  model.getFullname().toString())
+            intent.putExtra("vacunaname",  model.getVacunaname().toString())
+            intent.putExtra("aplicationdate",  model.getAplicationdate().toString())
             context.startActivity(intent)
+
         }
 
+
+        holder.btnDelete.setOnClickListener {
+            v: View -> Unit
+            Log.i("onItemClick", "onItemClick for ID: " + model.getId().toString())
+
+            val recordatorioActivity = RecordatorioFormActivity()
+            recordatorioActivity.deleteRemember( model.getId().toString() )
+
+        }
 
     }
 
     inner class recordatoriosViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var firstname: TextView
-        var lastname: TextView
+
+        var fullname: TextView
+        var vacunaname: TextView
+        var aplicationdate: TextView
         var btnEdit: TextView
+        var btnDelete: TextView
 
         init {
-            firstname = itemView.findViewById(R.id.firstname)
-            lastname = itemView.findViewById(R.id.lastname)
+            fullname = itemView.findViewById(R.id.fullname)
+            vacunaname = itemView.findViewById(R.id.vacunaname)
+            aplicationdate = itemView.findViewById(R.id.aplicationdate)
             btnEdit = itemView.findViewById(R.id.btnEdit)
+            btnDelete = itemView.findViewById(R.id.btnDelete)
         }
-
-
 
     }
 

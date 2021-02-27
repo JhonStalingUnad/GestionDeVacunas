@@ -82,8 +82,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_logout -> {
                 title = R.string.Logout;
                 AppPreferences.isLogin = false
+                AppPreferences.uid = ""
                 AppPreferences.username = ""
-                AppPreferences.password = ""
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent);

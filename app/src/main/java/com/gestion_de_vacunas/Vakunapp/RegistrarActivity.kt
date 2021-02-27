@@ -100,8 +100,8 @@ class RegistrarActivity : AppCompatActivity() {
 
                         //NOS REDIRIGIMOS AL HOMEACTIVITY
                         AppPreferences.isLogin = true
+                        AppPreferences.uid = user.uid
                         AppPreferences.username = email
-                        AppPreferences.password = password
 
                         //OCULTAMOS EL LOADING
                         progressBar.hide()

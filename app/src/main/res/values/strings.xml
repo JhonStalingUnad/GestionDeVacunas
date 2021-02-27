@@ -102,5 +102,10 @@
     <string name="numero_de_documento">Número de Documento :</string>
     <string name="grupo_sanguineo">Grupo Sanguíneo :</string>
     <string name="registro_de_miembros">Registro de Miembros</string>
+    <string name="registrar_recordatorio">Registrar Recordatorio</string>
+    <string name="fecha_vacuna">Fecha Aplicación Vacuna</string>
+    <string name="vacuna">Vacuna</string>
+    <string name="fecha_aplicacion">Fecha Aplicación</string>
+    <string name="fullName">Nombre Completo</string>
 
 </resources>

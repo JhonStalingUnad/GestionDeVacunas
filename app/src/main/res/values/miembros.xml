@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="miembros">
+        <item>Seleccione un miembro</item>
         <item>Javier Zapata</item>
         <item>Angelica Valencia</item>
         <item>David Suarez</item>
