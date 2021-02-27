@@ -3,9 +3,11 @@ package com.gestion_de_vacunas.Vakunapp.home
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -21,6 +23,7 @@ import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
+import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
 
@@ -55,6 +58,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val headerView: View = navigationView.getHeaderView(0)
         val accountName = headerView.findViewById<TextView>(R.id.accountName)
         accountName.text = AppPreferences.username.toString()
+
+        accountName.setOnClickListener {
+            Log.d("CLICK MENU", "CLICK MENU")
+            val intent = Intent(this, RecordatorioFormActivity::class.java)
+            startActivity(intent)
+        }
+
 
         drawer.addDrawerListener(this)
 
