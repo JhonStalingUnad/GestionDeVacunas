@@ -14,8 +14,6 @@ import com.gestion_de_vacunas.Vakunapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import com.gestion_de_vacunas.Vakunapp.home.recordatorio.Recordatorios
-import com.gestion_de_vacunas.Vakunapp.home.recordatorio.recordatoriosAdapter
 
 class MiembrosListFragment : Fragment() {
 
@@ -64,21 +62,25 @@ class MiembrosListFragment : Fragment() {
         adapter?.stopListening()
     }
 
-    /*
+
     private fun deleteMembers(){
-        Toast.makeText(activity, "Eliminar Miembros", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Miembro Eliminado Satisfactoriamente", Toast.LENGTH_SHORT).show()
     }
 
 
+    /*
     private fun editMembers(){
         Toast.makeText(activity, "Editar Miembros", Toast.LENGTH_SHORT).show()
     }
 
-    /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
-    fun delete(view: View) {
-        deleteMembers()
-    }
+    */
 
+    /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
+    /*fun delete(view: View) {
+        deleteMembers()
+    }*/
+
+    /*
     fun edit(view: View) {
         editMembers()
     }

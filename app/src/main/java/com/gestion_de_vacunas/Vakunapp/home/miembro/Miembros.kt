@@ -1,10 +1,9 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
-class Miembros  {
-
-    fun Miembros(){}
+class Miembros() {
 
     // definimos las variables de la Clase, que se van a utilizar para registrar los Miembros
+    private var id: String? = null
     private var firstName: String? = null
     private var lastName: String? = null
     private var dateOfBirth: String? = null
@@ -15,6 +14,11 @@ class Miembros  {
     private var bloodType: String? = null
 
     // Defino los métodos Get y Set para cada una de las variables de la clase
+
+    fun setId(id: String?) {
+        this.id = id
+    }
+
     fun setFirstname(firstName: String?) {
         this.firstName = firstName
     }
@@ -45,6 +49,10 @@ class Miembros  {
 
     fun setBloodType(bloodType: String?) {
         this.bloodType = bloodType
+    }
+
+    fun getId(): String? {
+        return id
     }
 
     fun getFirstname(): String? {

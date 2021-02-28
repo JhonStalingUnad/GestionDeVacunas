@@ -107,5 +107,11 @@
     <string name="vacuna">Vacuna</string>
     <string name="fecha_aplicacion">Fecha Aplicación</string>
     <string name="fullName">Nombre Completo</string>
+    <string name="register_suscesfull">Miembro Registrado Satisfactoriamente</string>
+    <string name="edit_register_members">Editar</string>
+    <string name="delete_register_members">Eliminar</string>
+    <string name="tittleDialogDelete">Eliminar Miembros</string>
+    <string name="messageDialogDelete">¿Está seguro que desea eliminar el registro del miembro registrado?</string>
+    <string name="negativeButton">NO</string>
 
 </resources>
