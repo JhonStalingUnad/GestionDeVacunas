@@ -3,6 +3,7 @@ package com.gestion_de_vacunas.Vakunapp.home.miembro
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.InputType
+import android.text.TextUtils
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -94,7 +95,7 @@ class MiembroFormActivity : AppCompatActivity() {
         databaseReference = database.reference.child("/Members").child(AppPreferences.uid.toString())
 
         //Traemos los datos de los miembros
-        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+        /*databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onCancelled(error: DatabaseError) {
                 Log.e("Error trayendo datos de los miembros", "Error trayendo datos de los miembros")
@@ -116,14 +117,13 @@ class MiembroFormActivity : AppCompatActivity() {
                     }*/
                 }
             }
-        })
+        })*/
 
         val btnRegistro: Button = findViewById(R.id.btnRegistrar);
         btnRegistro.setOnClickListener {
 
             if(accion == "Create"){
                 createMembers()
-                Toast.makeText(this, "Miembro creado con éxito en la aplicación.", Toast.LENGTH_SHORT).show()
             }else{
                 //updateMembers()
             }
@@ -149,51 +149,63 @@ class MiembroFormActivity : AppCompatActivity() {
             val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener
             { view, mYear, mMonth, mdayOfMonth -> fechaNacimiento.setText("" + mdayOfMonth + "/" + (mMonth+1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
+
+            fechaNacimiento.setInputType(InputType.TYPE_NULL)
         }
     }
 
     //Método para Registrar los Miembros en la base de datos de Firebase
     private fun createMembers() {
 
-        /* Capturo los datos del formulario de Agregar Miembros donde primero capturo la
-            posición de los Spinners */
 
-        val positionGender = spGenero.selectedItemPosition
-        val positionDocumentType = spTipoDocumento.selectedItemPosition
-        val positionRelationship = spParentesco.selectedItemPosition
-        val positionBloodType = spGrupoSanguineo.selectedItemPosition
 
-        firstName = tiNombresUsuario.text.toString()
-        lastName = tiApellidosUsuario.text.toString()
-        dateOfBirth = tiFechaNacimiento.text.toString()
-        genderUser = spGenero.getItemAtPosition(positionGender).toString()
-        documentType = spTipoDocumento.getItemAtPosition(positionDocumentType).toString()
-        documentNumber = tiNumeroIdentificacion.text.toString()
-        relationship = spParentesco.getItemAtPosition(positionRelationship).toString()
-        bloodType = spGrupoSanguineo.getItemAtPosition(positionBloodType).toString()
+            /* Capturo los datos del formulario de Agregar Miembros donde primero capturo la
+                posición de los Spinners */
 
-        //Muestro un dialogo de Progreso
-        /*progressBar.setMessage("Registrando miembro ...")
-        progressBar.show()*/
+            val positionGender = spGenero.selectedItemPosition
+            val positionDocumentType = spTipoDocumento.selectedItemPosition
+            val positionRelationship = spParentesco.selectedItemPosition
+            val positionBloodType = spGrupoSanguineo.selectedItemPosition
 
-        //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-        val currentMembersDb = databaseReference.push()
-        currentMembersDb.child("id").setValue(currentMembersDb.getKey())
+            firstName = tiNombresUsuario.text.toString()
+            lastName = tiApellidosUsuario.text.toString()
+            dateOfBirth = tiFechaNacimiento.text.toString()
+            genderUser = spGenero.getItemAtPosition(positionGender).toString()
+            documentType = spTipoDocumento.getItemAtPosition(positionDocumentType).toString()
+            documentNumber = tiNumeroIdentificacion.text.toString()
+            relationship = spParentesco.getItemAtPosition(positionRelationship).toString()
+            bloodType = spGrupoSanguineo.getItemAtPosition(positionBloodType).toString()
 
-        currentMembersDb.child("firstName").setValue(firstName)
-        currentMembersDb.child("lastName").setValue(lastName)
-        currentMembersDb.child("dateOfBirth").setValue(dateOfBirth)
-        currentMembersDb.child("genderUser").setValue(genderUser)
-        currentMembersDb.child("documentType").setValue(documentType)
-        currentMembersDb.child("documentNumber").setValue(documentNumber)
-        currentMembersDb.child("relationship").setValue(relationship)
-        currentMembersDb.child("bloodType").setValue(bloodType)
+        if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName)
+                && !TextUtils.isEmpty(dateOfBirth) && !TextUtils.isEmpty(genderUser)
+                && !TextUtils.isEmpty(documentType) && !TextUtils.isEmpty(documentNumber)
+                && !TextUtils.isEmpty(relationship) && !TextUtils.isEmpty(bloodType)) {
 
-        //OCULTAMOS EL LOADING
-        //progressDialog.hide()
-        //progressBar.hide()
+            //Muestro un dialogo de Progreso
+            /*progressBar.setMessage("Registrando miembro ...")
+            progressBar.show()*/
 
-        super.onBackPressed();
+            //Guardo el elemento con el id publico del usuario
+            val currentMembersDb = databaseReference.push()
+            currentMembersDb.child("id").setValue(currentMembersDb.getKey())
+
+            currentMembersDb.child("firstName").setValue(firstName)
+            currentMembersDb.child("lastName").setValue(lastName)
+            currentMembersDb.child("dateOfBirth").setValue(dateOfBirth)
+            currentMembersDb.child("genderUser").setValue(genderUser)
+            currentMembersDb.child("documentType").setValue(documentType)
+            currentMembersDb.child("documentNumber").setValue(documentNumber)
+            currentMembersDb.child("relationship").setValue(relationship)
+            currentMembersDb.child("bloodType").setValue(bloodType)
+
+            //OCULTAMOS EL LOADING
+            //progressDialog.hide()
+            //progressBar.hide()
+            Toast.makeText(this, "Miembro creado con éxito en la aplicación.", Toast.LENGTH_SHORT).show()
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, "Por favor registra todos los campos", Toast.LENGTH_SHORT).show()
+        }
     }
 
     //Método para Eliminar los usuarios de la base de datos de Firebase
@@ -205,7 +217,7 @@ class MiembroFormActivity : AppCompatActivity() {
         //Se manda a Eliminar el registro del usuario
         databaseReference.child(idMember).removeValue()
 
-        //Toast.makeText(this, "Usuario Eliminado con Éxito de la aplicación.", Toast.LENGTH_SHORT).show() */
+        //Toast.makeText(this, "Usuario Eliminado con Éxito de la aplicación.", Toast.LENGTH_SHORT).show()
 
     }
 

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
@@ -37,7 +38,7 @@ class MiembrosListFragment : Fragment() {
 
         //Consulto a la base de datos, en la Tabla donde se registraron los miembros
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-                .getReference("/Members")
+                .getReference("/Members").child("/" + AppPreferences.uid.toString())
 
         //Busco el RecyclerView, y se asigna el LinearLayout
         recyclerView = itemView.findViewById(R.id.rv_item_list_members)

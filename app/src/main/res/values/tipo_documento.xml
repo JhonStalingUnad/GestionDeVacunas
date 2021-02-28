@@ -2,8 +2,9 @@
 <resources>
     <string-array name="tipo_documento">
         <item>Seleccione el Tipo de Documento</item>
-        <item>Cédula de ciudadanía</item>
-        <item>Tarjeta de identidad</item>
-        <item>Tarjeta de extranjería</item>
+        <item>Cédula de Ciudadanía</item>
+        <item>Registro Civil</item>
+        <item>Tarjeta de Extranjería</item>
+        <item>Tarjeta de Identidad</item>
     </string-array>
 </resources>

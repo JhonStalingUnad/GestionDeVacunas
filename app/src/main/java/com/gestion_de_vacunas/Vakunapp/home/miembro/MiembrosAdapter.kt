@@ -18,13 +18,9 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiembrosAdapter.miembrosViewholder {
 
-
         val view: View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.recycler_view_members, parent, false)
         return miembrosViewholder(view)
-
-
-
     }
 
     override fun onBindViewHolder(holder: MiembrosAdapter.miembrosViewholder, position: Int, model: Miembros) {
