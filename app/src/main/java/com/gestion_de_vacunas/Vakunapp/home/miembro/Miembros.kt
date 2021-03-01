@@ -13,8 +13,11 @@ class Miembros() {
     private var relationship: String? = null
     private var bloodType: String? = null
 
-    // Defino los métodos Get y Set para cada una de las variables de la clase
+    fun Miembros(){
 
+    }
+
+    // Defino los métodos Get y Set para cada una de las variables de la clase
     fun setId(id: String?) {
         this.id = id
     }

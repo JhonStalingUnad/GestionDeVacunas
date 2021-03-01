@@ -2,6 +2,7 @@ package com.gestion_de_vacunas.Vakunapp.home.miembro
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.R
+import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRecyclerAdapter<Miembros?, MiembrosAdapter.miembrosViewholder?>(options) {
@@ -52,9 +54,36 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
             membersActivity.deleteMembers(model.getId().toString())
 
         }
+
+        val contexto = holder.btnUpdateMembers.context
+
+        holder.firstName.setText(model.getFirstname())
+        holder.lastName.setText(model.getLastname())
+        holder.dateOfBirth.setText(model.getDateOfBirth())
+        holder.genderUser.setText(model.getGenderUser())
+        holder.documentType.setText(model.getDocumentType())
+        holder.relationship.setText(model.getRelationship())
+        holder.documentNumber.setText(model.getDocumentNumber())
+        holder.bloodType.setText(model.getBloodType())
+
+        holder.btnUpdateMembers.setOnClickListener {
+            v: View -> Unit
+
+            val intent = Intent(contexto, MiembroFormActivity::class.java)
+            intent.putExtra("id", model.getId().toString())
+            intent.putExtra("firstName", model.getFirstname().toString())
+            intent.putExtra("lastName", model.getLastname().toString())
+            intent.putExtra("dateOfBirth", model.getDateOfBirth().toString())
+            intent.putExtra("genderUser", model.getGenderUser().toString())
+            intent.putExtra("documentType", model.getDocumentType().toString())
+            intent.putExtra("documentNumber", model.getDocumentNumber().toString())
+            intent.putExtra("relationship", model.getRelationship().toString())
+            intent.putExtra("bloodType", model.getBloodType().toString())
+            contexto.startActivity(intent)
+
+        }
+
     }
-
-
 
 inner class miembrosViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -68,6 +97,7 @@ inner class miembrosViewholder(itemView: View) : RecyclerView.ViewHolder(itemVie
         var bloodType: TextView
 
         var btnDeleteMembers: Button
+        var btnUpdateMembers: Button
 
         init {
             firstName = itemView.findViewById(R.id.rvFirstName)
@@ -80,6 +110,7 @@ inner class miembrosViewholder(itemView: View) : RecyclerView.ViewHolder(itemVie
             bloodType = itemView.findViewById(R.id.rvBloodType)
 
             btnDeleteMembers = itemView.findViewById(R.id.rvBtnDeleteMembers)
+            btnUpdateMembers = itemView.findViewById(R.id.rvBtnEditMembers)
         }
     }
 }

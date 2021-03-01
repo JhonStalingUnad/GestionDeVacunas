@@ -53,7 +53,7 @@
             android:screenOrientation="portrait" /> -->
         <activity
             android:name=".home.miembro.MiembroFormActivity"
-            android:label="@string/registro_de_miembros"
+            android:label="@string/nucleo_familiar"
             android:screenOrientation="portrait" />
         <!-- <activity
             android:name=".home.recordatorio.RecordatorioListFragment"
