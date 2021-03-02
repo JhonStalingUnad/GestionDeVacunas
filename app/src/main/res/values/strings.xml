@@ -68,9 +68,8 @@
     <string name="cancelar">Cancelar</string>
     <string name="modificar">Modificar</string>
 
-    <string name="members_sucesfull">""Miembro creado con éxito en la aplicación."</string>
-    <string name="members_update_sucesfull">""Miembro modificado con éxito en la aplicación."</string>
-
+    <string name="members_sucesfull">"Miembro creado con éxito en la aplicación."</string>
+    <string name="members_update_sucesfull">"Miembro modificado con éxito en la aplicación."</string>
 
     <string name="register_selection">"Por favor registra los campos de selección."</string>
     <string name="register_all_fields">"Por favor registra todos los campos."</string>

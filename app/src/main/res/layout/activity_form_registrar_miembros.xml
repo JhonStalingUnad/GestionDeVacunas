@@ -88,7 +88,9 @@
                         android:id="@+id/tiFechaNacimiento"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/altura_campos"
-                        android:inputType="text"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:clickable="true"
                         android:drawableLeft="@drawable/ic_calendar" />
                 </com.google.android.material.textfield.TextInputLayout>
 

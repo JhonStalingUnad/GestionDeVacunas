@@ -1,19 +1,20 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
 import android.app.DatePickerDialog
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
-import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_form_registrar_miembros.*
-import kotlinx.android.synthetic.main.recycler_view_members.*
 import java.util.*
 import kotlin.properties.Delegates
+
 
 class MiembroFormActivity : AppCompatActivity() {
 
@@ -32,6 +33,8 @@ class MiembroFormActivity : AppCompatActivity() {
     private lateinit var txtDocumentNumber: EditText
     private lateinit var txtRelationship: Spinner
     private lateinit var txtBloodType: Spinner
+
+    private lateinit var  progressBar: ProgressDialog
 
     private lateinit var txtTittleForm: TextView
     private lateinit var txtTittleButton: Button
@@ -60,6 +63,10 @@ class MiembroFormActivity : AppCompatActivity() {
 
         txtTittleForm = findViewById(R.id.tvRegistroMiembros)
         txtTittleButton = findViewById(R.id.btnRegistrar)
+
+        progressBar = ProgressDialog(this)
+
+
 
         selectedDate()
 
@@ -165,9 +172,9 @@ class MiembroFormActivity : AppCompatActivity() {
             if (genderUser != "Seleccione el Género" && documentType != "Seleccione el Tipo de Documento"
                     && relationship != "Seleccione el Parentesco" && bloodType != "Seleccione el Grupo Sanguíneo") {
 
-                //Muestro un dialogo de Progreso
-                /*progressBar.setMessage("Registrando miembro ...")
-                        progressBar.show()*/
+                //Muestro un dialogo de Progreso, mientras se registran los miembros en la base de datos de Firebase
+                //progressBar.setMessage("Registrando Miembro, Espere por favor ...")
+                //progressBar.show()
 
                 //Guardo el elemento con el id publico del usuario
                 val currentMembersDb = databaseReference.push()
@@ -181,11 +188,9 @@ class MiembroFormActivity : AppCompatActivity() {
                 currentMembersDb.child("relationship").setValue(relationship)
                 currentMembersDb.child("bloodType").setValue(bloodType)
 
-                //OCULTAMOS EL LOADING
-                //progressDialog.hide()
-                //progressBar.hide()
                 Toast.makeText(this, R.string.members_sucesfull, Toast.LENGTH_SHORT).show()
                 super.onBackPressed()
+
             } else {
                 Toast.makeText(this, R.string.register_selection, Toast.LENGTH_SHORT).show()
             }
@@ -195,7 +200,8 @@ class MiembroFormActivity : AppCompatActivity() {
     }
 
     //Método para Eliminar los usuarios de la base de datos de Firebase
-    fun deleteMembers(idMember : String ) {
+    fun deleteMembers(idMember: String) {
+
         //Instanciamos la base de datos
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
         databaseReference = database.reference.child("/Members").child(AppPreferences.uid.toString())
@@ -203,7 +209,6 @@ class MiembroFormActivity : AppCompatActivity() {
         //Se manda a Eliminar el registro del usuario
         databaseReference.child(idMember).removeValue()
 
-        //Toast.makeText(this, "Usuario Eliminado con Éxito de la aplicación.", Toast.LENGTH_SHORT).show()
     }
 
     //Método para Modificar los datos de los miembros registrados
@@ -227,9 +232,10 @@ class MiembroFormActivity : AppCompatActivity() {
             if (genderUser != "Seleccione el Género" && documentType != "Seleccione el Tipo de Documento"
                     && relationship != "Seleccione el Parentesco" && bloodType != "Seleccione el Grupo Sanguíneo") {
 
-                /*
-                progressBar.setMessage("Registrando usuario ...")
-                progressBar.show()*/
+                //Muestro un dialogo de Progreso, mientras se modifican los datos de un miembros en la base de datos de Firebase
+
+                /*progressBar.setMessage("Modificando Miembro, Espere por favor ...")
+                progressBar.onStart()*/
 
                 /*Obtenemos la referencia d ela base de datos, y enviamos a actualizar el registro con el id
                 del miembro a modificar */
@@ -244,7 +250,7 @@ class MiembroFormActivity : AppCompatActivity() {
                 currentMembersDb.child("bloodType").setValue(bloodType)
 
                 //OCULTAMOS EL LOADING
-                //progressBar.hide()
+                //progressBar.dismiss()
                 Toast.makeText(this, R.string.members_update_sucesfull, Toast.LENGTH_SHORT).show()
                 super.onBackPressed();
             }else{
@@ -265,16 +271,20 @@ class MiembroFormActivity : AppCompatActivity() {
 
         val fechaNacimiento: EditText = findViewById(R.id.tiFechaNacimiento)
 
-        //Oculto el Teclado, para que el usuario no ingrese la fecha manualmente
-        fechaNacimiento.setInputType(InputType.TYPE_NULL)
-
         fechaNacimiento.setOnClickListener {
+
+            //Oculto el Teclado, para que el usuario no ingrese la fecha manualmente
+            fechaNacimiento.requestFocus()
+            fechaNacimiento.setInputType(InputType.TYPE_NULL)
+
+            val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.getWindowToken(), 0)
+
             //creo la variable para el DatePickDialog
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener
+            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme, DatePickerDialog.OnDateSetListener
             { view, mYear, mMonth, mdayOfMonth -> fechaNacimiento.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
 
-            fechaNacimiento.setInputType(InputType.TYPE_NULL)
         }
     }
 }
