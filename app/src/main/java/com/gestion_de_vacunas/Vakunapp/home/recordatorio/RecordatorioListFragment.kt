@@ -2,6 +2,7 @@ package com.gestion_de_vacunas.Vakunapp.home.recordatorio
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
+import com.gestion_de_vacunas.Vakunapp.AppPreferences
 
 
 class RecordatorioListFragment : Fragment() {
@@ -44,9 +47,12 @@ class RecordatorioListFragment : Fragment() {
 
         super.onViewCreated(itemView, savedInstanceState)
 
+        Log.i("UID Firebase", AppPreferences.uid.toString() );
+
+
         //1 - REALIZAR EL QUERY A FIREBASE A LA TABLA /Users
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-                .getReference("/Users")
+                .getReference("/Remembers").child("/" + AppPreferences.uid.toString() )
 
         //2 - BUSCAR EL RECICLER VIEW Y ASIGNARLE UN LINEARLAYOUT
         recyclerView = itemView.findViewById(R.id.rv_item_list)

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlin.properties.Delegates
 
 
@@ -68,10 +69,12 @@ class MainActivity : AppCompatActivity() {
                         task ->
                         if (task.isSuccessful) {
 
+                            val user: FirebaseUser = mAuth.currentUser!!
+
                             // SI SE INICIÓ CORRECTAMENTE LA SESIÓN VAMOS A LA VISTA HOME DE LA APLICACIÓN
                             AppPreferences.isLogin = true
+                            AppPreferences.uid = user.uid
                             AppPreferences.username = email
-                            AppPreferences.password = password
 
                             //OCULTAMOS EL LOADING
                             mProgressBar.hide()

@@ -2,25 +2,43 @@ package com.gestion_de_vacunas.Vakunapp.home.recordatorio
 
 class Recordatorios {
 
-    private var firstName: String? = null
-    private var lastName: String? = null
+    private var id: String? = null
+    private var fullName: String? = null
+    private var vacunaName: String? = null
+    private var aplicationDate: String? = null
 
     fun Recordatorios() {}
 
-    fun getFirstname(): String? {
-        return firstName
+    fun getId(): String? {
+        return id
     }
 
-    fun setFirstname(firstName: String?) {
-        this.firstName = firstName
+    fun setId(id: String?) {
+        this.id = id
     }
 
-    fun getLastname(): String? {
-        return lastName
+    fun getFullname(): String? {
+        return fullName
     }
 
-    fun setLastname(lastName: String?) {
-        this.lastName = lastName
+    fun setFullname(fullName: String?) {
+        this.fullName = fullName
+    }
+
+    fun getVacunaname(): String? {
+        return vacunaName
+    }
+
+    fun setVacunaname(vacunaName: String?) {
+        this.vacunaName = vacunaName
+    }
+
+    fun getAplicationdate(): String? {
+        return aplicationDate
+    }
+
+    fun setAplicationdate(aplicationDate: String?) {
+        this.aplicationDate = aplicationDate
     }
 
 }

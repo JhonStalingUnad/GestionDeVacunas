@@ -3,9 +3,13 @@ package com.gestion_de_vacunas.Vakunapp.home
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -17,8 +21,16 @@ import com.gestion_de_vacunas.Vakunapp.*
 import com.gestion_de_vacunas.Vakunapp.home.Informacion.Informacion
 import com.gestion_de_vacunas.Vakunapp.home.Maps.activity_maps
 import com.google.android.material.navigation.NavigationView
+<<<<<<< HEAD
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.Noticias.NoticiasListFragment
+=======
+import com.gestion_de_vacunas.Vakunapp.R
+import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetFormActivity
+import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
+import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
+import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
+>>>>>>> 846b5bc65d2d76d86b6529f9c6014061a3bc7ff2
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
 
@@ -49,6 +61,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         onNavigationItemSelected(menuItem)
         menuItem.isChecked = true
 
+
+        val headerView: View = navigationView.getHeaderView(0)
+        val accountName = headerView.findViewById<TextView>(R.id.accountName)
+        accountName.text = AppPreferences.username.toString()
+
+        accountName.setOnClickListener {
+            Log.d("CLICK MENU", "CLICK MENU")
+            val intent = Intent(this, RecordatorioFormActivity::class.java)
+            startActivity(intent)
+        }
+
+
         drawer.addDrawerListener(this)
 
     }
@@ -69,7 +93,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_cvacunacion -> {
                 title = R.string.carnet_vacunacion;
-                fragment = RecordatorioListFragment()
+                fragment = CarnetListFragment()
             }
             R.id.nav_recordatorios -> {
                 title = R.string.recordatorios;
@@ -90,8 +114,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_logout -> {
                 title = R.string.Logout;
                 AppPreferences.isLogin = false
+                AppPreferences.uid = ""
                 AppPreferences.username = ""
-                AppPreferences.password = ""
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent);

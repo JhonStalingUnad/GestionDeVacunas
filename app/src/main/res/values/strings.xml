@@ -68,23 +68,41 @@
     <string name="ingresa_apellidos">Ingresa los Apellidos</string>
     <string name="registrar">Registrar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="modificar">Modificar</string>
+
+    <string name="members_sucesfull">"Miembro creado con éxito en la aplicación."</string>
+    <string name="members_update_sucesfull">"Miembro modificado con éxito en la aplicación."</string>
+
+    <string name="register_selection">"Por favor registra los campos de selección."</string>
+    <string name="register_all_fields">"Por favor registra todos los campos."</string>
 
     <!-- RECORDATORIOS -->
     <string name="crear">Crear Nuevo</string>
     <string name="tituloRecordatorio">Recordatorios</string>
     <string name="guardar">Guardar</string>
     <string name="Logout">Cerrar Sesión</string>
-    ​<string-array name="Recordatorios">
-        ​<item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-    ​</string-array>
+    ​
+    <string-array name="Recordatorios">
+        ​
+        <item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+    </string-array>
     <string name="title_activity_home">HomeActivity</string>
 
     <string name="menu_home">Home</string>
@@ -106,10 +124,27 @@
     <string name="numero_de_documento">Número de Documento :</string>
     <string name="grupo_sanguineo">Grupo Sanguíneo :</string>
     <string name="registro_de_miembros">Registro de Miembros</string>
+<<<<<<< HEAD
     <!-- Noticias -->
     <string name="titulo">titulo</string>
     <string name="description">Descripcion :</string>
     <string name="image">Imagen :</string>
+=======
+    <string name="registrar_recordatorio">Registrar Recordatorio</string>
+    <string name="fecha_vacuna">Fecha Aplicación Vacuna</string>
+    <string name="vacuna">Vacuna</string>
+    <string name="fecha_aplicacion">Fecha Aplicación</string>
+    <string name="fullName">Nombre Completo</string>
+    <string name="register_suscesfull">Miembro Registrado Satisfactoriamente</string>
+    <string name="edit_register_members">Editar</string>
+    <string name="delete_register_members">Eliminar</string>
+    <string name="tittleDialogDelete">Eliminar Miembros</string>
+    <string name="messageDialogDelete">¿Está seguro que desea eliminar el registro del miembro registrado?</string>
+    <string name="negativeButton">NO</string>
+    <string name="generar_carnet_vacunacion">Generar Carnet de Vacunación</string>
+    <string name="generar">Generar</string>
+    <string name="titulo_pdf">"CARNET DE VACUNACION"</string>
+>>>>>>> 846b5bc65d2d76d86b6529f9c6014061a3bc7ff2
 
 
 
