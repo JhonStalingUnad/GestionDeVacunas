@@ -1,10 +1,12 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
@@ -77,10 +79,7 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
             intent.putExtra("relationship", model.getRelationship().toString())
             intent.putExtra("bloodType", model.getBloodType().toString())
             contexto.startActivity(intent)
-
         }
-
-
     }
 
 inner class miembrosViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {

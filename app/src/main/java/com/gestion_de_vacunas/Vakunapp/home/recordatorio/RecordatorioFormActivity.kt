@@ -5,6 +5,7 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
@@ -13,6 +14,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_form_recordatorio.*
 import java.util.*
 import kotlin.properties.Delegates
+
 
 class RecordatorioFormActivity : AppCompatActivity() {
 
@@ -69,8 +71,10 @@ class RecordatorioFormActivity : AppCompatActivity() {
         //BASE DE DATOS
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
 
-        /*
+
         //TRAER LOS DATOS DE LOS MIEMBROS
+        var miembrosArray = ArrayList<String>()
+
         databaseReference = database.reference.child("/Members").child(AppPreferences.uid.toString())
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
@@ -85,20 +89,48 @@ class RecordatorioFormActivity : AppCompatActivity() {
                 //RECORRER CADA KEY DEL REGISTRO
                 children.forEach {
 
-                    //it.key.toString() --> KEY DEL REGISTRO
-                    //it.value.toString() --> VALOR DEL REGISTRO
+                    var firstName: String = ""
+                    var lastName: String = ""
 
-                    if (it.key.toString() == "firstName") {
-                        //testField.setText(it.value.toString())
+                    it.children.forEach {
+
+                        Log.d("it.key.toString()", it.key.toString());
+                        Log.d("it.value.toString()", it.value.toString());
+
+                        if (it.key.toString() == "firstName") {
+                            firstName = it.value.toString()
+                        }
+                        if (it.key.toString() == "lastName") {
+                            lastName = it.value.toString()
+                        }
+                    }
+
+                    if (firstName != "" || lastName != "") {
+                        miembrosArray.add(firstName + " " + lastName)
                     }
 
                 }
+
+                val spinnerMiembros = findViewById<View>(R.id.spMiembro) as Spinner
+                val spinnerMiembrosAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this@RecordatorioFormActivity, android.R.layout.simple_spinner_item, miembrosArray)
+                spinnerMiembrosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerMiembros.adapter = spinnerMiembrosAdapter
+
+                //SETEAR VALORES POR DEFECTO EN MODO EDICION
+                if(modo == "edit"){
+                    val spinnerPositionMiembros: Int = (spinnerMiembros.adapter as ArrayAdapter<String>).getPosition(fullname)
+                    spinnerMiembros.setSelection(spinnerPositionMiembros)
+                }
+
             }
         })
 
 
+
         //TRAER LOS DATOS DE LAS VACUNAS
-        databaseReference = database.reference.child("/Vacunas")
+        var vacunasArray = ArrayList<String>()
+
+        databaseReference = database.reference.child("/Vacuna")
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onCancelled(error: DatabaseError) {
@@ -112,17 +144,38 @@ class RecordatorioFormActivity : AppCompatActivity() {
                 //RECORRER CADA KEY DEL REGISTRO
                 children.forEach {
 
-                    //it.key.toString() --> KEY DEL REGISTRO
-                    //it.value.toString() --> VALOR DEL REGISTRO
+                    var vacunaName: String = ""
 
-                    if (it.key.toString() == "firstName") {
-                        //testField.setText(it.value.toString())
+                    it.children.forEach {
+
+                        Log.d("it.key.toString()", it.key.toString());
+                        Log.d("it.value.toString()", it.value.toString());
+
+                        if (it.key.toString() == "name") {
+                            vacunaName = it.value.toString()
+                        }
+                    }
+
+                    if ( vacunaName != "" ) {
+                        vacunasArray.add( vacunaName )
                     }
 
                 }
+
+                val spinnerVacunas = findViewById<View>(R.id.spVacuna) as Spinner
+                val spinnerVacunasAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this@RecordatorioFormActivity, android.R.layout.simple_spinner_item, vacunasArray)
+                spinnerVacunasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerVacunas.adapter = spinnerVacunasAdapter
+
+                //SETEAR VALORES POR DEFECTO EN MODO EDICION
+                if(modo == "edit"){
+                    val spinnerPositionVacunas: Int = (spinnerVacunas.adapter as ArrayAdapter<String>).getPosition(vacunaname)
+                    spinnerVacunas.setSelection(spinnerPositionVacunas)
+                }
+
             }
         })
-         */
+
 
 
         //DEJO LA REFERENCIA EN LA TABLE REMEMBERS (PARA PROXIMAS CONSULTAS)
@@ -130,28 +183,10 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
 
 
-        //CARGAR DATOS DE UN SPINNER
-        val miembrosArray = arrayOf("Javier Zapata", "Angelica Valencia", "Jairo Castillo")
-        val spinnerMiembros: Spinner = findViewById(R.id.spMiembro)
-        spinnerMiembros.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, miembrosArray)
-
-        val vacunasArray = arrayOf("NEUMOCOCO", "FIEBRE AMARILLA", "SARS-2", "COVID-19")
-        val spinnerVacunas: Spinner = findViewById(R.id.spVacuna)
-        spinnerVacunas.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, vacunasArray)
-
-
         //SETEAR VALORES POR DEFECTO EN MODO EDICION
         if(modo == "edit"){
-            val spinnerPositionMiembros: Int = (spinnerMiembros.adapter as ArrayAdapter<String>).getPosition(fullname)
-            spinnerMiembros.setSelection(spinnerPositionMiembros)
-
-            val spinnerPositionVacunas: Int = (spinnerVacunas.adapter as ArrayAdapter<String>).getPosition(vacunaname)
-            spinnerVacunas.setSelection(spinnerPositionVacunas)
-
             txtFecha.setText(aplicationdate)
         }
-
-
 
 
 
@@ -254,7 +289,7 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
-    fun deleteRemember(idRemember : String ) {
+    fun deleteRemember(idRemember: String) {
 
         Log.d("------deleteRemember-------", idRemember);
 

@@ -79,17 +79,28 @@
     <string name="tituloRecordatorio">Recordatorios</string>
     <string name="guardar">Guardar</string>
     <string name="Logout">Cerrar Sesión</string>
-    ​<string-array name="Recordatorios">
-        ​<item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​<item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​<item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​<item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-    ​</string-array>
+    ​
+    <string-array name="Recordatorios">
+        ​
+        <item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
+        ​
+        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
+        ​
+        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
+        ​
+    </string-array>
     <string name="title_activity_home">HomeActivity</string>
 
     <string name="menu_home">Home</string>
@@ -120,5 +131,10 @@
     <string name="tittleDialogDelete">Eliminar Miembros</string>
     <string name="messageDialogDelete">¿Está seguro que desea eliminar el registro del miembro registrado?</string>
     <string name="negativeButton">NO</string>
+    <string name="generar_carnet_vacunacion">Generar Carnet de Vacunación</string>
+    <string name="generar">Generar</string>
+    <string name="titulo_pdf">"CARNET DE VACUNACION"</string>
+
+
 
 </resources>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.gestion_de_vacunas.Vakunapp" >
-   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    package="com.gestion_de_vacunas.Vakunapp">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,58 +12,68 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".home.carnet.CarnetFormActivity"
+            android:label="@string/carnet_vacunacion"
 
+            ></activity>
         <!-- MAPS -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <!-- LOGIN -->
+            android:value="@string/google_maps_key" /> <!-- LOGIN -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            tools:ignore="MissingClass" >
+            tools:ignore="MissingClass">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- AUTH -->
+        </activity> <!-- AUTH -->
         <activity
             android:name=".RegistrarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecordarActivity"
-            android:screenOrientation="portrait" />
-
-
-        <!-- MENU PRINCIPAL -->
+            android:screenOrientation="portrait" /> <!-- MENU PRINCIPAL -->
         <activity
             android:name=".home.HomeActivity"
-            android:screenOrientation="portrait"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-
-        <!-- MODULOS -->
-        <!--<activity
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- MODULOS -->
+        <!--
+<activity
             android:name=".home.miembro.Miembros"
-            android:screenOrientation="portrait" /> -->
+            android:screenOrientation="portrait" />
+        -->
         <activity
             android:name=".home.miembro.MiembroFormActivity"
             android:label="@string/nucleo_familiar"
             android:screenOrientation="portrait" />
-        <!-- <activity
+        <!--
+ <activity
             android:name=".home.recordatorio.RecordatorioListFragment"
-            android:screenOrientation="portrait" /> -->
+            android:screenOrientation="portrait" />
+        -->
         <activity
             android:name=".home.recordatorio.RecordatorioFormActivity"
             android:screenOrientation="portrait" />
 
+        <provider
+            android:authorities="com.gestion_de_vacunas.Vakunapp.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths">
+            </meta-data>
+
+        </provider>
     </application>
 
 </manifest>
