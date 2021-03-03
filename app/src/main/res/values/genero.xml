@@ -2,7 +2,7 @@
 <resources>
     <string-array name="genero">
         <item>Seleccione el Género</item>
-        <item>Masculino</item>
         <item>Femenino</item>
+        <item>Masculino</item>
     </string-array>
 </resources>

@@ -2,13 +2,15 @@
 <resources>
     <string-array name="parentesco">
         <item>Seleccione el Parentesco</item>
-        <item>Esposo</item>
+        <item>Abuela</item>
+        <item>Abuelo</item>
         <item>Esposa</item>
+        <item>Esposo</item>
+        <item>Hermana</item>
+        <item>Hermano</item>
+        <item>Hija</item>
+        <item>Hijo</item>
         <item>Madre</item>
         <item>Padre</item>
-        <item>Hijo</item>
-        <item>Hija</item>
-        <item>Abuelo</item>
-        <item>Abuela</item>
     </string-array>
 </resources>

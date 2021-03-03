@@ -25,4 +25,12 @@
         <item name="android:layout_margin">8dp</item>
     </style>
 
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryInverse">@color/colorWhite</item>
+        <item name="android:textColorSecondaryInverse">@color/colorWhite</item>
+        <item name="android:colorControlActivated">@color/colorPrimary</item>
+        <item name="android:selectableItemBackgroundBorderless">@color/colorWhite</item>
+    </style>
+
 </resources>

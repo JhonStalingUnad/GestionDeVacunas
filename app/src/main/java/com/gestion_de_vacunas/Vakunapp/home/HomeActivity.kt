@@ -22,6 +22,8 @@ import com.gestion_de_vacunas.Vakunapp.home.Informacion.Informacion
 import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
+import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetFormActivity
+import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
@@ -86,7 +88,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_cvacunacion -> {
                 title = R.string.carnet_vacunacion;
-                fragment = RecordatorioListFragment()
+                fragment = CarnetListFragment()
             }
             R.id.nav_recordatorios -> {
                 title = R.string.recordatorios;

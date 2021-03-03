@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import com.gestion_de_vacunas.Vakunapp.home.recordatorio.Recordatorios
-import com.gestion_de_vacunas.Vakunapp.home.recordatorio.recordatoriosAdapter
 
 class MiembrosListFragment : Fragment() {
 
@@ -37,9 +36,10 @@ class MiembrosListFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
 
+
         //Consulto a la base de datos, en la Tabla donde se registraron los miembros
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-                .getReference("/Members")
+                .getReference("/Members").child("/" + AppPreferences.uid.toString())
 
         //Busco el RecyclerView, y se asigna el LinearLayout
         recyclerView = itemView.findViewById(R.id.rv_item_list_members)
@@ -48,7 +48,7 @@ class MiembrosListFragment : Fragment() {
         //Ejecuto la query en la variable sentencia
         val sentencia = FirebaseRecyclerOptions.Builder<Miembros>().setQuery(query!!, Miembros::class.java).build()
 
-        //4 - PASAR EL RESULTADO DEL QUERY AL ADAPTER PARA RENDERIZARLO
+        //Renderizamos el valor de la query en el adaptador
         adapter = MiembrosAdapter(sentencia)
         recyclerView!!.adapter = adapter
 
@@ -63,32 +63,5 @@ class MiembrosListFragment : Fragment() {
         super.onStop()
         adapter?.stopListening()
     }
-
-    /*
-    private fun deleteMembers(){
-        Toast.makeText(activity, "Eliminar Miembros", Toast.LENGTH_SHORT).show()
-    }
-
-
-    private fun editMembers(){
-        Toast.makeText(activity, "Editar Miembros", Toast.LENGTH_SHORT).show()
-    }
-
-    /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
-    fun delete(view: View) {
-        deleteMembers()
-    }
-
-    fun edit(view: View) {
-        editMembers()
-    }
-
-    fun newInstance(someInt: Int): Fragment? {
-        val myFragment = Fragment()
-        val args = Bundle()
-        args.putInt("someInt", someInt)
-        myFragment.setArguments(args)
-        return myFragment
-    }*/
 
 }
