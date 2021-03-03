@@ -13,12 +13,12 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
-import com.gestion_de_vacunas.Vakunapp.AppPreferences
+import com.gestion_de_vacunas.Vakunapp.*
 import com.gestion_de_vacunas.Vakunapp.home.Informacion.Informacion
-import com.gestion_de_vacunas.Vakunapp.MainActivity
+import com.gestion_de_vacunas.Vakunapp.home.Maps.activity_maps
 import com.google.android.material.navigation.NavigationView
-import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
+import com.gestion_de_vacunas.Vakunapp.home.Noticias.NoticiasListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
 
@@ -78,6 +78,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_informacion -> {
                 title = R.string.Informacion;
                 fragment = Informacion()
+            }
+            R.id.nav_Maps -> {
+                title = R.string.Maps;
+                fragment = activity_maps()
+            }
+            R.id.nav_Noticias -> {
+                title = R.string.Noticias;
+                fragment = NoticiasListFragment()
             }
             R.id.nav_logout -> {
                 title = R.string.Logout;

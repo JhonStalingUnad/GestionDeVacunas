@@ -55,6 +55,8 @@
     <string name="carnet_vacunacion">Carnet de Vacunación</string>
     <string name="recordatorios">Recordatorios</string>
     <string name="Informacion">Información</string>
+    <string name="Maps">Puntos de atencion cercanos</string>
+    <string name="Noticias">Noticias</string>
     <string name="unad">UNAD</string>
     <string name="action_opciones">Opciones</string>
     <string name="nombre_usuario">Nombre de Usuario</string>
@@ -92,6 +94,8 @@
     <string name="database_uri">https://vakunapp-default-rtdb.firebaseio.com/</string>
     <string name="fecha_nacimiento"> Selecciona la Fecha de Nacimiento</string>
     <string name="perfil">Editar Perfil</string>
+
+    <!-- Miembros Registrados -->
     <string name="miembros_registrados">Miembros Registrados</string>
     <string name="nombres">Nombres :</string>
     <string name="apellidos">Apellidos :</string>
@@ -102,5 +106,11 @@
     <string name="numero_de_documento">Número de Documento :</string>
     <string name="grupo_sanguineo">Grupo Sanguíneo :</string>
     <string name="registro_de_miembros">Registro de Miembros</string>
+    <!-- Noticias -->
+    <string name="titulo">titulo</string>
+    <string name="description">Descripcion :</string>
+    <string name="image">Imagen :</string>
+
+
 
 </resources>
