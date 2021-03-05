@@ -17,6 +17,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.recyclerview.widget.RecyclerView
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.home.Informacion.Informacion
 import com.gestion_de_vacunas.Vakunapp.MainActivity
@@ -24,7 +25,14 @@ import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
+import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembroFormActivity
+import com.gestion_de_vacunas.Vakunapp.home.miembro.Miembros
+import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosAdapter
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
+import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
+import com.gestion_de_vacunas.Vakunapp.home.perfil.RegistrarActivity
+import com.gestion_de_vacunas.Vakunapp.home.perfil.Usuarios
+import com.gestion_de_vacunas.Vakunapp.home.perfil.UsuariosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
@@ -63,7 +71,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         accountName.setOnClickListener {
             Log.d("CLICK MENU", "CLICK MENU")
-            val intent = Intent(this, RecordatorioFormActivity::class.java)
+            val intent = Intent(this, EditarFormActivity::class.java)
             startActivity(intent)
         }
 
@@ -98,6 +106,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = R.string.Informacion;
                 fragment = Informacion()
             }
+
             R.id.nav_logout -> {
                 title = R.string.Logout;
                 AppPreferences.isLogin = false

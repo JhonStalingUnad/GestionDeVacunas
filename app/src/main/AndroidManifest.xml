@@ -34,7 +34,7 @@
             </intent-filter>
         </activity> <!-- AUTH -->
         <activity
-            android:name=".RegistrarActivity"
+            android:name=".home.perfil.RegistrarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecordarActivity"
@@ -52,6 +52,10 @@
         <activity
             android:name=".home.miembro.MiembroFormActivity"
             android:label="@string/nucleo_familiar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.perfil.EditarFormActivity"
+            android:label="@string/editar_cuenta"
             android:screenOrientation="portrait" />
         <!--
  <activity
