@@ -33,6 +33,7 @@ import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.perfil.RegistrarActivity
 import com.gestion_de_vacunas.Vakunapp.home.perfil.Usuarios
 import com.gestion_de_vacunas.Vakunapp.home.perfil.UsuariosListFragment
+import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 
