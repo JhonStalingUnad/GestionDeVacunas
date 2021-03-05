@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_perfil"
+    android:orientation="vertical"
+    android:backgroundTint="#F0F1F1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/margen_default"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margen_minima"
+        android:paddingTop="@dimen/margen_minima"
+        android:paddingLeft="@dimen/margen_minima">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titFirstNamePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/nombres"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvFirstNamePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titFirstNamePerfil"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titLastNamePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/apellidos"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/titFirstNamePerfil"
+            app:layout_constraintTop_toBottomOf="@id/titFirstNamePerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvLastNamePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titLastNamePerfil"
+            app:layout_constraintTop_toTopOf="@id/titLastNamePerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titEmailPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/correo"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/titLastNamePerfil"
+            app:layout_constraintTop_toBottomOf="@id/titLastNamePerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvEmailPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titEmailPerfil"
+            app:layout_constraintTop_toTopOf="@id/titEmailPerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titDocumentTypePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/tipo_de_documento"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/titEmailPerfil"
+            app:layout_constraintTop_toBottomOf="@id/titEmailPerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvDocumentTypePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titDocumentTypePerfil"
+            app:layout_constraintTop_toTopOf="@id/titDocumentTypePerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titDocumentNumberPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/numero_de_documento"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/titDocumentTypePerfil"
+            app:layout_constraintTop_toBottomOf="@id/titDocumentTypePerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvDocumentNumberPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titDocumentNumberPerfil"
+            app:layout_constraintTop_toTopOf="@id/titDocumentNumberPerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titNumberPhonePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/telephone"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/titDocumentNumberPerfil"
+            app:layout_constraintTop_toBottomOf="@id/titDocumentNumberPerfil"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvNumberPhonePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textStyle="italic"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/titDocumentNumberPerfil"
+            app:layout_constraintTop_toTopOf="@id/titDocumentNumberPerfil"/>
+
+        <Button
+            android:id="@+id/rvBtnEditUserPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_register_members"
+            android:textColor="#000000"
+            android:backgroundTint="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_edit"
+            app:layout_constraintStart_toStartOf="@id/titNumberPhonePerfil"
+            app:layout_constraintTop_toBottomOf="@id/titNumberPhonePerfil" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

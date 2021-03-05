@@ -3,9 +3,9 @@
     <string name="app_text">VAKUNAPP</string>
 
     <!-- REGISTRO -->
-    <string name="email">Correo</string>
-    <string name="password">Contraseña</string>
-    <string name="forgotPassword">Olvidaste tu contraseña?</string>
+    <string name="email">Ingresa el Correo Electrónico</string>
+    <string name="password">Ingresa la Contraseña</string>
+    <string name="forgotPassword">¿Olvidaste tu contraseña?</string>
     <string name="firstName">Nombre</string>
     <string name="lastName">Apellido</string>
     <string name="login">Iniciar sesión</string>
@@ -134,7 +134,14 @@
     <string name="generar_carnet_vacunacion">Generar Carnet de Vacunación</string>
     <string name="generar">Generar</string>
     <string name="titulo_pdf">"CARNET DE VACUNACION"</string>
-
+    <string name="number_cel">Ingresa el Número de Celular</string>
+    <string name="title_crear_cuenta">Crear Cuenta</string>
+    <string name="title_editar_cuenta">Editar Cuenta</string>
+    <string name="editar_cuenta">Editar Cuenta</string>
+    <string name="correo">Email :</string>
+    <string name="telephone">Teléfono :</string>
+    <string name="recuperar_cuenta">Recuperar Cuenta</string>
+    <string name="enviar">Enviar Contraseña</string>
 
 
 </resources>
