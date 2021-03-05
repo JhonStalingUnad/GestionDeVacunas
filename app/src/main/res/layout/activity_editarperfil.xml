@@ -41,6 +41,13 @@
             android:textStyle="bold"
             android:textSize="@dimen/texto_mediano"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imagenAutenticacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margen_default"
+            app:srcCompat="@mipmap/ic_usuarios" />
+
 
         <TextView
             android:id="@+id/txtnom"
