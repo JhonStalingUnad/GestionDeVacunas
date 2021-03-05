@@ -134,6 +134,8 @@
     <string name="generar_carnet_vacunacion">Generar Carnet de Vacunación</string>
     <string name="generar">Generar</string>
     <string name="titulo_pdf">"CARNET DE VACUNACION"</string>
+	
+	<string name="edit_plan_members">Gestionar</string>
 
 
 

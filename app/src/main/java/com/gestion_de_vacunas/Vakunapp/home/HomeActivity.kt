@@ -84,7 +84,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_pvacunacion -> {
                 title = R.string.plan_vacunacion;
-                fragment = MiembrosListFragment()
+                fragment = PlanListFragment()
             }
             R.id.nav_cvacunacion -> {
                 title = R.string.carnet_vacunacion;

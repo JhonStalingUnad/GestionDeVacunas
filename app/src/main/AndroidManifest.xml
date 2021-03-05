@@ -62,6 +62,11 @@
             android:name=".home.recordatorio.RecordatorioFormActivity"
             android:screenOrientation="portrait" />
 
+		<activity
+            android:name=".home.plan.PlanFormActivity"
+            android:label="@string/plan_vacunacion"
+            android:screenOrientation="portrait" />
+			
         <provider
             android:authorities="com.gestion_de_vacunas.Vakunapp.fileprovider"
             android:name="androidx.core.content.FileProvider"
