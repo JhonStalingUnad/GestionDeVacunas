@@ -146,5 +146,13 @@
 
 	<string name="edit_plan_members">Gestionar</string>
 
+    <!-- Maps -->
+    <string name="Maps">Puntos de atencion cercanos</string>
+    <!-- Noticias -->
+    <string name="titulo">titulo</string>
+    <string name="description">Descripcion :</string>
+    <string name="image">Imagen :</string>
+    <string name="Noticias">Noticias</string>
+
 
 </resources>

@@ -36,6 +36,8 @@ import com.gestion_de_vacunas.Vakunapp.home.perfil.UsuariosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
+import com.gestion_de_vacunas.Vakunapp.home.Maps.activity_maps
+import com.gestion_de_vacunas.Vakunapp.home.Noticias.NoticiasListFragment
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
@@ -107,7 +109,14 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = R.string.Informacion;
                 fragment = Informacion()
             }
-
+            R.id.nav_Noticias -> {
+                title = R.string.Noticias;
+                fragment = NoticiasListFragment()
+            }
+            R.id.nav_Maps -> {
+                title = R.string.Maps;
+                fragment = activity_maps()
+            }
             R.id.nav_logout -> {
                 title = R.string.Logout;
                 AppPreferences.isLogin = false
