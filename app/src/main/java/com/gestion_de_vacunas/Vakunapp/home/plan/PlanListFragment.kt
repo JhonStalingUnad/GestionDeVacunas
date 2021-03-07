@@ -24,17 +24,11 @@ class PlanListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val root = inflater.inflate(R.layout.fragment_plan_list, container, false)
-        val buttonRegistrarMiembro: FloatingActionButton = root.findViewById(R.id.buttonRegistrarMiembros);
-        buttonRegistrarMiembro.setOnClickListener {
-            val intent = Intent(activity, PlanFormActivity::class.java)
-            startActivity(intent);
-        }
         return root
     }
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
-
 
         //Consulto a la base de datos, en la Tabla donde se registraron los miembros
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")

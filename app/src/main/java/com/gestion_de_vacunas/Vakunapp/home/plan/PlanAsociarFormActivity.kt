@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
@@ -67,9 +68,6 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         //BASE DE DATOS
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
 
-
-
-
         //TRAER LOS DATOS DE LAS VACUNAS
         var vacunasArray = ArrayList<String>()
 
@@ -119,8 +117,6 @@ class PlanAsociarFormActivity : AppCompatActivity() {
             }
         })
 
-
-
         //DEJO LA REFERENCIA EN LA TABLE REMEMBERS (PARA PROXIMAS CONSULTAS)
         databaseReference = database.reference.child("/Plan")
                 .child( AppPreferences.uid.toString() )
@@ -132,8 +128,6 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         if(modo == "edit"){
             txtFecha.setText(aplicationdate)
         }
-
-
 
         //METODO DEL BUTTON GUARDAR
         val btnSave: Button = findViewById(R.id.btnSave);
@@ -149,8 +143,6 @@ class PlanAsociarFormActivity : AppCompatActivity() {
 
     }
 
-
-
     //FUNCION EVENTO CLICK CALENDAR
     private fun selectedDate(){
 
@@ -163,14 +155,18 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         fechaAplicacion.setInputType(InputType.TYPE_NULL)
 
         fechaAplicacion.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener
-            { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + mMonth + "/" + mYear) }, yearSelected, monthSelected, daySelected)
+            fechaAplicacion.requestFocus()
+            fechaAplicacion.setInputType(InputType.TYPE_NULL)
+
+            val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.getWindowToken(), 0)
+
+            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme ,DatePickerDialog.OnDateSetListener
+            { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
         }
 
     }
-
-
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     private fun createRemember() {

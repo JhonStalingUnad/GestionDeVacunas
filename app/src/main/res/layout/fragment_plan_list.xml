@@ -25,17 +25,4 @@
         android:paddingBottom="@dimen/margen_recyclerView"
         app:layout_constraintTop_toBottomOf="@id/rvMiembrosRegistrados"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonRegistrarMiembros"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_add_members"
-        app:backgroundTint="@color/colorButton"
-        app:borderWidth="1dp"
-        app:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
