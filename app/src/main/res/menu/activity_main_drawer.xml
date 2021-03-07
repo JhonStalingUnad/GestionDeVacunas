@@ -40,6 +40,11 @@
             android:title="@string/Maps" />
 
         <item
+            android:id="@+id/nav_AcercaDe"
+            android:icon="@drawable/ic_acerca_de"
+            android:title="@string/acerca_de" />
+
+        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"
             android:title="@string/Logout" />

@@ -165,5 +165,6 @@
     <string name="remember_suscesfull">Recordatorio creado con éxito</string>
     <string name="remember_update_sucesfull">Recordatorio Modificado Exitosamente</string>
     <string name="perfil_update_sucesfull">Perfil Actualizado con Éxito</string>
+    <string name="acerca_de">Acerca de</string>
 
 </resources>
