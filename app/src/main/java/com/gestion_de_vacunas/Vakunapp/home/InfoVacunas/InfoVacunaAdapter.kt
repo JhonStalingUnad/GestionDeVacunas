@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Noticias
+package com.gestion_de_vacunas.Vakunapp.home.InfoVacunas
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +9,16 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.R
 
-class NoticiasAdapter(options: FirebaseRecyclerOptions<Noticias?>) : FirebaseRecyclerAdapter<Noticias?, NoticiasAdapter.noticiasViewholder?>(options) {
+class InfoVacunaAdapter(options: FirebaseRecyclerOptions<InfoVacuna?>) : FirebaseRecyclerAdapter<InfoVacuna?, InfoVacunaAdapter.infovacunaViewholder?>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticiasAdapter.noticiasViewholder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoVacunaAdapter.infovacunaViewholder {
         val view: View = LayoutInflater.from(parent.context)
 
-                .inflate(R.layout.recycler_view_noticias, parent, false)
-        return noticiasViewholder(view)
+                .inflate(R.layout.recycler_view_infovacuna, parent, false)
+        return infovacunaViewholder(view)
     }
 
-    override fun onBindViewHolder(holder: NoticiasAdapter.noticiasViewholder, position: Int, model: Noticias) {
+    override fun onBindViewHolder(holder: InfoVacunaAdapter.infovacunaViewholder, position: Int, model: InfoVacuna) {
 
         holder.title.setText(model.gettitle())
         holder.description.setText(model.getdescription())
@@ -26,7 +26,7 @@ class NoticiasAdapter(options: FirebaseRecyclerOptions<Noticias?>) : FirebaseRec
 
     }
 
-    inner class noticiasViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class infovacunaViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var title: TextView
         var description: TextView

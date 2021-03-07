@@ -54,7 +54,6 @@
     <string name="plan_vacunacion">Plan de Vacunación</string>
     <string name="carnet_vacunacion">Carnet de Vacunación</string>
     <string name="recordatorios">Recordatorios</string>
-    <string name="Informacion">Información</string>
     <string name="unad">UNAD</string>
     <string name="action_opciones">Opciones</string>
     <string name="nombre_usuario">Nombre de Usuario</string>
@@ -154,5 +153,12 @@
     <string name="image">Imagen :</string>
     <string name="Noticias">Noticias</string>
 
+    <!-- Informacion Vacunas -->
+
+    <string name="InfoVacuna">Diccionario de Vacunas</string>
+
+    <!-- Vacunas para viajar -->
+
+    <string name="Viajar">Vacunas Requeridas Para Viajes</string>
 
 </resources>

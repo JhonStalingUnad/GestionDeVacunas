@@ -23,14 +23,17 @@
             android:icon="@drawable/ic_recordatorio"
             android:title="@string/recordatorios" />
         <item
-            android:id="@+id/nav_informacion"
-            android:icon="@drawable/ic_informacion"
-            android:title="@string/Informacion" />
-        <item
             android:id="@+id/nav_Noticias"
             android:icon="@drawable/ic_news"
             android:title="@string/Noticias" />
-
+        <item
+            android:id="@+id/nav_InfoVacunas"
+            android:icon="@drawable/ic_ivacunas"
+            android:title="@string/InfoVacuna" />
+        <item
+            android:id="@+id/nav_Viajar"
+            android:icon="@drawable/ic_viajar"
+            android:title="@string/Viajar" />
         <item
             android:id="@+id/nav_Maps"
             android:icon="@drawable/ic_maps"
