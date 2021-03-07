@@ -12,6 +12,7 @@ object AppPreferences {
     private val IS_LOGIN = Pair("is_login", false)
     private val UID = Pair("uid", "")
     private val USERNAME = Pair("username", "")
+    private val FCMTOKEN = Pair("fcmtoken", "")
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -41,5 +42,11 @@ object AppPreferences {
         get() = preferences.getString(USERNAME.first, USERNAME.second) ?: ""
         set(value) = preferences.edit {
             it.putString(USERNAME.first, value)
+        }
+
+    var fcmtoken: String
+        get() = preferences.getString(FCMTOKEN.first, FCMTOKEN.second) ?: ""
+        set(value) = preferences.edit {
+            it.putString(FCMTOKEN.first, value)
         }
 }

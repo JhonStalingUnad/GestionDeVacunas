@@ -164,5 +164,7 @@
     <string name="editar_recordatorio">Editar Recordatorio</string>
     <string name="remember_update_sucesfull">Recordatorio Actualizado Con Exito</string>
     <string name="remember_suscesfull">Recordatorio Creado Con Exito</string>
+    <string name="default_notification_channel_id">vakunapp</string>
+    <string name="fcm_message">Vakunapp</string>
 
 </resources>
