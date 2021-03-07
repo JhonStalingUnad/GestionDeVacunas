@@ -74,44 +74,6 @@
               android:drawableLeft="@drawable/ic_texto"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/email"
-            app:helperText="@string/campo_requerido"
-            app:counterMaxLength="@integer/counter_max_email"
-            app:counterEnabled="true">
-
-          <com.google.android.material.textfield.TextInputEditText
-              android:id="@+id/txtEmail"
-              android:layout_width="match_parent"
-              android:layout_height="@dimen/altura_campos"
-              android:maxLength="@integer/counter_max_email"
-              android:inputType="textEmailAddress"
-              android:drawableLeft="@drawable/ic_email"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/password"
-            app:helperText="@string/campo_requerido"
-            app:counterMaxLength="@integer/counter_max_name"
-            app:counterEnabled="true">
-
-          <com.google.android.material.textfield.TextInputEditText
-              android:id="@+id/txtPassword"
-              android:layout_width="match_parent"
-              android:layout_height="@dimen/altura_campos"
-              android:maxLength="@integer/counter_max_name"
-              android:inputType="textPassword"
-              android:drawableLeft="@drawable/ic_password"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
         <androidx.appcompat.widget.AppCompatSpinner
             android:background="@drawable/style_spinner"
             android:id="@+id/spRegTipoDocumento"
