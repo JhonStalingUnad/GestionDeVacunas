@@ -65,6 +65,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".Activity_Acercade"
+            android:label="@string/acerca_de"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".home.recordatorio.RecordatorioFormActivity"
             android:screenOrientation="portrait" />
 

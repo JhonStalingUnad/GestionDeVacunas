@@ -170,5 +170,7 @@
     <string name="fcm_message">Vakunapp</string>
     <string name="perfil_update_sucesfull">Perfil Actualizado con Éxito</string>
     <string name="acerca_de">Acerca de</string>
+    <string name="acerca_de_mayuscula">ACERCA DE</string>
+    <string name="ano_creacion">Marzo 2021</string>
 
 </resources>

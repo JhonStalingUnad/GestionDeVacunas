@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity_Acercade">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <LinearLayout
                 android:id="@+id/acercade"
                 android:layout_width="match_parent"
@@ -35,30 +33,37 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-
                 <TextView
                     android:id="@+id/txtacercade"
                     android:layout_width="match_parent"
-                    android:layout_height="75dp"
-                    android:text="Acerca de Vakunapp"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="30dp" />
-
-
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/margen_default"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/acerca_de_mayuscula"
+                    android:textSize="30sp"/>
 
                 <TextView
                     android:id="@+id/txtinfovakunnap"
                     android:layout_width="match_parent"
-                    android:layout_height="290dp"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="Vakunapp es una aplicación que te permite llevar un control de el esquema de vacunación de todo tu núcleo familiar de forma rápida y sencilla.
-                    \n \nDesarrollado por: \n\nSteven Zapata, Jhon Sevillano, Alba Florez, David Suarez, Elquin Pedraza. \n\n Marzo 2021."
+                    \n \nDesarrollado por: \n\nSteven Javier Zapata \nJhon Staling Sevillano \nAlba Luz Florez \nDavid Steven Suarez \nElquin Samuel Pedraza \n"
                     android:textColor="@color/cardview_dark_background"
                     android:textSize="20dp" />
 
+                <TextView
+                    android:id="@+id/txtAno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/margen_default"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/ano_creacion"
+                    android:textSize="20sp"/>
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
-
 </LinearLayout>
