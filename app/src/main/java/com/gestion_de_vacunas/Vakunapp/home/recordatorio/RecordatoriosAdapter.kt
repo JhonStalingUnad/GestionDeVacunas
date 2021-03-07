@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 
 
-class recordatoriosAdapter(options: FirebaseRecyclerOptions<Recordatorios?>) : FirebaseRecyclerAdapter<Recordatorios?, recordatoriosAdapter.recordatoriosViewholder?>(options) {
+class RecordatoriosAdapter(options: FirebaseRecyclerOptions<Recordatorios?>) : FirebaseRecyclerAdapter<Recordatorios?, RecordatoriosAdapter.recordatoriosViewholder?>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                            viewType: Int): recordatoriosViewholder {
