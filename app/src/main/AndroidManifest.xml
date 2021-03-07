@@ -13,15 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".home.carnet.CarnetFormActivity"
             android:label="@string/carnet_vacunacion"
 
             ></activity>
+
         <!-- MAPS -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" /> <!-- LOGIN -->
+            android:value="@string/google_maps_key" />
+
+        <!-- LOGIN -->
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -32,42 +36,45 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- AUTH -->
+        </activity>
+
+        <!-- AUTH -->
         <activity
             android:name=".home.perfil.RegistrarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".RecordarActivity"
-            android:screenOrientation="portrait" /> <!-- MENU PRINCIPAL -->
+            android:screenOrientation="portrait" />
+
+        <!-- MENU PRINCIPAL -->
         <activity
             android:name=".home.HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity> <!-- MODULOS -->
-        <!--
-<activity
-            android:name=".home.miembro.Miembros"
-            android:screenOrientation="portrait" />
-        -->
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!-- MODULOS -->
         <activity
             android:name=".home.miembro.MiembroFormActivity"
             android:label="@string/nucleo_familiar"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".home.perfil.EditarFormActivity"
             android:label="@string/editar_cuenta"
             android:screenOrientation="portrait" />
-        <!--
- <activity
-            android:name=".home.recordatorio.RecordatorioListFragment"
-            android:screenOrientation="portrait" />
-        -->
+
         <activity
             android:name=".home.recordatorio.RecordatorioFormActivity"
             android:screenOrientation="portrait" />
 
 		<activity
             android:name=".home.plan.PlanFormActivity"
+            android:label="@string/plan_vacunacion"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".home.plan.PlanAsociarFormActivity"
             android:label="@string/plan_vacunacion"
             android:screenOrientation="portrait" />
 			

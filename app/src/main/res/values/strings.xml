@@ -160,5 +160,6 @@
     <!-- Vacunas para viajar -->
 
     <string name="Viajar">Vacunas Requeridas Para Viajes</string>
+    <string name="asociar_plan">Asociar Vacuna</string>
 
 </resources>

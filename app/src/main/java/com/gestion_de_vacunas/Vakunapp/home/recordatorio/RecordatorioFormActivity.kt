@@ -4,8 +4,10 @@ import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.InputType
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
@@ -22,6 +24,9 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
     private lateinit var modo: String
     private lateinit var idRemember: String
+
+    private lateinit var txtTittleForm: TextView
+    private lateinit var txtTittleButton: Button
 
     private lateinit var txtMiembro: Spinner
     private lateinit var txtVacuna: Spinner
@@ -43,6 +48,9 @@ class RecordatorioFormActivity : AppCompatActivity() {
         txtVacuna = findViewById(R.id.spVacuna)
         txtFecha = findViewById(R.id.dtFechaAplicacion)
         progressBar = ProgressDialog(this)
+
+        txtTittleForm = findViewById(R.id.tvRegistroRecordatorio)
+        txtTittleButton = findViewById(R.id.btnSave)
 
         //EVENTO DE CLICK EN EL TEXTVIEW DE CALENDAR
         selectedDate()
@@ -177,18 +185,16 @@ class RecordatorioFormActivity : AppCompatActivity() {
         })
 
 
-
         //DEJO LA REFERENCIA EN LA TABLE REMEMBERS (PARA PROXIMAS CONSULTAS)
         databaseReference = database.reference.child("/Remembers").child(AppPreferences.uid.toString())
-
 
 
         //SETEAR VALORES POR DEFECTO EN MODO EDICION
         if(modo == "edit"){
             txtFecha.setText(aplicationdate)
+            txtTittleForm.setText(R.string.editar_recordatorio)
+            txtTittleButton.setText(R.string.modificar)
         }
-
-
 
         //METODO DEL BUTTON GUARDAR
         val btnSave: Button = findViewById(R.id.btnSave);
@@ -204,8 +210,6 @@ class RecordatorioFormActivity : AppCompatActivity() {
 
     }
 
-
-
     //FUNCION EVENTO CLICK CALENDAR
     private fun selectedDate(){
 
@@ -215,17 +219,22 @@ class RecordatorioFormActivity : AppCompatActivity() {
         val daySelected = C.get(Calendar.DAY_OF_MONTH)
 
         val fechaAplicacion: EditText = findViewById(R.id.dtFechaAplicacion)
-        fechaAplicacion.setInputType(InputType.TYPE_NULL)
+
 
         fechaAplicacion.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener
-            { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + mMonth + "/" + mYear) }, yearSelected, monthSelected, daySelected)
+            fechaAplicacion.requestFocus()
+            fechaAplicacion.setInputType(InputType.TYPE_NULL)
+
+            val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.getWindowToken(), 0)
+
+            //creo la variable para el DatePickDialog
+            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme, DatePickerDialog.OnDateSetListener
+            { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
         }
 
     }
-
-
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     private fun createRemember() {
@@ -235,28 +244,30 @@ class RecordatorioFormActivity : AppCompatActivity() {
         vacunaName = txtVacuna.getSelectedItem().toString()
         fechaAplicacion = txtFecha.text.toString()
 
+        //Valido que los campos no estén vacíos para el registro
+        if (!TextUtils.isEmpty(miembroName) && !TextUtils.isEmpty(vacunaName)
+                && !TextUtils.isEmpty(fechaAplicacion)) {
 
-        //MOSTRAR LOADING
-        progressBar.setMessage("Registrando usuario ...")
-        progressBar.show()
+            //MOSTRAR LOADING
+            progressBar.setMessage("Registrando usuario ...")
+            progressBar.show()
 
+            //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
+            val currentRememberDb = databaseReference.push()
+            currentRememberDb.child("id").setValue(currentRememberDb.getKey())
+            currentRememberDb.child("fullName").setValue(miembroName)
+            currentRememberDb.child("vacunaName").setValue(vacunaName)
+            currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
 
-        //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-        val currentRememberDb = databaseReference.push()
-        currentRememberDb.child("id").setValue(currentRememberDb.getKey())
-        currentRememberDb.child("fullName").setValue(miembroName)
-        currentRememberDb.child("vacunaName").setValue(vacunaName)
-        currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
-
-
-        //OCULTAMOS EL LOADING
-        progressBar.hide()
-        Toast.makeText(this, "Recordatorio creado con exito.", Toast.LENGTH_SHORT).show()
-        super.onBackPressed();
-
+            //OCULTAMOS EL LOADING
+            progressBar.hide()
+            Toast.makeText(this, R.string.remember_suscesfull, Toast.LENGTH_SHORT).show()
+            super.onBackPressed();
+        }
+        else {
+            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+        }
     }
-
-
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     private fun updateRemember() {
@@ -266,27 +277,28 @@ class RecordatorioFormActivity : AppCompatActivity() {
         vacunaName = txtVacuna.getSelectedItem().toString()
         fechaAplicacion = txtFecha.text.toString()
 
+        if (!TextUtils.isEmpty(miembroName) && !TextUtils.isEmpty(vacunaName)
+                && !TextUtils.isEmpty(fechaAplicacion)) {
 
-        //MOSTRAR LOADING
-        progressBar.setMessage("Registrando usuario ...")
-        progressBar.show()
+            //MOSTRAR LOADING
+            progressBar.setMessage("Registrando usuario ...")
+            progressBar.show()
 
+            //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
+            val currentRememberDb = databaseReference.child(idRemember)
+            currentRememberDb.child("fullName").setValue(miembroName)
+            currentRememberDb.child("vacunaName").setValue(vacunaName)
+            currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
 
-        //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-        val currentRememberDb = databaseReference.child(idRemember)
-        currentRememberDb.child("fullName").setValue(miembroName)
-        currentRememberDb.child("vacunaName").setValue(vacunaName)
-        currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
-
-
-        //OCULTAMOS EL LOADING
-        progressBar.hide()
-        Toast.makeText(this, "Recordatorio actualizado con exito.", Toast.LENGTH_SHORT).show()
-        super.onBackPressed();
+            //OCULTAMOS EL LOADING
+            progressBar.hide()
+            Toast.makeText(this, R.string.remember_update_sucesfull, Toast.LENGTH_SHORT).show()
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+        }
 
     }
-
-
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     fun deleteRemember(idRemember: String) {
@@ -313,8 +325,4 @@ class RecordatorioFormActivity : AppCompatActivity() {
         //Toast.makeText(this, "Recordatorio eliminado con exito.", Toast.LENGTH_SHORT).show()
 
     }
-
-
-
-
 }
