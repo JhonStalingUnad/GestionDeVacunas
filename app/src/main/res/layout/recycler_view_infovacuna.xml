@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_InfoVacunas"
+    android:orientation="vertical"
+    android:backgroundTint="#F0F1F1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/margen_default"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="246dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@id/titTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titdescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/titTitle"
+            app:layout_constraintTop_toBottomOf="@id/titTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvdescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@id/titdescripcion"
+            app:layout_constraintTop_toTopOf="@id/titdescripcion" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rvimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="124dp"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@id/titdescripcion"
+            app:layout_constraintTop_toTopOf="@id/titdescripcion" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/titdescripcion"
+            app:layout_constraintTop_toBottomOf="@id/titdescripcion" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

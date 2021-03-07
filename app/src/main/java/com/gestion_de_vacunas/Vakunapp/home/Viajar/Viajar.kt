@@ -1,11 +1,11 @@
-package com.gestion_de_vacunas.Vakunapp.home.Noticias
+package com.gestion_de_vacunas.Vakunapp.home.Viajar
 
 
-class Noticias  {
+class Viajar  {
 
-    fun Noticias(){}
+    fun Viajar(){}
 
-    // definimos las variables de la Clase, que se van a utilizar para registrar las noticias
+    // definimos las variables de la Clase, que se van a utilizar para registrar las vacunas necesarias para viajar
     private var title: String? = null
     private var description: String? = null
     private var image: String? = null

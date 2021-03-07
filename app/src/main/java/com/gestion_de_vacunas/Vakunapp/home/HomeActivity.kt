@@ -7,8 +7,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -17,27 +15,20 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.recyclerview.widget.RecyclerView
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
-import com.gestion_de_vacunas.Vakunapp.home.Informacion.Informacion
 import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
-import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetFormActivity
+import com.gestion_de_vacunas.Vakunapp.home.InfoVacunas.InfovacunaListFragment
 import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
-import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembroFormActivity
-import com.gestion_de_vacunas.Vakunapp.home.miembro.Miembros
-import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosAdapter
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
-import com.gestion_de_vacunas.Vakunapp.home.perfil.RegistrarActivity
-import com.gestion_de_vacunas.Vakunapp.home.perfil.Usuarios
-import com.gestion_de_vacunas.Vakunapp.home.perfil.UsuariosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
-import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
 import com.gestion_de_vacunas.Vakunapp.home.Maps.activity_maps
 import com.gestion_de_vacunas.Vakunapp.home.Noticias.NoticiasListFragment
+import com.gestion_de_vacunas.Vakunapp.home.Viajar.ViajarListFragment
+import kotlinx.android.synthetic.main.recycler_view_viajar.*
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
@@ -105,10 +96,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = R.string.recordatorios;
                 fragment = RecordatorioListFragment()
             }
-            R.id.nav_informacion -> {
-                title = R.string.Informacion;
-                fragment = Informacion()
-            }
             R.id.nav_Noticias -> {
                 title = R.string.Noticias;
                 fragment = NoticiasListFragment()
@@ -117,6 +104,15 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = R.string.Maps;
                 fragment = activity_maps()
             }
+            R.id.nav_Viajar -> {
+                title = R.string.Viajar;
+                fragment = ViajarListFragment()
+            }
+            R.id.nav_InfoVacunas -> {
+                title = R.string.InfoVacuna;
+                fragment = InfovacunaListFragment()
+            }
+
             R.id.nav_logout -> {
                 title = R.string.Logout;
                 AppPreferences.isLogin = false

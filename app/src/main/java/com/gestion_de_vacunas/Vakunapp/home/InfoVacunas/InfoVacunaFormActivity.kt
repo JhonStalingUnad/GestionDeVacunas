@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Noticias
+package com.gestion_de_vacunas.Vakunapp.home.InfoVacunas
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.recycler_view_noticias.*
 import java.util.*
 
-class NoticiasFormActivity : AppCompatActivity() {
+class InfoVacunaFormActivity : AppCompatActivity() {
 
 
 
@@ -28,12 +28,12 @@ class NoticiasFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_noticias_list)
+        setContentView(R.layout.fragment_infovacunas_list)
 
         //Se instancia la base de datos, pasando la referencia con el que se definió en Firebase.
         database= FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-        //Se crea la tabla para registrar noticias
-        databaseReference = database.reference.child("News")
+        //Se crea la tabla para registrar informacion vacunas
+        databaseReference = database.reference.child("InfoVacunas")
 
 
 
@@ -62,7 +62,6 @@ class NoticiasFormActivity : AppCompatActivity() {
                 }
             }
         })
-
 
     }
 
