@@ -115,7 +115,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.nav_AcercaDe -> {
-                title = R.id.acerca_de
+                title = R.string.acerca_de
                 val intent = Intent(this, Activity_Acercade::class.java)
                 startActivity(intent);
 
