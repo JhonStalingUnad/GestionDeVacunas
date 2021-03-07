@@ -26,7 +26,7 @@
 
 
             <LinearLayout
-                android:id="@+id/formulario_Cerrarcuenta"
+                android:id="@+id/acercade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margen_minima"
