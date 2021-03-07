@@ -25,6 +25,9 @@ class RecordatorioFormActivity : AppCompatActivity() {
     private lateinit var modo: String
     private lateinit var idRemember: String
 
+    private lateinit var txtTittleForm: TextView
+    private lateinit var txtTittleButton: Button
+
     private lateinit var txtMiembro: Spinner
     private lateinit var txtVacuna: Spinner
     private lateinit var txtFecha: EditText
@@ -45,6 +48,9 @@ class RecordatorioFormActivity : AppCompatActivity() {
         txtVacuna = findViewById(R.id.spVacuna)
         txtFecha = findViewById(R.id.dtFechaAplicacion)
         progressBar = ProgressDialog(this)
+
+        txtTittleForm = findViewById(R.id.tvRegistroRecordatorio)
+        txtTittleButton = findViewById(R.id.btnSave)
 
         //EVENTO DE CLICK EN EL TEXTVIEW DE CALENDAR
         selectedDate()
@@ -186,6 +192,8 @@ class RecordatorioFormActivity : AppCompatActivity() {
         //SETEAR VALORES POR DEFECTO EN MODO EDICION
         if(modo == "edit"){
             txtFecha.setText(aplicationdate)
+            txtTittleForm.setText(R.string.editar_recordatorio)
+            txtTittleButton.setText(R.string.modificar)
         }
 
         //METODO DEL BUTTON GUARDAR

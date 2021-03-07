@@ -162,5 +162,6 @@
     <string name="Viajar">Vacunas Requeridas Para Viajes</string>
     <string name="remember_suscesfull">Recordatorio creado con éxito</string>
     <string name="remember_update_sucesfull">Recordatorio modificado con éxito</string>
+    <string name="editar_recordatorio">Modificar Recordatorio</string>
 
 </resources>
