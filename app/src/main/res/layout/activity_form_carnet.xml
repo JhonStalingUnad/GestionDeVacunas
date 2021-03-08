@@ -42,12 +42,11 @@
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:background="@drawable/style_spinner"
-            android:id="@+id/spGenero"
+            android:id="@+id/spMiembrosCarnet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/altura_spinners"
             android:layout_marginBottom="8dp"
-            android:entries="@array/miembros"
             android:paddingBottom="@dimen/margen_default"
             android:spinnerMode="dropdown"/>
 

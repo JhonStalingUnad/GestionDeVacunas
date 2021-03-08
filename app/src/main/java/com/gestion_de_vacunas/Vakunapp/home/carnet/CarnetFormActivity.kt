@@ -7,12 +7,18 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.Toast
+import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembroFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosAdapter
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
+import com.google.firebase.database.*
 import com.itextpdf.text.*
 import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfWriter
@@ -26,6 +32,14 @@ import java.util.*
 class CarnetFormActivity : AppCompatActivity() {
 
     private val STORAGE_CODE: Int = 100
+
+
+    private lateinit var spinnerMiembros: Spinner
+    private var miembrosIdArray = ArrayList<String>()
+    private var miembrosNombresArray = ArrayList<String>()
+
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +66,84 @@ class CarnetFormActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnCancelar)
         btnCancel.setOnClickListener {
         }
+
+
+
+
+        //INICIALIZAR EL SPINNER
+        spinnerMiembros = findViewById(R.id.spMiembrosCarnet)
+
+        //BASE DE DATOS
+        database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
+
+
+        //TRAER LOS DATOS DE LOS MIEMBROS
+        databaseReference = database.reference.child("/Members").child(AppPreferences.uid.toString())
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Error trayendo datos de los miembros", "Error trayendo datos de los miembros")
+            }
+
+            //CUANDO SE TRAIGAN LOS DATOS
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val children = snapshot!!.children
+
+                //RECORRER CADA KEY DEL REGISTRO
+                children.forEach {
+
+                    var memberid: String = ""
+                    var firstName: String = ""
+                    var lastName: String = ""
+
+                    it.children.forEach {
+
+                        Log.d("it.key.toString()", it.key.toString());
+                        Log.d("it.value.toString()", it.value.toString());
+
+                        if (it.key.toString() == "id") {
+                            memberid = it.value.toString()
+                        }
+                        if (it.key.toString() == "firstName") {
+                            firstName = it.value.toString()
+                        }
+                        if (it.key.toString() == "lastName") {
+                            lastName = it.value.toString()
+                        }
+                    }
+
+                    if (firstName != "" || lastName != "") {
+                        miembrosIdArray.add(memberid)
+                        miembrosNombresArray.add(firstName + " " + lastName)
+                    }
+
+                }
+
+
+                val spinnerMiembrosAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this@CarnetFormActivity, android.R.layout.simple_spinner_item, miembrosNombresArray)
+                spinnerMiembrosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerMiembros.adapter = spinnerMiembrosAdapter
+
+            }
+        })
+
+
     }
 
     private fun guardarPDF() {
 
+<<<<<<< HEAD
+=======
+
+
+        var miembroCarnetSelected = spinnerMiembros.getSelectedItem().toString()
+        val spinnerPositionMiembro: Int = (spinnerMiembros.adapter as ArrayAdapter<String>).getPosition(miembroCarnetSelected)
+        val miembroIdSelected = miembrosIdArray[spinnerPositionMiembro]
+
+        Log.d("MIEMBRO SELECTED", miembroIdSelected.toString());
+
+
+>>>>>>> 3b59e6d70a1b56c2d4728bc74b9fe8d10d500f59
         //Instancio la propiedad para acceder al documento mediante la librería itextpdf
         val mDocument = com.itextpdf.text.Document()
 
@@ -94,36 +182,127 @@ class CarnetFormActivity : AppCompatActivity() {
             //Función para colocar una línea separadora
             addLineSeparator(mDocument)
 
-            //Registro datos hardcodeados para las pruebas
-            val headingStyle = Font(fontName, headingFontSize, Font.NORMAL, color)
-            addNewItem(mDocument, "Nombre del Usuario:", Element.ALIGN_LEFT,headingStyle)
-            val valuesStyle = Font(fontName, headingFontSize, Font.NORMAL, BaseColor.BLACK)
-            addNewItem(mDocument, "Jhon Staling Sevillano Zemanate", Element.ALIGN_LEFT,valuesStyle)
 
-            addLineSeparator(mDocument)
 
-            addNewItem(mDocument, "Nombre de la Vacuna aplicada:", Element.ALIGN_LEFT,headingStyle)
-            addNewItem(mDocument, "COVID 19 VACCINE AZTRAZENECA", Element.ALIGN_LEFT,valuesStyle)
+            var headingStyle: Font
+            var valuesStyle: Font
 
-            addLineSeparator(mDocument)
 
-            addNewItem(mDocument, "Fecha de aplicación e la vacuna:", Element.ALIGN_LEFT,headingStyle)
-            addNewItem(mDocument, "02/03/2021", Element.ALIGN_LEFT,valuesStyle)
+            databaseReference = database.reference.child("/Members").child( AppPreferences.uid ).child( miembroIdSelected )
+            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
-            addLineSeparator(mDocument)
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("Error trayendo datos de los miembros", "Error trayendo datos de los miembros")
+                }
 
-            addLineSpace(mDocument)
-            addNewItem(mDocument,"OBSERVACION GENERAL DE LA VACUNA", Element.ALIGN_CENTER, titleStyle)
+                //CUANDO SE TRAIGAN LOS DATOS
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val children = snapshot!!.children
+                    Log.d("IN ONDATACHANGE", "INONDATACHANGE")
 
-            addLineSeparator(mDocument)
+                    var firstname = ""
+                    var lastname = ""
+                    var type_document = ""
+                    var number_document = ""
+                    var phone_number = ""
 
-            addNewItem(mDocument, "Se aplica la primera Dosis el día 3 de Marzo del 2021, deberá regresar el 18 de Marzo del 2021 para aplicar la segunda dosis", Element.ALIGN_LEFT,valuesStyle)
+                    //RECORRER CADA KEY DEL REGISTRO
+                    children.forEach {
 
-            //Por último cierro el documento
-            mDocument.close()
+                        if (it.key.toString() == "firstName") {
+                            firstname = it.value.toString()
+                        }
+                        if (it.key.toString() == "lastName") {
+                            lastname = it.value.toString()
+                        }
+                        if (it.key.toString() == "documentNumber") {
+                            number_document = it.value.toString()
+                        }
+                        if (it.key.toString() == "documentType") {
+                            type_document = it.value.toString()
+                        }
+                        if (it.key.toString() == "numberPhone") {
+                            phone_number = it.value.toString()
+                        }
 
-            //Muestro Toast de Archivo Generado
-            Toast.makeText(this,"Archivo PDF Generado satisfactoriamente en el almacenamiento interno del equipo", Toast.LENGTH_SHORT).show()
+                    }
+
+                    headingStyle = Font(fontName, headingFontSize, Font.NORMAL, color)
+                    addNewItem(mDocument, "Nombre del Usuario:", Element.ALIGN_LEFT,headingStyle)
+                    valuesStyle = Font(fontName, headingFontSize, Font.NORMAL, BaseColor.BLACK)
+                    addNewItem(mDocument, firstname + " " + lastname, Element.ALIGN_LEFT,valuesStyle)
+                    addLineSeparator(mDocument)
+
+
+                    headingStyle = Font(fontName, headingFontSize, Font.NORMAL, color)
+                    addNewItem(mDocument, "Identificación:", Element.ALIGN_LEFT,headingStyle)
+                    valuesStyle = Font(fontName, headingFontSize, Font.NORMAL, BaseColor.BLACK)
+                    addNewItem(mDocument, type_document + ": " + number_document, Element.ALIGN_LEFT,valuesStyle)
+                    addLineSeparator(mDocument)
+                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+
+
+
+
+
+                    databaseReference = database.reference.child("/Plan").child( AppPreferences.uid ).child( miembroIdSelected )
+                    databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Log.e("Error trayendo datos de los miembros", "Error trayendo datos de los miembros")
+                        }
+
+                        //CUANDO SE TRAIGAN LOS DATOS
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            val children = snapshot!!.children
+                            Log.d("IN ONDATACHANGE", "INONDATACHANGE")
+
+
+                            //RECORRER CADA KEY DEL REGISTRO
+                            children.forEach {
+
+                                var aplicationDate = ""
+                                var vacunaName = ""
+
+                                it.children.forEach {
+
+                                    if (it.key.toString() == "aplicationDate") {
+                                        aplicationDate = it.value.toString()
+                                    }
+                                    if (it.key.toString() == "vacunaName") {
+                                        vacunaName = it.value.toString()
+                                    }
+
+                                }
+
+                                addNewItem(mDocument, "Nombre de la Vacuna aplicada:", Element.ALIGN_LEFT,headingStyle)
+                                addNewItem(mDocument, vacunaName, Element.ALIGN_LEFT,valuesStyle)
+                                addLineSeparator(mDocument)
+
+                                addNewItem(mDocument, "Fecha de aplicación e la vacuna:", Element.ALIGN_LEFT,headingStyle)
+                                addNewItem(mDocument, aplicationDate, Element.ALIGN_LEFT,valuesStyle)
+                                addLineSeparator(mDocument)
+                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+
+                            }
+
+
+
+                            //Por último cierro el documento
+                            mDocument.close()
+
+                            //Muestro Toast de Archivo Generado
+                            Toast.makeText(this@CarnetFormActivity,"Archivo PDF Generado satisfactoriamente en el almacenamiento interno del equipo", Toast.LENGTH_SHORT).show()
+
+                        }
+                    })
+
+                }
+            })
 
         }catch (e: Exception){
             Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
