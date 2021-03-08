@@ -4,6 +4,8 @@ import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
+import android.view.View
 import android.widget.*
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
@@ -11,20 +13,15 @@ import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.miembro.Miembros
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosAdapter
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
+import com.google.firebase.database.*
 import kotlin.properties.Delegates
 
 class EditarFormActivity : AppCompatActivity() {
 
     private lateinit var accion: String
-    private lateinit var idUser: String
 
     private lateinit var txtName: EditText
     private lateinit var txtLastName: EditText
-    private lateinit var txtEmail: EditText
-    private lateinit var txtPassword: EditText
     private lateinit var txtDocumentType: Spinner
     private lateinit var txtDocumentNumber: EditText
     private lateinit var txtNumberPhone: EditText
@@ -36,8 +33,6 @@ class EditarFormActivity : AppCompatActivity() {
 
     private var firstName by Delegates.notNull<String>()
     private var lastName by Delegates.notNull<String>()
-    private var email by Delegates.notNull<String>()
-    private var password by Delegates.notNull<String>()
     private var documentType by Delegates.notNull<String>()
     private var documentNumber by Delegates.notNull<String>()
     private var numberPhone by Delegates.notNull<String>()
@@ -52,8 +47,6 @@ class EditarFormActivity : AppCompatActivity() {
 
         txtName = findViewById(R.id.txtName)
         txtLastName = findViewById(R.id.txtLastName)
-        txtEmail = findViewById(R.id.txtEmail)
-        txtPassword = findViewById(R.id.txtPassword)
         txtDocumentType = findViewById(R.id.spRegTipoDocumento)
         txtDocumentNumber = findViewById(R.id.etNumberDocument)
         txtNumberPhone = findViewById(R.id.etNumberPhone)
@@ -66,41 +59,66 @@ class EditarFormActivity : AppCompatActivity() {
         //INICIALIZO LA AUTHENTICACION DE FIREBASE
         auth = FirebaseAuth.getInstance()
 
-        //TABLA EN LA CUAL SE VA A CONSULTAR
-        databaseReference = database.reference.child("Users")
+        databaseReference = database.reference.child("/Users").child(AppPreferences.uid.toString())
 
         val intentExtras = intent.extras
 
-        //var id = ""
+        accion = "Edit"
+
+        //idUser = intentExtras.getString("id")
         var firstname = ""
         var lastname = ""
-        var email = ""
-        var password = ""
         var type_document = ""
         var number_document = ""
         var phone_number = ""
 
-        if (intentExtras != null) {
-            accion = "Edit"
-            //idMember = intentExtras.getString("id")
-            //id = intentExtras.getString("id")
-
-            idUser = intentExtras.getString("id")
-            firstname = intentExtras.getString("firstName")
-            lastname = intentExtras.getString("lastName")
-            email = intentExtras.getString("email")
-            password = intentExtras.getString("password")
-            type_document = intentExtras.getString("typeDocument")
-            number_document = intentExtras.getString("numberDocument")
-            phone_number = intentExtras.getString("numberPhone")
-        } else {
-            accion = "Create"
-        }
-
         //Se instancia la base de datos, pasando la referencia con el que se definió en Firebase.
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
 
-        updateAcount()
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Error trayendo datos de los miembros", "Error trayendo datos de los miembros")
+            }
+
+            //CUANDO SE TRAIGAN LOS DATOS
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val children = snapshot!!.children
+                Log.d("IN ONDATACHANGE", "INONDATACHANGE")
+
+                //RECORRER CADA KEY DEL REGISTRO
+                children.forEach {
+
+                    if (it.key.toString() == "firstName") {
+                        firstname = it.value.toString()
+                    }
+                    if (it.key.toString() == "lastName") {
+                        lastname = it.value.toString()
+                    }
+                    if (it.key.toString() == "numberPhone") {
+                        phone_number = it.value.toString()
+                    }
+                    if (it.key.toString() == "numberDocument") {
+                        number_document = it.value.toString()
+                    }
+                    if (it.key.toString() == "typeDocument") {
+                        type_document = it.value.toString()
+                    }
+
+                }
+
+                txtName.setText(firstname.toString())
+                txtLastName.setText(lastname.toString())
+
+                val spinnerPosition: Int = (txtDocumentType.adapter as ArrayAdapter<String>).getPosition(type_document)
+                txtDocumentType.setSelection(spinnerPosition)
+
+                txtDocumentNumber.setText(number_document.toString())
+                txtNumberPhone.setText(phone_number.toString())
+
+            }
+        })
+
 
         val btnEditarPerfil: Button = findViewById(R.id.btnCuentaModificar)
         btnEditarPerfil.setOnClickListener {
@@ -121,14 +139,11 @@ class EditarFormActivity : AppCompatActivity() {
         // Aqui capturamos los nuevos datos del formulario
         firstName = txtName.text.toString()
         lastName = txtLastName.text.toString()
-        email = txtEmail.text.toString()
-        password = txtPassword.text.toString()
         documentType = txtDocumentType.getSelectedItem().toString()
         documentNumber = txtDocumentNumber.text.toString()
         numberPhone = txtNumberPhone.text.toString()
 
         if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName)
-                && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)
                 && !TextUtils.isEmpty(documentNumber) && !TextUtils.isEmpty(numberPhone)){
 
             if (documentType != "Seleccione el Tipo de Documento") {
@@ -140,16 +155,17 @@ class EditarFormActivity : AppCompatActivity() {
 
                 /*Obtenemos la referencia d ela base de datos, y enviamos a actualizar el registro con el id
                 del miembro a modificar */
-                val currentMembersDb = databaseReference.child(idUser)
-                currentMembersDb.child("firstName").setValue(firstName)
-                currentMembersDb.child("lastName").setValue(lastName)
-                currentMembersDb.child("typeDocument").setValue(documentType)
-                currentMembersDb.child("numberDocument").setValue(documentNumber)
-                currentMembersDb.child("numberPhone").setValue(numberPhone)
+                //val currentMembersDb = databaseReference.child(idUser)
+                val currentUsersDb = databaseReference
+                currentUsersDb.child("firstName").setValue(firstName)
+                currentUsersDb.child("lastName").setValue(lastName)
+                currentUsersDb.child("typeDocument").setValue(documentType)
+                currentUsersDb.child("numberDocument").setValue(documentNumber)
+                currentUsersDb.child("numberPhone").setValue(numberPhone)
 
                 //OCULTAMOS EL LOADING
                 //progressBar.dismiss()
-                Toast.makeText(this, R.string.members_update_sucesfull, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.perfil_update_sucesfull, Toast.LENGTH_SHORT).show()
                 super.onBackPressed();
             }else{
                 Toast.makeText(this, R.string.register_selection, Toast.LENGTH_SHORT).show()

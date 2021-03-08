@@ -141,7 +141,14 @@
     <string name="telephone">Teléfono :</string>
     <string name="recuperar_cuenta">Recuperar Cuenta</string>
     <string name="enviar">Enviar Contraseña</string>
+<<<<<<< HEAD
 	<string name="edit_plan_members">Gestionar</string>
+=======
+
+    <string name="edit_plan_members">Gestionar</string>
+
+    <!-- Maps -->
+>>>>>>> 3fad4d8b0695bc17cc3fc5f470b0fa5937d4e6c4
     <string name="Maps">Puntos de atencion cercanos</string>
     <string name="titulo">titulo</string>
     <string name="description">Descripcion :</string>
@@ -149,8 +156,19 @@
     <string name="Noticias">Noticias</string>
     <string name="InfoVacuna">Diccionario de Vacunas</string>
     <string name="Viajar">Vacunas Requeridas Para Viajes</string>
-    <string name="remember_suscesfull">Recordatorio creado con éxito</string>
-    <string name="remember_update_sucesfull">Recordatorio modificado con éxito</string>
-    <string name="editar_recordatorio">Modificar Recordatorio</string>
+    <string name="asociar_plan">Asociar Vacuna</string>
+
+    <string name="editar_recordatorio">Editar Recordatorio</string>
+    <string name="remember_update_sucesfull">Recordatorio Actualizado Con Exito</string>
+    <string name="remember_suscesfull">Recordatorio Creado Con Exito</string>
+
+    <string name="default_notification_channel_id">vakunapp</string>
+    <string name="fcm_message">Vakunapp</string>
+    <string name="perfil_update_sucesfull">Perfil Actualizado con Éxito</string>
+    <string name="acerca_de">Acerca de</string>
+    <string name="acerca_de_mayuscula">ACERCA DE</string>
+    <string name="ano_creacion">Marzo 2021</string>
+    <string name="nombres_vacuna">Nombre de la vacuna:</string>
+    <string name="fecha_aplicacion_vac">Fecha de aplicación :</string>
 
 </resources>

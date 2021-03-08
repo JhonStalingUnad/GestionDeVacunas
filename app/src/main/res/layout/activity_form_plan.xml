@@ -14,186 +14,251 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:paddingLeft="@dimen/margen_minima"
+        android:paddingRight="@dimen/margen_minima"
+        android:paddingBottom="@dimen/margen_minima">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:id="@+id/formulario_registro"
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRegistroMiembros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margen_minima"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textAlignment="center"
+                android:text="@string/plan_vacunacion"
+                android:textStyle="bold"
+                android:textSize="@dimen/texto_mediano"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvRegistroMiembros"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/registrar_miembros"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/texto_mediano"
-                    android:layout_marginBottom="8dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/ingresa_nombre"
-                    app:helperText="@string/campo_requerido"
-                    app:counterMaxLength="@integer/counter_max_name"
-                    app:counterEnabled="true">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/nombres"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvRegistroMiembros"
+                app:layout_constraintTop_toBottomOf="@id/tvRegistroMiembros"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiNombresUsuario"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/altura_campos"
-                        android:maxLength="@integer/counter_max_name"
-                        android:inputType="textCapWords"
-                        android:drawableLeft="@drawable/ic_texto"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titFirstName"
+                app:layout_constraintTop_toTopOf="@id/titFirstName"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/ingresa_apellidos"
-                    app:helperText="@string/campo_requerido"
-                    app:counterMaxLength="@integer/counter_max_lastname"
-                    app:counterEnabled="true">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/apellidos"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titFirstName"
+                app:layout_constraintTop_toBottomOf="@id/titFirstName"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiApellidosUsuario"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/altura_campos"
-                        android:maxLength="@integer/counter_max_name"
-                        android:inputType="textCapWords"
-                        android:drawableLeft="@drawable/ic_texto"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titLastName"
+                app:layout_constraintTop_toTopOf="@id/titLastName"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:hint="@string/fecha_nacimiento"
-                    app:helperText="@string/campo_requerido">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/fecha_de_nacimiento"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titLastName"
+                app:layout_constraintTop_toBottomOf="@id/titLastName"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiFechaNacimiento"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/altura_campos"
-                        android:inputType="date"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:drawableLeft="@drawable/ic_calendar" />
-                </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvDateOfBirth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titDateOfBirth"
+                app:layout_constraintTop_toTopOf="@id/titDateOfBirth"/>
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:background="@drawable/style_spinner"
-                    android:id="@+id/spGenero"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/altura_spinners"
-                    android:layout_marginBottom="8dp"
-                    android:entries="@array/genero"
-                    android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dropdown"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titGenderUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/genero"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titDateOfBirth"
+                app:layout_constraintTop_toBottomOf="@id/titDateOfBirth"/>
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:background="@drawable/style_spinner"
-                    android:id="@+id/spTipoDocumento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/altura_spinners"
-                    android:layout_marginBottom="8dp"
-                    android:entries="@array/tipo_documento"
-                    android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dropdown" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvGenderUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titGenderUser"
+                app:layout_constraintTop_toTopOf="@id/titGenderUser"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:hint="@string/numero_documento"
-                    app:helperText="@string/campo_requerido"
-                    app:counterMaxLength="@integer/counter_max_documentnumber"
-                    app:counterEnabled="true">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titDocumentType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/tipo_de_documento"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titGenderUser"
+                app:layout_constraintTop_toBottomOf="@id/titGenderUser"/>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiNumeroIdentificacion"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/altura_campos"
-                        android:maxLength="@integer/counter_max_documentnumber"
-                        android:inputType="number"
-                        android:drawableLeft="@drawable/ic_number"/>
-                </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvDocumentType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titDocumentType"
+                app:layout_constraintTop_toTopOf="@id/titDocumentType"/>
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:background="@drawable/style_spinner"
-                    android:id="@+id/spParentesco"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/altura_spinners"
-                    android:layout_marginBottom="8dp"
-                    android:entries="@array/parentesco"
-                    android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dropdown"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titRelationship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/parentesco"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titDocumentType"
+                app:layout_constraintTop_toBottomOf="@id/titDocumentType"/>
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:background="@drawable/style_spinner"
-                    android:id="@+id/spGrupoSanguineo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/altura_spinners"
-                    android:layout_marginBottom="8dp"
-                    android:entries="@array/grupo_sanguineo"
-                    android:paddingBottom="@dimen/margen_default"
-                    android:spinnerMode="dropdown"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvRelationship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titRelationship"
+                app:layout_constraintTop_toTopOf="@id/titRelationship"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titDocumentNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/numero_de_documento"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titRelationship"
+                app:layout_constraintTop_toBottomOf="@id/titRelationship"/>
 
-                    <Button
-                        android:id="@+id/btnCancelar"
-                        style="?android:textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margen_minima"
-                        android:text="@string/cancelar"
-                        android:gravity="center"
-                        android:paddingBottom="@dimen/margen_default"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/btnRegistrar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvDocumentNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titDocumentNumber"
+                app:layout_constraintTop_toTopOf="@id/titDocumentNumber"/>
 
-                    <Button
-                        android:id="@+id/btnRegistrar"
-                        style="?android:textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margen_minima"
-                        android:text="@string/registrar"
-                        android:layout_gravity="center"
-                        android:paddingBottom="@dimen/margen_default"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/btnCancelar"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titBloodType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/grupo_sanguineo"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/titDocumentNumber"
+                app:layout_constraintTop_toBottomOf="@id/titDocumentNumber"/>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rvBloodType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/titBloodType"
+                app:layout_constraintTop_toTopOf="@id/titBloodType"/>
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/btnAsociarVacuna"
+                style="?android:textAppearanceSmall"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margen_minima"
+                android:text="@string/asociar_plan"
+                android:paddingBottom="@dimen/margen_default"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/titBloodType"
+                app:layout_constraintTop_toBottomOf="@id/titBloodType" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_item_list_vacunas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btnAsociarVacuna"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

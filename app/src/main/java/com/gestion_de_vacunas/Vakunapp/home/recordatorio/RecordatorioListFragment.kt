@@ -15,14 +15,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import android.widget.Toast
-import androidx.fragment.app.FragmentActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 
 
 class RecordatorioListFragment : Fragment() {
 
     private var recyclerView: RecyclerView? = null
-    var adapter : recordatoriosAdapter? = null
+    var adapter : RecordatoriosAdapter? = null
     var query : Query? = null
 
 
@@ -64,7 +63,7 @@ class RecordatorioListFragment : Fragment() {
                 .build()
 
         //4 - PASAR EL RESULTADO DEL QUERY AL ADAPTER PARA RENDERIZARLO
-        adapter = recordatoriosAdapter(options)
+        adapter = RecordatoriosAdapter(options)
         recyclerView!!.adapter = adapter
 
     }

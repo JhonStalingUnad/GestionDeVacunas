@@ -15,6 +15,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
+import com.gestion_de_vacunas.Vakunapp.Activity_Acercade
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
@@ -110,6 +111,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_InfoVacunas -> {
                 title = R.string.InfoVacuna;
                 fragment = InfoVacunaListFragment()
+            }
+
+            R.id.nav_AcercaDe -> {
+                title = R.string.acerca_de
+                val intent = Intent(this, Activity_Acercade::class.java)
+                startActivity(intent);
+
             }
 
             R.id.nav_logout -> {

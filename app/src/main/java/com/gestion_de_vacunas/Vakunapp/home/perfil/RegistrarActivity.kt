@@ -156,6 +156,7 @@ class RegistrarActivity : AppCompatActivity() {
                         currentUserDb.child("typeDocument").setValue(documentType)
                         currentUserDb.child("numberDocument").setValue(documentNumber)
                         currentUserDb.child("numberPhone").setValue(numberPhone)
+                        currentUserDb.child("fcmToken").setValue( AppPreferences.fcmtoken.toString() )
 
                         //NOS REDIRIGIMOS AL HOMEACTIVITY
                         AppPreferences.isLogin = true

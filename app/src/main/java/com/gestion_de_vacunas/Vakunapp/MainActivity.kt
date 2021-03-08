@@ -4,14 +4,19 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.home.HomeActivity
 import com.gestion_de_vacunas.Vakunapp.home.perfil.RegistrarActivity
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlin.properties.Delegates
 
 
@@ -22,12 +27,42 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var mProgressBar: ProgressDialog
+
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: FirebaseDatabase
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var fcmToken: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppPreferences.init(this)
+
+
+        //SI EL USUARIO ESTA LOGEADO ABRIR LA REFERENCIA A LA DB
+        database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
+
+
+        //CAPTURAR EL TOKEN DE FCM SIEMPRE QUE SE ABRA LA APP
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+
+            if (!task.isSuccessful) {
+                Log.w("TOKEN FCM FAILED", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            //CAPTURAR EL TOKEN Y GGUARDARLO EN LA DB
+            fcmToken = task.result.toString()
+            AppPreferences.fcmtoken = fcmToken
+            if(AppPreferences.isLogin){
+                databaseReference = database.reference.child("/Users").child(AppPreferences.uid.toString())
+                databaseReference.child("fcmToken").setValue(fcmToken)
+            }
+            Log.d("TOKEN FCM", fcmToken)
+
+        })
+
+
 
         // SI ESTA LOGEADO LO MANDAMOS AL HOMEACTIVITY
         if(AppPreferences.isLogin){
@@ -76,6 +111,10 @@ class MainActivity : AppCompatActivity() {
                             AppPreferences.isLogin = true
                             AppPreferences.uid = user.uid
                             AppPreferences.username = email
+                            AppPreferences.fcmtoken = fcmToken
+
+                            databaseReference = database.reference.child("/Users").child(user.uid)
+                            databaseReference.child("fcmToken").setValue(fcmToken)
 
                             //OCULTAMOS EL LOADING
                             mProgressBar.hide()
