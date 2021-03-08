@@ -65,6 +65,7 @@ class CarnetFormActivity : AppCompatActivity() {
 
         val btnCancel: Button = findViewById(R.id.btnCancelar)
         btnCancel.setOnClickListener {
+            this.onBackPressed()
         }
 
 
