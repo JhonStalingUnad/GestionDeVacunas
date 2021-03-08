@@ -141,14 +141,7 @@
     <string name="telephone">Teléfono :</string>
     <string name="recuperar_cuenta">Recuperar Cuenta</string>
     <string name="enviar">Enviar Contraseña</string>
-<<<<<<< HEAD
 	<string name="edit_plan_members">Gestionar</string>
-=======
-
-    <string name="edit_plan_members">Gestionar</string>
-
-    <!-- Maps -->
->>>>>>> 3fad4d8b0695bc17cc3fc5f470b0fa5937d4e6c4
     <string name="Maps">Puntos de atencion cercanos</string>
     <string name="titulo">titulo</string>
     <string name="description">Descripcion :</string>
@@ -157,11 +150,9 @@
     <string name="InfoVacuna">Diccionario de Vacunas</string>
     <string name="Viajar">Vacunas Requeridas Para Viajes</string>
     <string name="asociar_plan">Asociar Vacuna</string>
-
     <string name="editar_recordatorio">Editar Recordatorio</string>
     <string name="remember_update_sucesfull">Recordatorio Actualizado Con Exito</string>
     <string name="remember_suscesfull">Recordatorio Creado Con Exito</string>
-
     <string name="default_notification_channel_id">vakunapp</string>
     <string name="fcm_message">Vakunapp</string>
     <string name="perfil_update_sucesfull">Perfil Actualizado con Éxito</string>
