@@ -133,7 +133,6 @@
     <string name="generar_carnet_vacunacion">Generar Carnet de Vacunación</string>
     <string name="generar">Generar</string>
     <string name="titulo_pdf">"CARNET DE VACUNACION"</string>
-
     <string name="number_cel">Ingresa el Número de Celular</string>
     <string name="title_crear_cuenta">Crear Cuenta</string>
     <string name="title_editar_cuenta">Editar Cuenta</string>
@@ -142,23 +141,13 @@
     <string name="telephone">Teléfono :</string>
     <string name="recuperar_cuenta">Recuperar Cuenta</string>
     <string name="enviar">Enviar Contraseña</string>
-
 	<string name="edit_plan_members">Gestionar</string>
-
-    <!-- Maps -->
     <string name="Maps">Puntos de atencion cercanos</string>
-    <!-- Noticias -->
     <string name="titulo">titulo</string>
     <string name="description">Descripcion :</string>
     <string name="image">Imagen :</string>
     <string name="Noticias">Noticias</string>
-
-    <!-- Informacion Vacunas -->
-
     <string name="InfoVacuna">Diccionario de Vacunas</string>
-
-    <!-- Vacunas para viajar -->
-
     <string name="Viajar">Vacunas Requeridas Para Viajes</string>
     <string name="remember_suscesfull">Recordatorio creado con éxito</string>
     <string name="remember_update_sucesfull">Recordatorio modificado con éxito</string>

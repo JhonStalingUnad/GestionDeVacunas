@@ -12,7 +12,7 @@ import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 
-class InfovacunaListFragment : Fragment() {
+class InfoVacunaListFragment : Fragment() {
 
     private var recyclerView: RecyclerView? = null
     var adapter : InfoVacunaAdapter? = null

@@ -22,7 +22,6 @@ class InfoVacunaAdapter(options: FirebaseRecyclerOptions<InfoVacuna?>) : Firebas
 
         holder.title.setText(model.gettitle())
         holder.description.setText(model.getdescription())
-        holder.imagen.setText(model.getimage())
 
     }
 
@@ -30,12 +29,10 @@ class InfoVacunaAdapter(options: FirebaseRecyclerOptions<InfoVacuna?>) : Firebas
 
         var title: TextView
         var description: TextView
-        var imagen: TextView
 
         init {
             title = itemView.findViewById(R.id.rvtitle)
             description = itemView.findViewById(R.id.rvdescription)
-            imagen = itemView.findViewById(R.id.rvimage)
 
         }
     }

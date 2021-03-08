@@ -71,33 +71,6 @@
             app:layout_constraintStart_toEndOf="@id/titdescripcion"
             app:layout_constraintTop_toTopOf="@id/titdescripcion" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/rvimage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="124dp"
-            android:paddingLeft="@dimen/margen_minima"
-            android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@id/titdescripcion"
-            app:layout_constraintTop_toTopOf="@id/titdescripcion" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/titimage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
-            android:paddingLeft="@dimen/margen_minima"
-            android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/titdescripcion"
-            app:layout_constraintTop_toBottomOf="@id/titdescripcion" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

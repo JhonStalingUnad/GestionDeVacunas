@@ -19,16 +19,15 @@ import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
-import com.gestion_de_vacunas.Vakunapp.home.InfoVacunas.InfovacunaListFragment
+import com.gestion_de_vacunas.Vakunapp.home.InfoVacunas.InfoVacunaListFragment
 import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
-import com.gestion_de_vacunas.Vakunapp.home.Maps.activity_maps
+import com.gestion_de_vacunas.Vakunapp.home.Maps.Activity_Maps
 import com.gestion_de_vacunas.Vakunapp.home.Noticias.NoticiasListFragment
 import com.gestion_de_vacunas.Vakunapp.home.Viajar.ViajarListFragment
-import kotlinx.android.synthetic.main.recycler_view_viajar.*
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
@@ -102,7 +101,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_Maps -> {
                 title = R.string.Maps;
-                fragment = activity_maps()
+                fragment = Activity_Maps()
             }
             R.id.nav_Viajar -> {
                 title = R.string.Viajar;
@@ -110,7 +109,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_InfoVacunas -> {
                 title = R.string.InfoVacuna;
-                fragment = InfovacunaListFragment()
+                fragment = InfoVacunaListFragment()
             }
 
             R.id.nav_logout -> {

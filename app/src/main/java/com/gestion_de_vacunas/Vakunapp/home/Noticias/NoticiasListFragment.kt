@@ -56,31 +56,6 @@ class NoticiasListFragment : Fragment() {
         adapter?.stopListening()
     }
 
-    /*
-    private fun deleteMembers(){
-        Toast.makeText(activity, "Eliminar Miembros", Toast.LENGTH_SHORT).show()
-    }
 
-
-    private fun editMembers(){
-        Toast.makeText(activity, "Editar Miembros", Toast.LENGTH_SHORT).show()
-    }
-
-    /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
-    fun delete(view: View) {
-        deleteMembers()
-    }
-
-    fun edit(view: View) {
-        editMembers()
-    }
-
-    fun newInstance(someInt: Int): Fragment? {
-        val myFragment = Fragment()
-        val args = Bundle()
-        args.putInt("someInt", someInt)
-        myFragment.setArguments(args)
-        return myFragment
-    }*/
 
 }
