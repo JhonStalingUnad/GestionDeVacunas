@@ -132,8 +132,6 @@ class CarnetFormActivity : AppCompatActivity() {
 
     private fun guardarPDF() {
 
-<<<<<<< HEAD
-=======
 
 
         var miembroCarnetSelected = spinnerMiembros.getSelectedItem().toString()
@@ -143,9 +141,9 @@ class CarnetFormActivity : AppCompatActivity() {
         Log.d("MIEMBRO SELECTED", miembroIdSelected.toString());
 
 
->>>>>>> 3b59e6d70a1b56c2d4728bc74b9fe8d10d500f59
         //Instancio la propiedad para acceder al documento mediante la librería itextpdf
         val mDocument = com.itextpdf.text.Document()
+
 
         //Obtengo la Fecha y la hora actual del dispositivo para pasarsela al documento PDF
         val fecha_actual = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
