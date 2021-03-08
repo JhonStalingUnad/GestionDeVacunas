@@ -56,11 +56,8 @@ class CarnetFormActivity : AppCompatActivity() {
 
     private fun guardarPDF() {
 
-
-
         //Instancio la propiedad para acceder al documento mediante la librería itextpdf
         val mDocument = com.itextpdf.text.Document()
-
 
         //Obtengo la Fecha y la hora actual del dispositivo para pasarsela al documento PDF
         val fecha_actual = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())

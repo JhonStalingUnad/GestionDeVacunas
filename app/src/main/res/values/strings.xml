@@ -172,5 +172,7 @@
     <string name="acerca_de">Acerca de</string>
     <string name="acerca_de_mayuscula">ACERCA DE</string>
     <string name="ano_creacion">Marzo 2021</string>
+    <string name="nombres_vacuna">Nombre de la vacuna:</string>
+    <string name="fecha_aplicacion_vac">Fecha de aplicación :</string>
 
 </resources>

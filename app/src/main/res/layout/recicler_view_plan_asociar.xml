@@ -10,7 +10,6 @@
     app:cardCornerRadius="@dimen/margen_default"
     app:cardUseCompatPadding="true">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +18,19 @@
         android:paddingBottom="@dimen/margen_minima"
         android:paddingTop="@dimen/margen_minima"
         android:paddingLeft="@dimen/margen_minima">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titNameVacuna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/nombres_vacuna"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/vacunaname"
@@ -30,8 +42,21 @@
             android:text="@string/fullName"
             android:textStyle="bold"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/titNameVacuna"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titFechaAplicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margen_minima"
+            android:paddingLeft="@dimen/margen_minima"
+            android:paddingBottom="@dimen/margen_minima"
+            android:text="@string/fecha_aplicacion_vac"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/titNameVacuna"
+            app:layout_constraintTop_toBottomOf="@id/titNameVacuna"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/aplicationdate"
@@ -40,13 +65,11 @@
             android:paddingTop="@dimen/margen_minima"
             android:paddingLeft="@dimen/margen_minima"
             android:paddingBottom="@dimen/margen_minima"
-            android:text="@string/fecha_aplicacion"
+            android:text="555555"
             android:textStyle="bold"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/titLastName"
-            app:layout_constraintTop_toBottomOf="@id/vacunaname"/>
-
-
+            app:layout_constraintStart_toEndOf="@id/titFechaAplicacion"
+            app:layout_constraintTop_toTopOf="@id/titFechaAplicacion"/>
 
         <Button
             android:id="@+id/btnEdit"
@@ -56,8 +79,8 @@
             android:textColor="#000000"
             android:backgroundTint="#00FFFFFF"
             android:drawableLeft="@drawable/ic_edit"
-            app:layout_constraintStart_toStartOf="@id/aplicationdate"
-            app:layout_constraintTop_toBottomOf="@id/aplicationdate"
+            app:layout_constraintStart_toStartOf="@id/titFechaAplicacion"
+            app:layout_constraintTop_toBottomOf="@id/titFechaAplicacion"
             android:onClick="edit" />
 
         <Button
@@ -74,5 +97,4 @@
             android:onClick="delete" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
 </androidx.cardview.widget.CardView>

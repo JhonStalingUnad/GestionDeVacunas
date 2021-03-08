@@ -14,9 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:paddingLeft="@dimen/margen_minima"
+        android:paddingRight="@dimen/margen_minima"
+        android:paddingBottom="@dimen/margen_minima">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -238,14 +238,16 @@
                 app:layout_constraintStart_toEndOf="@id/titBloodType"
                 app:layout_constraintTop_toTopOf="@id/titBloodType"/>
 
-
             <Button
                 android:id="@+id/btnAsociarVacuna"
                 style="?android:textAppearanceSmall"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margen_minima"
                 android:text="@string/asociar_plan"
+                android:paddingBottom="@dimen/margen_default"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/titBloodType"
                 app:layout_constraintTop_toBottomOf="@id/titBloodType" />
 
@@ -253,8 +255,6 @@
                 android:id="@+id/rv_item_list_vacunas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="50dp"
-                android:paddingBottom="@dimen/margen_recyclerView"
                 app:layout_constraintTop_toBottomOf="@id/btnAsociarVacuna"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
