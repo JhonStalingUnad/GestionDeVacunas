@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Viajar
+package com.gestion_de_vacunas.Vakunapp.home.noticias
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,16 +12,16 @@ import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 
-class ViajarListFragment : Fragment() {
+class NoticiasListFragment : Fragment() {
 
     private var recyclerView: RecyclerView? = null
-    var adapter : ViajarAdapter? = null
+    var adapter : NoticiasAdapter? = null
     var query : Query? = null
 
     // muestra el frame de la clase
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        val root = inflater.inflate(R.layout.fragment_viajar_list, container, false)
+        val root = inflater.inflate(R.layout.fragment_noticias_list, container, false)
 
         return root
     }
@@ -29,19 +29,19 @@ class ViajarListFragment : Fragment() {
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
 
-        //Consulto a la base de datos, en la Tabla donde se registraron las vacunas para viajar
+        //Consulto a la base de datos, en la Tabla donde se registraron los miembros
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-                .getReference("/Travel")
+                .getReference("/News")
 
         //Busco el RecyclerView, y se asigna el LinearLayout
-        recyclerView = itemView.findViewById(R.id.rv_item_list_Viajar)
+        recyclerView = itemView.findViewById(R.id.rv_item_list_news)
         recyclerView!!.layoutManager = LinearLayoutManager(activity)
 
         //Ejecuto la query en la variable sentencia
-        val sentencia = FirebaseRecyclerOptions.Builder<Viajar>().setQuery(query!!, Viajar::class.java).build()
+        val sentencia = FirebaseRecyclerOptions.Builder<Noticias>().setQuery(query!!, Noticias::class.java).build()
 
         //4 - PASAR EL RESULTADO DEL QUERY AL ADAPTER PARA RENDERIZARLO
-        adapter = ViajarAdapter(sentencia)
+        adapter = NoticiasAdapter(sentencia)
         recyclerView!!.adapter = adapter
 
     }
@@ -55,5 +55,7 @@ class ViajarListFragment : Fragment() {
         super.onStop()
         adapter?.stopListening()
     }
+
+
 
 }

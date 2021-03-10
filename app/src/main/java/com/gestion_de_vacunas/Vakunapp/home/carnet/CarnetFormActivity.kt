@@ -1,38 +1,37 @@
 package com.gestion_de_vacunas.Vakunapp.home.carnet
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
-import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembroFormActivity
-import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosAdapter
-import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.google.firebase.database.*
 import com.itextpdf.text.*
 import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfWriter
 import com.itextpdf.text.pdf.draw.LineSeparator
-import com.itextpdf.text.pdf.draw.VerticalPositionMark
 import kotlinx.android.synthetic.main.activity_form_carnet.*
+import java.io.ByteArrayOutputStream
 import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class CarnetFormActivity : AppCompatActivity() {
 
     private val STORAGE_CODE: Int = 100
-
 
     private lateinit var spinnerMiembros: Spinner
     private var miembrosIdArray = ArrayList<String>()
@@ -67,9 +66,6 @@ class CarnetFormActivity : AppCompatActivity() {
         btnCancel.setOnClickListener {
             this.onBackPressed()
         }
-
-
-
 
         //INICIALIZAR EL SPINNER
         spinnerMiembros = findViewById(R.id.spMiembrosCarnet)
@@ -133,18 +129,14 @@ class CarnetFormActivity : AppCompatActivity() {
 
     private fun guardarPDF() {
 
-
-
         var miembroCarnetSelected = spinnerMiembros.getSelectedItem().toString()
         val spinnerPositionMiembro: Int = (spinnerMiembros.adapter as ArrayAdapter<String>).getPosition(miembroCarnetSelected)
         val miembroIdSelected = miembrosIdArray[spinnerPositionMiembro]
 
         Log.d("MIEMBRO SELECTED", miembroIdSelected.toString());
 
-
         //Instancio la propiedad para acceder al documento mediante la librería itextpdf
         val mDocument = com.itextpdf.text.Document()
-
 
         //Obtengo la Fecha y la hora actual del dispositivo para pasarsela al documento PDF
         val fecha_actual = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
@@ -167,27 +159,26 @@ class CarnetFormActivity : AppCompatActivity() {
             mDocument.addAuthor("VakunApp")
             mDocument.addCreator("Grupo 201495_2 UNAD")
 
-            val color = BaseColor(0,153,204,255)
+            val color = BaseColor(0, 153, 204, 255)
+            val colorLabels = BaseColor(204, 19, 0, 255)
             val headingFontSize = 20.0f
             //val valueFontSize = 26.0f
-
+            
             //Creo la Fuente que se verá en el documento, en la carpeta assets
-            val fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf","UTF-8", BaseFont.EMBEDDED)
+            val fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf", "ISO 8859-1", BaseFont.EMBEDDED)
 
             //Defino el título del estilo, y agrego el título
             val titleStyle = Font(fontName, 36.0f, Font.NORMAL, BaseColor.BLACK)
-            addNewItem(mDocument,"CARNET DE VACUNACION", Element.ALIGN_CENTER, titleStyle)
+            addNewItem(mDocument, "CARNET DE VACUNACIÓN", Element.ALIGN_CENTER, titleStyle)
 
             //Función para colocar una línea separadora
             addLineSeparator(mDocument)
 
-
-
             var headingStyle: Font
+            var headingStyleLabels: Font
             var valuesStyle: Font
 
-
-            databaseReference = database.reference.child("/Members").child( AppPreferences.uid ).child( miembroIdSelected )
+            databaseReference = database.reference.child("/Members").child(AppPreferences.uid).child(miembroIdSelected)
             databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onCancelled(error: DatabaseError) {
@@ -227,26 +218,27 @@ class CarnetFormActivity : AppCompatActivity() {
                     }
 
                     headingStyle = Font(fontName, headingFontSize, Font.NORMAL, color)
-                    addNewItem(mDocument, "Nombre del Usuario:", Element.ALIGN_LEFT,headingStyle)
+                    addNewItem(mDocument, "Nombre del Usuario:", Element.ALIGN_LEFT, headingStyle)
                     valuesStyle = Font(fontName, headingFontSize, Font.NORMAL, BaseColor.BLACK)
-                    addNewItem(mDocument, firstname + " " + lastname, Element.ALIGN_LEFT,valuesStyle)
+                    addNewItem(mDocument, firstname + " " + lastname, Element.ALIGN_LEFT, valuesStyle)
                     addLineSeparator(mDocument)
 
 
                     headingStyle = Font(fontName, headingFontSize, Font.NORMAL, color)
-                    addNewItem(mDocument, "Identificación:", Element.ALIGN_LEFT,headingStyle)
+                    addNewItem(mDocument, "Identificación:", Element.ALIGN_LEFT, headingStyle)
                     valuesStyle = Font(fontName, headingFontSize, Font.NORMAL, BaseColor.BLACK)
-                    addNewItem(mDocument, type_document + ": " + number_document, Element.ALIGN_LEFT,valuesStyle)
+                    addNewItem(mDocument, type_document + ": " + number_document, Element.ALIGN_LEFT, valuesStyle)
                     addLineSeparator(mDocument)
-                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
-                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
-                    addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                    addNewItem(mDocument, "                ", Element.ALIGN_LEFT, valuesStyle)
+                    //addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                    //addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+
+                    addNewItem(mDocument, "VACUNAS", Element.ALIGN_CENTER, titleStyle)
+                    //Función para colocar una línea separadora
+                    addLineSeparator(mDocument)
 
 
-
-
-
-                    databaseReference = database.reference.child("/Plan").child( AppPreferences.uid ).child( miembroIdSelected )
+                    databaseReference = database.reference.child("/Plan").child(AppPreferences.uid).child(miembroIdSelected)
                     databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
 
                         override fun onCancelled(error: DatabaseError) {
@@ -276,26 +268,24 @@ class CarnetFormActivity : AppCompatActivity() {
 
                                 }
 
-                                addNewItem(mDocument, "Nombre de la Vacuna aplicada:", Element.ALIGN_LEFT,headingStyle)
-                                addNewItem(mDocument, vacunaName, Element.ALIGN_LEFT,valuesStyle)
+                                headingStyleLabels = Font(fontName, headingFontSize, Font.NORMAL, colorLabels)
+                                addNewItem(mDocument, "Nombre de la Vacuna aplicada:", Element.ALIGN_LEFT, headingStyleLabels)
+                                addNewItem(mDocument, vacunaName, Element.ALIGN_LEFT, valuesStyle)
                                 addLineSeparator(mDocument)
 
-                                addNewItem(mDocument, "Fecha de aplicación e la vacuna:", Element.ALIGN_LEFT,headingStyle)
-                                addNewItem(mDocument, aplicationDate, Element.ALIGN_LEFT,valuesStyle)
+                                addNewItem(mDocument, "Fecha de aplicación de la Vacuna:", Element.ALIGN_LEFT, headingStyleLabels)
+                                addNewItem(mDocument, aplicationDate, Element.ALIGN_LEFT, valuesStyle)
                                 addLineSeparator(mDocument)
-                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
-                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
-                                addNewItem(mDocument,  "                ", Element.ALIGN_LEFT, valuesStyle)
+                                addNewItem(mDocument, "                ", Element.ALIGN_LEFT, valuesStyle)
+                                addNewItem(mDocument, "                ", Element.ALIGN_LEFT, valuesStyle)
 
                             }
-
-
 
                             //Por último cierro el documento
                             mDocument.close()
 
                             //Muestro Toast de Archivo Generado
-                            Toast.makeText(this@CarnetFormActivity,"Archivo PDF Generado satisfactoriamente en el almacenamiento interno del equipo", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@CarnetFormActivity, "Archivo PDF Generado satisfactoriamente en el almacenamiento interno del equipo", Toast.LENGTH_SHORT).show()
 
                         }
                     })
@@ -311,7 +301,7 @@ class CarnetFormActivity : AppCompatActivity() {
     @Throws(DocumentException::class)
     private fun addLineSeparator(mDocument: Document) {
         val lineSeparator = LineSeparator()
-        lineSeparator.lineColor = BaseColor(0,0,0,68)
+        lineSeparator.lineColor = BaseColor(0, 0, 0, 68)
         addLineSpace(mDocument)
         mDocument.add(Chunk(lineSeparator))
         addLineSpace(mDocument)
@@ -324,7 +314,7 @@ class CarnetFormActivity : AppCompatActivity() {
 
     @Throws(DocumentException::class)
     private fun addNewItem(mDocument: Document, text: String, align: Int, style: Font) {
-        val chunk = Chunk(text,style)
+        val chunk = Chunk(text, style)
         val p = Paragraph(chunk)
         p.alignment = align
         mDocument.add(p)
@@ -333,11 +323,10 @@ class CarnetFormActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when(requestCode){
             STORAGE_CODE -> {
-                if(grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     guardarPDF()
-                }
-                else{
-                    Toast.makeText(this,"Permiso Denegado...", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Permiso Denegado...", Toast.LENGTH_SHORT).show()
                 }
             }
         }

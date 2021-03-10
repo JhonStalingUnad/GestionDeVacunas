@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Viajar
+package com.gestion_de_vacunas.Vakunapp.home.viajar
 
 
 import android.os.Bundle

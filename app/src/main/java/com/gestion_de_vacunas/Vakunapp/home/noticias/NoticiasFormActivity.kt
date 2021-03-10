@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Noticias
+package com.gestion_de_vacunas.Vakunapp.home.noticias
 
 
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.InfoVacunas
+package com.gestion_de_vacunas.Vakunapp.home.infovacunas
 
 
 import android.os.Bundle

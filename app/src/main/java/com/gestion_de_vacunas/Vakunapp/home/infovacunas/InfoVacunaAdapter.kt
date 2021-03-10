@@ -1,4 +1,4 @@
-package com.gestion_de_vacunas.Vakunapp.home.Viajar
+package com.gestion_de_vacunas.Vakunapp.home.infovacunas
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,23 +9,23 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.R
 
-class ViajarAdapter(options: FirebaseRecyclerOptions<Viajar?>) : FirebaseRecyclerAdapter<Viajar?, ViajarAdapter.ViajarViewholder?>(options) {
+class InfoVacunaAdapter(options: FirebaseRecyclerOptions<InfoVacuna?>) : FirebaseRecyclerAdapter<InfoVacuna?, InfoVacunaAdapter.infovacunaViewholder?>(options) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViajarAdapter.ViajarViewholder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfoVacunaAdapter.infovacunaViewholder {
         val view: View = LayoutInflater.from(parent.context)
 
-                .inflate(R.layout.recycler_view_viajar, parent, false)
-        return ViajarViewholder(view)
+                .inflate(R.layout.recycler_view_infovacuna, parent, false)
+        return infovacunaViewholder(view)
     }
 
-    override fun onBindViewHolder(holder: ViajarAdapter.ViajarViewholder, position: Int, model: Viajar) {
+    override fun onBindViewHolder(holder: InfoVacunaAdapter.infovacunaViewholder, position: Int, model: InfoVacuna) {
 
         holder.title.setText(model.gettitle())
         holder.description.setText(model.getdescription())
 
     }
 
-    inner class ViajarViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class infovacunaViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         var title: TextView
         var description: TextView
@@ -33,6 +33,7 @@ class ViajarAdapter(options: FirebaseRecyclerOptions<Viajar?>) : FirebaseRecycle
         init {
             title = itemView.findViewById(R.id.rvtitle)
             description = itemView.findViewById(R.id.rvdescription)
+
         }
     }
 }
