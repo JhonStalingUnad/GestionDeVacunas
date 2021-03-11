@@ -72,13 +72,14 @@
 
                 <Button
                     android:id="@+id/btnSave"
-                    style="?android:textAppearanceSmall"
+                    android:background="@drawable/custom_buttons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margen_default"
                     android:text="@string/guardar"
+                    android:textColor="@android:color/white"
+                    android:paddingBottom="@dimen/margen_minima"
                     android:layout_gravity="center"
-                    android:paddingBottom="@dimen/margen_default"
                     android:textStyle="bold" />
 
             </LinearLayout>

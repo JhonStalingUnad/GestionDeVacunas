@@ -35,7 +35,7 @@
                     android:id="@+id/tvTituloAplicacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/margen_default"
+                    android:paddingBottom="@dimen/margen_minima"
                     android:text="@string/app_text"
                     android:textAlignment="center"
                     android:textStyle="bold"
@@ -45,7 +45,7 @@
                     android:id="@+id/imagenAutenticacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/margen_default"
+                    android:paddingBottom="@dimen/margen_minima"
                     app:srcCompat="@mipmap/ic_logos"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -77,28 +77,27 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    style="?android:textAppearanceSmall"
                     android:id="@+id/btnLogin"
+                    android:background="@drawable/custom_buttons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
                     android:text="@string/login"
                     android:layout_gravity="center"
                     android:textColor="@android:color/white"
-                    android:paddingBottom="@dimen/margen_default"
+                    android:layout_marginBottom="@dimen/margen_default"
+                    android:paddingBottom="@dimen/margen_minima"
                     android:textStyle="bold"
                     android:onClick="login"/>
 
                 <Button
-                    style="?android:textAppearanceSmall"
                     android:id="@+id/create"
+                    android:background="@drawable/custom_buttons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margen_default"
                     android:text="@string/createAct"
                     android:layout_gravity="center"
                     android:textColor="@android:color/white"
-                    android:paddingBottom="@dimen/margen_default"
+                    android:paddingBottom="@dimen/margen_minima"
                     android:textStyle="bold"
                     android:onClick="register"/>
 
@@ -108,7 +107,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btnLogin"
-                    android:paddingBottom="@dimen/margen_default"
                     android:text="@string/forgotPassword"
                     android:textAlignment="center"
                     android:textSize="@dimen/texto_pequeno"

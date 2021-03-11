@@ -166,15 +166,16 @@
                     android:layout_height="wrap_content">
 
                     <Button
-                        style="?android:textAppearanceSmall"
+                        android:background="@drawable/custom_buttons"
                         android:id="@+id/btnCrearCuenta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margen_minima"
                         android:gravity="center"
-                        android:paddingBottom="@dimen/margen_default"
                         android:text="@string/createAct"
                         android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:paddingBottom="@dimen/margen_minima"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

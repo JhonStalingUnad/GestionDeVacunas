@@ -68,10 +68,13 @@
 
         <Button
             android:id="@+id/cerrar_cuenta"
-            android:layout_width="304dp"
+            android:background="@drawable/custom_buttons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-                    android:text="cerrar Cuenta" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="@string/cerrar_cuenta" />
 
       </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -161,5 +161,6 @@
     <string name="ano_creacion">Marzo 2021</string>
     <string name="nombres_vacuna">Nombre de la vacuna:</string>
     <string name="fecha_aplicacion_vac">Fecha de aplicación :</string>
+    <string name="cerrar_cuenta">Cerrar Cuenta</string>
 
 </resources>

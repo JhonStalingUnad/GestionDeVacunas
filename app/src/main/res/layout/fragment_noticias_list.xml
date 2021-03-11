@@ -22,6 +22,7 @@
         android:id="@+id/rv_item_list_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margen_recyclerView"
         app:layout_constraintTop_toBottomOf="@id/rvNoticias"/>
 
 

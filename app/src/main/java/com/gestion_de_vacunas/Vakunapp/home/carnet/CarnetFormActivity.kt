@@ -163,7 +163,7 @@ class CarnetFormActivity : AppCompatActivity() {
             val colorLabels = BaseColor(204, 19, 0, 255)
             val headingFontSize = 20.0f
             //val valueFontSize = 26.0f
-            
+
             //Creo la Fuente que se verá en el documento, en la carpeta assets
             val fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf", "ISO 8859-1", BaseFont.EMBEDDED)
 

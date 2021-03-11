@@ -55,30 +55,32 @@
             android:layout_height="wrap_content">
 
             <Button
-                style="?android:textAppearanceSmall"
                 android:id="@+id/btnCancelar"
+                android:background="@drawable/custom_buttons_forms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margen_minima"
                 android:text="@string/cancelar"
                 android:gravity="center"
-                android:paddingBottom="@dimen/margen_default"
                 android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingBottom="@dimen/margen_minima"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btnGenerar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                style="?android:textAppearanceSmall"
                 android:id="@+id/btnGenerar"
+                android:background="@drawable/custom_buttons_forms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margen_minima"
                 android:text="@string/generar"
                 android:layout_gravity="center"
-                android:paddingBottom="@dimen/margen_default"
                 android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingBottom="@dimen/margen_minima"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btnCancelar"
