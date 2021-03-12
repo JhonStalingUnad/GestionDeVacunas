@@ -165,5 +165,12 @@
     <string name="dialog_tittle_exit">¿Deseas salir de VakunApp?</string>
     <string name="dialog_exit_confirm">Salir</string>
     <string name="dialog_exit_cancel">Cancelar</string>
+    <string name="informacion_vakunapp">VakunApp es una aplicación móvil, que te permite realizar control y seguimiento sobre el esquema de vacunación de todo tu núcleo familiar, de una forma rápida y sencilla.</string>
+    <string name="desarrollado_por">Desarrollado Por:</string>
+    <string name="alba_florez">ALBA LUZ FLOREZ</string>
+    <string name="david_suarez">DAVID STEVEN SUAREZ</string>
+    <string name="elquin_pedraza">ELQUIN SAMUEL PEDRAZA</string>
+    <string name="javier_zapata">JAVIER STEVEN ZAPATA</string>
+    <string name="jhon_sevillano">JHON STALING SEVILLANO</string>
 
 </resources>

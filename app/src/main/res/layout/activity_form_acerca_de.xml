@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/color_aplicacion"
+    tools:context=".AcercaDeFormActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:id="@+id/acercade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margen_minima"
+            android:layout_marginBottom="@dimen/margen_minima"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/txtacercade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margen_default"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@string/acerca_de_mayuscula"
+                android:textColor="@color/colorBlack"
+                android:textSize="24sp"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margen_minima"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingLeft="@dimen/margen_minima">
+
+                <ImageView
+                    android:id="@+id/imgLogoUnad"
+                    android:layout_width="80dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/logo_unad"
+                    android:paddingTop="@dimen/margen_minima"
+                    android:paddingLeft="@dimen/margen_minima"
+                    android:paddingBottom="@dimen/margen_minima"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titDiplomado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/margen_minima"
+                    android:paddingBottom="@dimen/margen_minima"
+                    android:justificationMode="inter_word"
+                    android:text="Diplomado de Profundización \nen Computación Móvil"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toEndOf="@id/imgLogoUnad"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/titGrupo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/margen_minima"
+                    android:paddingBottom="@dimen/margen_minima"
+                    android:text="Grupo: 201495_2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/imgLogoUnad"
+                    app:layout_constraintTop_toBottomOf="@id/titDiplomado" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txtinfovakunnap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:layout_marginBottom="@dimen/margen_default"
+                android:text="@string/informacion_vakunapp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/titDesarrolladoPor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:text="@string/desarrollado_por"
+                android:layout_marginBottom="@dimen/margen_default"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/alba_florez"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/david_suarez"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textStyle="bold"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/elquin_pedraza"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textStyle="bold"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:text="@string/javier_zapata"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textStyle="bold"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/titJhonSevillano"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingTop="@dimen/margen_minima"
+                android:paddingBottom="@dimen/margen_minima"
+                android:layout_marginBottom="72dp"
+                android:text="@string/jhon_sevillano"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/colorGray"
+                android:textStyle="bold"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/txtAno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margen_default"
+                android:textAlignment="center"
+                android:text="@string/ano_creacion"
+                android:textColor="@color/colorGray"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
