@@ -229,7 +229,7 @@ class RecordatorioFormActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(it.getWindowToken(), 0)
 
             //creo la variable para el DatePickDialog
-            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme, DatePickerDialog.OnDateSetListener
+            val datePickerDialog = DatePickerDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert, DatePickerDialog.OnDateSetListener
             { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
         }

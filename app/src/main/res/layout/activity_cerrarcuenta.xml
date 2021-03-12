@@ -41,10 +41,10 @@
             android:layout_height="70dp"
             android:paddingBottom="@dimen/margen_default"
             android:text="@string/app_text"
+            android:textColor="@color/colorBlack"
             android:textAlignment="center"
             android:textSize="@dimen/texto_mediano"
             android:textStyle="bold" />
-
 
         <TextView
             android:id="@+id/txtcomentario"

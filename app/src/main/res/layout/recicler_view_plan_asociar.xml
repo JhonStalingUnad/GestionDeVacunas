@@ -7,7 +7,7 @@
     android:backgroundTint="#F0F1F1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/margen_default"
+    app:cardCornerRadius="@dimen/margen_minima"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +27,7 @@
             android:paddingLeft="@dimen/margen_minima"
             android:paddingBottom="@dimen/margen_minima"
             android:text="@string/nombres_vacuna"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +54,7 @@
             android:paddingLeft="@dimen/margen_minima"
             android:paddingBottom="@dimen/margen_minima"
             android:text="@string/fecha_aplicacion_vac"
+            android:textColor="@color/colorBlack"
             android:textStyle="bold"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/titNameVacuna"

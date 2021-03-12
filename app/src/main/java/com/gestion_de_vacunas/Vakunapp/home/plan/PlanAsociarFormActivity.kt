@@ -161,7 +161,7 @@ class PlanAsociarFormActivity : AppCompatActivity() {
             val imm: InputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.getWindowToken(), 0)
 
-            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme ,DatePickerDialog.OnDateSetListener
+            val datePickerDialog = DatePickerDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert ,DatePickerDialog.OnDateSetListener
             { view, mYear, mMonth, mdayOfMonth -> fechaAplicacion.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
         }

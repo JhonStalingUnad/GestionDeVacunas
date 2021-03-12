@@ -25,13 +25,8 @@
         <item name="android:layout_margin">8dp</item>
     </style>
 
-    <style name="DialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+    <style name="ThemeOverlay.MaterialComponents.Dialog.Alert" parent="Base.ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:textColorPrimaryInverse">@color/colorWhite</item>
-        <item name="android:textColorSecondaryInverse">@color/colorWhite</item>
-        <item name="android:colorControlActivated">@color/colorPrimary</item>
-        <item name="android:selectableItemBackgroundBorderless">@color/colorWhite</item>
-        <item name="android:buttonTintMode">@color/colorPrimary</item>
     </style>
 
 </resources>

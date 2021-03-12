@@ -8,7 +8,7 @@
     android:backgroundTint="#F0F1F1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/margen_default"
+    app:cardCornerRadius="@dimen/margen_minima"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
