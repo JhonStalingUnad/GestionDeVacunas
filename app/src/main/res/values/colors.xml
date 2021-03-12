@@ -7,4 +7,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#373737</color>
+    <color name="colorCardView">#F0F1F1</color>
+
+
+    #F0F1F1
 </resources>

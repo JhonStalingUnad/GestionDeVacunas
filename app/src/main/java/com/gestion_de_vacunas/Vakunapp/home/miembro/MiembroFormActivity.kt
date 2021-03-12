@@ -1,7 +1,6 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
 import android.app.DatePickerDialog
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
@@ -14,7 +13,6 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_form_registrar_miembros.*
 import java.util.*
 import kotlin.properties.Delegates
-
 
 class MiembroFormActivity : AppCompatActivity() {
 
@@ -33,8 +31,6 @@ class MiembroFormActivity : AppCompatActivity() {
     private lateinit var txtDocumentNumber: EditText
     private lateinit var txtRelationship: Spinner
     private lateinit var txtBloodType: Spinner
-
-    private lateinit var  progressBar: ProgressDialog
 
     private lateinit var txtTittleForm: TextView
     private lateinit var txtTittleButton: Button
@@ -64,10 +60,7 @@ class MiembroFormActivity : AppCompatActivity() {
         txtTittleForm = findViewById(R.id.tvRegistroMiembros)
         txtTittleButton = findViewById(R.id.btnRegistrar)
 
-        progressBar = ProgressDialog(this)
-
-
-
+        //Llamo a la Función para capturar los datos en el DatePicker
         selectedDate()
 
         //Capturo los parámetros que se pasan por el Intent
@@ -172,10 +165,6 @@ class MiembroFormActivity : AppCompatActivity() {
             if (genderUser != "Seleccione el Género" && documentType != "Seleccione el Tipo de Documento"
                     && relationship != "Seleccione el Parentesco" && bloodType != "Seleccione el Grupo Sanguíneo") {
 
-                //Muestro un dialogo de Progreso, mientras se registran los miembros en la base de datos de Firebase
-                //progressBar.setMessage("Registrando Miembro, Espere por favor ...")
-                //progressBar.show()
-
                 //Guardo el elemento con el id publico del usuario
                 val currentMembersDb = databaseReference.push()
                 currentMembersDb.child("id").setValue(currentMembersDb.getKey())
@@ -208,7 +197,6 @@ class MiembroFormActivity : AppCompatActivity() {
 
         //Se manda a Eliminar el registro del usuario
         databaseReference.child(idMember).removeValue()
-
     }
 
     //Método para Modificar los datos de los miembros registrados
@@ -232,13 +220,6 @@ class MiembroFormActivity : AppCompatActivity() {
             if (genderUser != "Seleccione el Género" && documentType != "Seleccione el Tipo de Documento"
                     && relationship != "Seleccione el Parentesco" && bloodType != "Seleccione el Grupo Sanguíneo") {
 
-                //Muestro un dialogo de Progreso, mientras se modifican los datos de un miembros en la base de datos de Firebase
-
-                /*progressBar.setMessage("Modificando Miembro, Espere por favor ...")
-                progressBar.onStart()*/
-
-                /*Obtenemos la referencia d ela base de datos, y enviamos a actualizar el registro con el id
-                del miembro a modificar */
                 val currentMembersDb = databaseReference.child(idMember)
                 currentMembersDb.child("firstName").setValue(firstName)
                 currentMembersDb.child("lastName").setValue(lastName)
@@ -249,8 +230,6 @@ class MiembroFormActivity : AppCompatActivity() {
                 currentMembersDb.child("relationship").setValue(relationship)
                 currentMembersDb.child("bloodType").setValue(bloodType)
 
-                //OCULTAMOS EL LOADING
-                //progressBar.dismiss()
                 Toast.makeText(this, R.string.members_update_sucesfull, Toast.LENGTH_SHORT).show()
                 super.onBackPressed();
             }else{
@@ -284,7 +263,6 @@ class MiembroFormActivity : AppCompatActivity() {
             val datePickerDialog = DatePickerDialog(this, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert, DatePickerDialog.OnDateSetListener
             { view, mYear, mMonth, mdayOfMonth -> fechaNacimiento.setText("" + mdayOfMonth + "/" + (mMonth + 1) + "/" + mYear) }, yearSelected, monthSelected, daySelected)
             datePickerDialog.show()
-
         }
     }
 }

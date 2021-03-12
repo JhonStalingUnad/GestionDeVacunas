@@ -79,27 +79,6 @@
     <string name="guardar">Guardar</string>
     <string name="Logout">Cerrar Sesión</string>
     ​
-    <string-array name="Recordatorios">
-        ​
-        <item name="recordatorio">Javier Zapata \n- COVID-19 \n - 2021/04/20</item>
-        ​
-        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​
-        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​
-        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​
-        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​
-        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​
-        <item name="recordatorio">Javier Zapata - COVID-19 - 2021/04/20</item>
-        ​
-        <item name="recordatorio">Angelica Valencia - INFLUENZA - 2021/02/20</item>
-        ​
-        <item name="recordatorio">Carmen Vega - COVID-19 - 2021/05/10</item>
-        ​
-    </string-array>
     <string name="title_activity_home">HomeActivity</string>
 
     <string name="menu_home">Home</string>
@@ -151,8 +130,8 @@
     <string name="Viajar">Vacunas Para Viajar</string>
     <string name="asociar_plan">Asociar Vacuna</string>
     <string name="editar_recordatorio">Editar Recordatorio</string>
-    <string name="remember_update_sucesfull">Recordatorio Actualizado Con Exito</string>
-    <string name="remember_suscesfull">Recordatorio Creado Con Exito</string>
+    <string name="remember_update_sucesfull">Recordatorio Actualizado Con Éxito</string>
+    <string name="remember_suscesfull">Recordatorio Creado Con Éxito</string>
     <string name="default_notification_channel_id">vakunapp</string>
     <string name="fcm_message">Vakunapp</string>
     <string name="perfil_update_sucesfull">Perfil Actualizado con Éxito</string>

@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -23,6 +24,7 @@ import com.google.android.material.navigation.NavigationView
 import com.gestion_de_vacunas.Vakunapp.R
 import com.gestion_de_vacunas.Vakunapp.home.infovacunas.InfoVacunaListFragment
 import com.gestion_de_vacunas.Vakunapp.home.carnet.CarnetListFragment
+import com.gestion_de_vacunas.Vakunapp.home.loading.LoadingDialog
 import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
@@ -82,6 +84,15 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_family -> {
                 title = R.string.nucleo_familiar;
+                val loading = LoadingDialog(this)
+                loading.startLoading()
+                val handler = Handler()
+                handler.postDelayed(object :Runnable{
+                    override fun run() {
+                        loading.isDismiss()
+                    }
+                },3000)
+
                 fragment = MiembrosListFragment()
             }
             R.id.nav_pvacunacion -> {

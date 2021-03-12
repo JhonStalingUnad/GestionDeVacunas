@@ -1,19 +1,16 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
@@ -52,7 +49,6 @@ class MiembrosListFragment : Fragment() {
         //Renderizamos el valor de la query en el adaptador
         adapter = MiembrosAdapter(sentencia)
         recyclerView!!.adapter = adapter
-
     }
 
     override fun onStart() {
@@ -64,6 +60,4 @@ class MiembrosListFragment : Fragment() {
         super.onStop()
         adapter?.stopListening()
     }
-
-
 }

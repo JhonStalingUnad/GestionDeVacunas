@@ -1,19 +1,15 @@
 package com.gestion_de_vacunas.Vakunapp.home.miembro
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.TextView
-
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.R
-
 
 class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRecyclerAdapter<Miembros?, MiembrosAdapter.miembrosViewholder?>(options) {
 
@@ -36,22 +32,12 @@ class MiembrosAdapter(options: FirebaseRecyclerOptions<Miembros?>) : FirebaseRec
         holder.bloodType.setText(model.getBloodType())
 
         //Implemento la opción de Eliminación de regitros de los miembros Registrados
-
         holder.btnDeleteMembers.setOnClickListener {
             v: View -> Unit
 
             val membersActivity = MiembroFormActivity()
 
-            /*val messageDialog = AlertDialog.Builder(membersActivity)
-                    .setTitle(R.string.tittleDialogDelete)
-                    .setMessage(R.string.messageDialogDelete)
-                    .setCancelable(false)
-                    .setPositiveButton( "Delete", DialogInterface.OnClickListener { dialog, id->
-                        membersActivity.deleteMembers(model.getId().toString())
-                    }).show()*/
-
             membersActivity.deleteMembers(model.getId().toString())
-
         }
 
         val contexto = holder.btnUpdateMembers.context
