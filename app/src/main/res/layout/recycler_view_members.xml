@@ -225,6 +225,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/edit_register_members"
                 android:textColor="#000000"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingRight="@dimen/margen_intermedia"
                 android:backgroundTint="#00FFFFFF"
                 android:drawableLeft="@drawable/ic_edit"
                 app:layout_constraintStart_toStartOf="@id/titBloodType"
@@ -238,6 +240,9 @@
                 android:textColor="#000000"
                 android:backgroundTint="#00FFFFFF"
                 android:drawableLeft="@drawable/ic_delete"
+                android:paddingLeft="@dimen/margen_minima"
+                android:paddingRight="@dimen/margen_intermedia"
+                android:layout_marginLeft="@dimen/margen_default"
                 app:layout_constraintStart_toStartOf="@id/rvBtnEditMembers"
                 app:layout_constraintTop_toBottomOf="@id/titBloodType"
                 app:layout_constraintEnd_toEndOf="parent" />

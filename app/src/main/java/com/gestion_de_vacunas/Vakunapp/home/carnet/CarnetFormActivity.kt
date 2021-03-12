@@ -1,6 +1,7 @@
 package com.gestion_de_vacunas.Vakunapp.home.carnet
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -14,6 +15,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
+import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.gestion_de_vacunas.Vakunapp.R
 import com.google.firebase.database.*
 import com.itextpdf.text.*
@@ -64,7 +66,9 @@ class CarnetFormActivity : AppCompatActivity() {
 
         val btnCancel: Button = findViewById(R.id.btnCancelar)
         btnCancel.setOnClickListener {
-            this.onBackPressed()
+            //this.onBackPressed()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent);
         }
 
         //INICIALIZAR EL SPINNER
@@ -330,6 +334,11 @@ class CarnetFormActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent);
     }
 }
 

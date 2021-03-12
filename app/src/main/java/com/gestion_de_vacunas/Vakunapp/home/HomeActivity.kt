@@ -1,5 +1,6 @@
 package com.gestion_de_vacunas.Vakunapp.home
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -15,7 +16,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.ui.AppBarConfiguration
-import com.gestion_de_vacunas.Vakunapp.Activity_Acercade
+import com.gestion_de_vacunas.Vakunapp.AcercaDeFormActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.google.android.material.navigation.NavigationView
@@ -29,6 +30,7 @@ import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragmen
 import com.gestion_de_vacunas.Vakunapp.home.maps.Activity_Maps
 import com.gestion_de_vacunas.Vakunapp.home.noticias.NoticiasListFragment
 import com.gestion_de_vacunas.Vakunapp.home.viajar.ViajarListFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
@@ -58,7 +60,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         onNavigationItemSelected(menuItem)
         menuItem.isChecked = true
 
-
         val headerView: View = navigationView.getHeaderView(0)
         val accountName = headerView.findViewById<TextView>(R.id.accountName)
         accountName.text = AppPreferences.username.toString()
@@ -68,7 +69,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, EditarFormActivity::class.java)
             startActivity(intent)
         }
-
 
         drawer.addDrawerListener(this)
 
@@ -115,19 +115,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_AcercaDe -> {
                 title = R.string.acerca_de
-                val intent = Intent(this, Activity_Acercade::class.java)
+                val intent = Intent(this, AcercaDeFormActivity::class.java)
                 startActivity(intent);
 
             }
 
             R.id.nav_logout -> {
                 title = R.string.Logout;
-                AppPreferences.isLogin = false
-                AppPreferences.uid = ""
-                AppPreferences.username = ""
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent);
+                MaterialAlertDialogBuilder(this)
+                    .setTitle(R.string.dialog_tittle_exit)
+                    .setPositiveButton(R.string.dialog_exit_confirm, DialogInterface.OnClickListener { dialogInterface, i ->
+                        AppPreferences.isLogin = false
+                        AppPreferences.uid = ""
+                        AppPreferences.username = ""
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent);
+                        finish()
+                    })
+                    .setNegativeButton(R.string.dialog_exit_cancel, null)
+                    .show()
                 return true
             }
         }
@@ -148,7 +155,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            val intent = Intent(this, HomeActivity::class.java)
         }
     }
 
@@ -181,4 +188,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onDrawerStateChanged(i: Int) {
     }
+
+
 }

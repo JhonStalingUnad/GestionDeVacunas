@@ -241,7 +241,7 @@
             <Button
                 android:id="@+id/btnAsociarVacuna"
                 android:background="@drawable/custom_buttons_forms"
-                android:layout_gravity="center"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margen_minima"
@@ -250,7 +250,8 @@
                 android:textColor="@android:color/white"
                 android:paddingBottom="@dimen/margen_minima"
                 app:layout_constraintStart_toStartOf="@id/titBloodType"
-                app:layout_constraintTop_toBottomOf="@id/titBloodType" />
+                app:layout_constraintTop_toBottomOf="@id/titBloodType"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_item_list_vacunas"

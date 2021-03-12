@@ -1,10 +1,12 @@
 package com.gestion_de_vacunas.Vakunapp
 
 import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.home.HomeActivity
 import com.gestion_de_vacunas.Vakunapp.home.perfil.RegistrarActivity
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -38,10 +41,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         AppPreferences.init(this)
 
-
         //SI EL USUARIO ESTA LOGEADO ABRIR LA REFERENCIA A LA DB
         database = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
-
 
         //CAPTURAR EL TOKEN DE FCM SIEMPRE QUE SE ABRA LA APP
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
@@ -62,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-
-
         // SI ESTA LOGEADO LO MANDAMOS AL HOMEACTIVITY
         if(AppPreferences.isLogin){
             val intent = Intent(this, HomeActivity::class.java)
@@ -76,7 +75,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     // CREAMOS UN MÉTODO PARA INICIALIZAR NUESTROS ELEMENTOS DEL DISEÑO Y LA AUTENTICACIÓN DE FIREBASE
     private fun initialise() {
         etEmail = findViewById(R.id.etEmail)
@@ -84,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         mProgressBar = ProgressDialog(this)
         mAuth = FirebaseAuth.getInstance()
     }
-
 
     private fun loginUser() {
 
@@ -135,20 +132,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     /*********** FUNCIONES DE INVOCACION DIRECTA DESDE LA VISTA ************/
     fun login(view: View) {
         loginUser()
     }
 
-
     fun forgotPassword(view: View) {
         startActivity( Intent(this, RecordarActivity::class.java) )
     }
 
-
     fun register(view: View) {
         startActivity( Intent(this, RegistrarActivity::class.java) )
     }
+
+    /*override fun onBackPressed() {
+        super.onDestroy()
+    }*/
 
 }

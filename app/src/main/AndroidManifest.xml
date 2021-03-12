@@ -65,7 +65,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Activity_Acercade"
+            android:name=".AcercaDeFormActivity"
             android:label="@string/acerca_de"
             android:screenOrientation="portrait" />
 
