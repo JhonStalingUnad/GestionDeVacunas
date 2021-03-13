@@ -13,7 +13,7 @@ class Plan() {
     private var relationship: String? = null
     private var bloodType: String? = null
 
-    fun Miembros(){
+    fun Plan(){
 
     }
 

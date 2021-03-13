@@ -14,7 +14,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class Activity_Maps : Fragment() {
+class ActivityMaps : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
 

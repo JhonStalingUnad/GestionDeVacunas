@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_form_registrar.*
 import kotlinx.android.synthetic.main.activity_form_registrar_miembros.*
 import kotlin.properties.Delegates
 
-class RegistrarActivity : AppCompatActivity() {
+class RegistrarFormActivity : AppCompatActivity() {
 
     private lateinit var accion: String
 

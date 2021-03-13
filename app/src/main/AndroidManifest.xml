@@ -40,10 +40,10 @@
 
         <!-- AUTH -->
         <activity
-            android:name=".home.perfil.RegistrarActivity"
+            android:name=".home.perfil.RegistrarFormActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".RecordarActivity"
+            android:name=".RecordarFormActivity"
             android:screenOrientation="portrait" />
 
         <!-- MENU PRINCIPAL -->

@@ -7,7 +7,7 @@ class PlanAsociar {
     private var vacunaName: String? = null
     private var aplicationDate: String? = null
 
-    fun Recordatorios() {}
+    fun PlanAsociar() {}
 
     fun getId(): String? {
         return id

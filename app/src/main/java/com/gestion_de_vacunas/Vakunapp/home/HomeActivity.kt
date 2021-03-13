@@ -29,7 +29,7 @@ import com.gestion_de_vacunas.Vakunapp.home.miembro.MiembrosListFragment
 import com.gestion_de_vacunas.Vakunapp.home.perfil.EditarFormActivity
 import com.gestion_de_vacunas.Vakunapp.home.plan.PlanListFragment
 import com.gestion_de_vacunas.Vakunapp.home.recordatorio.RecordatorioListFragment
-import com.gestion_de_vacunas.Vakunapp.home.maps.Activity_Maps
+import com.gestion_de_vacunas.Vakunapp.home.maps.ActivityMaps
 import com.gestion_de_vacunas.Vakunapp.home.noticias.NoticiasListFragment
 import com.gestion_de_vacunas.Vakunapp.home.viajar.ViajarListFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -113,7 +113,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_Maps -> {
                 title = R.string.Maps;
-                fragment = Activity_Maps()
+                fragment = ActivityMaps()
             }
             R.id.nav_Viajar -> {
                 title = R.string.Viajar;

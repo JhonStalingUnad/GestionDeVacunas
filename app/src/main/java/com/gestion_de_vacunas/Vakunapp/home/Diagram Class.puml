@@ -1,0 +1,516 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Miembros {
+    - id: String
+    - firstName: String
+    - lastName: String
+    - dateOfBirth: String
+    - genderUser: String
+    - documentType: String
+    - documentNumber: String
+    - relationship: String
+    - bloodType: String
+    setId()
+    setFirstName()
+    setLastName()
+    setDateOfBirth()
+    setGenderUser()
+    setDocumentType()
+    setDocumentNumber()
+    setRelationship()
+    setBloodType()
+    getId()
+    getFirstName()
+    getLastName()
+    getDateOfBirth()
+    getGenderUser()
+    getDocumentType()
+    getDocumentNumber()
+    getRelationship()
+    getBloodType()
+}
+
+class MiembrosFormActivity extends Miembros {
+    - accion: String
+    - idMember: String
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    - txtFirstName: EditText
+    - txtLastName: EditText
+    - txtDateOfBirth: EditText
+    - txtGenderUser: Spinner
+    - txtDocumentType: Spinner
+    - txtDocumentNumber: EditText
+    - txtRelationship: Spinner
+    - txtBloodType: Spinner
+    - txtTittleForm: TextView
+    - txtTittleButton: TextView
+    - firstName: String
+    - lastName: String
+    - dateOfBirth: String
+    - genderUser: String
+    - documentType: String
+    - documentNumber: String
+    - relationship: String
+    - bloodtype: String
+    onCreate()
+    createMembers()
+    deleteMembers()
+    updateMembers()
+    selectedDay()
+}
+
+class MiembrosAdapter extends MiembrosFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    MiembrosViewHolder()
+}
+
+class MiembrosListFragment extends MiembrosAdapter {
+    - recyclerView: RecyclerView
+    - adapter: MiembrosAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class Plan extends Miembros {
+    - id: String
+    - firstName: String
+    - lastName: String
+    - dateOfBirth: String
+    - genderUser: String
+    - documentType: String
+    - documentNumber: String
+    - relationship: String
+    - bloodType: String
+    setId()
+    setFirstName()
+    setLastName()
+    setDateOfBirth()
+    setGenderUser()
+    setDocumentType()
+    setDocumentNumber()
+    setRelationship()
+    setBloodType()
+    getId()
+    getFirstName()
+    getLastName()
+    getDateOfBirth()
+    getGenderUser()
+    getDocumentType()
+    getDocumentNumber()
+    getRelationship()
+    getBloodType()
+}
+
+class PlanFormActivity extends Plan {
+    - recyclerView: RecyclerView
+    - adapter: PlanAsociarAdapter
+    - query: Query
+    - accion: String
+    - MemberId: String
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    - txtFirstName: EditText
+    - txtLastName: EditText
+    - txtDateOfBirth: EditText
+    - txtGenderUser: Spinner
+    - txtDocumentType: Spinner
+    - txtDocumentNumber: EditText
+    - txtRelationship: Spinner
+    - txtBloodType: Spinner
+    - progressBar: ProgressDialog
+    onCreate()
+    onStart()
+    onStop()
+}
+
+class PlanAdapter extends PlanFormActivity{
+    onCreateViewHolder()
+    onBindViewHolder()
+    MiembrosViewHolder()
+}
+
+class PlanAsociar extends Miembros{
+    - id: String
+    - member: String
+    - vacunaName: String
+    - aplicationDate: String
+    getId()
+    setId()
+    getMember()
+    setmember()
+    getVacunaname()
+    setVacunaname()
+    getAplicationdate()
+    setAplicationdate()
+}
+
+class PlanAsociarFormActivity extends PlanAsociar {
+    - progressBar: Dialog
+    - modo: String
+    - planId: String
+    - memberId: String
+    - txtVacuna: EditText
+    - txtFecha: EditText
+    - miembroName: String
+    - vacunaName: String
+    - fechaAplicacion: String
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+    selectedDay()
+    createRemember()
+    updateRemember()
+    DeleteRemember()
+}
+
+class PlanAsociarAdapter extends PlanAsociarFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    RecordatoriosViewHolder()
+}
+
+class PlanListFragment extends PlanAsociarAdapter {
+    - recyclerView: RecyclerView
+    - adapter: PlanAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class CarnetFormActivity extends PlanAsociar {
+    - STORAGE_CODE: Int
+    - spinnerMiembros: Spinner
+    - miembrosIdArray: String
+    - miembrosNombresArray: String
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+    guardarPDF()
+    addLineSeparator()
+    addLineSpace()
+    addNewItem()
+    onRequestPermissionsResult()
+    onBackPressed()
+}
+
+class CarnetListFragment extends CarnetFormActivity {
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class Recordatorios extends Miembros {
+    - id: String
+    - fullName: String
+    - vacunaName: String
+    - aplicationDate: String
+    getId()
+    setId()
+    getFullName()
+    setFullName()
+    getVacunaname()
+    setVacunaname()
+    getAplicationdate()
+    setAplicationdate()
+}
+
+class RecordatorioFormActivity extends Recordatorios {
+    - progressBar: ProgressDialog
+    - modo: String
+    - idRemember: String
+    - txtTittleForm: TextView
+    - txtTittleButton: TextView
+    - txtMiembro: Spinner
+    - txtVacuna: Spinner
+    - txtFecha: EditText
+    - miembroName: String
+    - vacunaName: String
+    - fechaAplicacion: String
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+    selectedDay()
+    createRemember()
+    updateMembers()
+    deleteMembers()
+}
+
+class RecordatoriosAdapter extends RecordatorioFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    RecordatoriosViewHolder()
+}
+
+class RecordatorioListFragment extends RecordatoriosAdapter {
+    - recyclerView: RecyclerView
+    - adapter: RecordatoriosAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+    deleteRecordatorio()
+    editRecordatorio()
+    delete()
+    edit()
+}
+
+class Noticias {
+    - tittle: String
+    - descripcion: String
+    setTittle()
+    setDescripcion()
+    getTittle()
+    getDescripcion()
+}
+
+class NoticiasFormActivity extends Noticias {
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+}
+
+class NoticiasAdapter extends NoticiasFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    NoticiasViewHolder()
+}
+
+class NoticiasListFragment extends NoticiasAdapter {
+    - recyclerView: RecyclerView
+    - adapter: NoticiasAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class InfoVacuna {
+    - tittle: String
+    - descripcion: String
+    setTittle()
+    setDescripcion()
+    getTittle()
+    getDescripcion()
+}
+
+class InfoVacunaFormActivity extends InfoVacuna {
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+}
+
+class InfoVacunaAdapter extends InfoVacunaFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    InfoVacunaViewHolder()
+}
+
+class InfoVacunaListFragment extends InfoVacunaAdapter {
+    - recyclerView: RecyclerView
+    - adapter: InfoVacunasAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class Viajar {
+    - tittle: String
+    - descripcion: String
+    setTittle()
+    setDescripcion()
+    getTittle()
+    getDescripcion()
+}
+
+class ViajarFormActivity extends Viajar {
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    onCreate()
+}
+
+class ViajarAdapter extends ViajarFormActivity{
+    onCreateViewHolder()
+    onBindViewHolder()
+    ViajarViewHolder()
+}
+
+class ViajarListFragment extends ViajarAdapter {
+    - recyclerView: RecyclerView
+    - adapter: ViajarAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class ActivityMaps {
+    - callback: GoogleMaps
+    onCreateView()
+    onViewCreated()
+}
+
+class Usuarios {
+    - id: String
+    - firstName: String
+    - lastName: String
+    - email: String
+    - password: String
+    - documentType: String
+    - documentNumber: String
+    - phoneNumber: String
+    setId()
+    setFirstname()
+    setLastname()
+    setEmail()
+    setPassword()
+    setDocumentType()
+    setDocumentNumber()
+    setPhoneNumber()
+    getId()
+    getFirstname()
+    getLastname()
+    getEmail()
+    getPassword()
+    getDocumentType()
+    getDocumentNumber()
+    getPhoneNumber()
+}
+
+class RegistrarFormActivity extends Usuarios {
+    - accion: String
+    - idUser: String
+    - txtName: EditText
+    - txtLastName: EditText
+    - txtEmail: EditText
+    - txtPassword: EditText
+    - txtDocumentType: Spinner
+    - txtDocumentNumber: EditText
+    - txtNumberPhone: EditText
+    - progressBar: ProgressDialog
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    - auth: FirebaseAuth
+    - firstName: String
+    - lastName: String
+    - email: String
+    - password: String
+    - documentType: String
+    - documentNumber: String
+    - numberPhone: String
+    onCreate()
+    initialise()
+    createNewAccount()
+    register()
+}
+
+class EditarFormActivity extends Usuarios {
+    - accion: String
+    - txtName: EditText
+    - txtLastName: EditText
+    - txtDocumentType: Spinner
+    - txtDocumentNumber: EditText
+    - txtNumberPhone: EditText
+    - progressBar: ProgressDialog
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    - auth: FirebaseAuth
+    - firstName: String
+    - lastName: String
+    - documentType: String
+    - documentNumber: String
+    - numberPhone: String
+    onCreate()
+    initialise()
+    updateAcount()
+}
+
+class UsuariosAdapter extends RegistrarFormActivity {
+    onCreateViewHolder()
+    onBindViewHolder()
+    UsuariosViewHolder()
+}
+
+class UsuariosListFragment extends UsuariosAdapter {
+    - recyclerView: RecyclerView
+    - adapter: UsuariosAdapter
+    - query: Query
+    onCreateView()
+    onViewCreated()
+    onStart()
+    onStop()
+}
+
+class RecordarFormActivity extends Usuarios {
+    etEmail: EditText
+    mAuth: FirebaseAuth
+    onCreate()
+    initialise()
+    sendPasswordResetEmail()
+    reset()
+}
+
+class MainActivity extends Usuarios {
+    - email: String
+    - password: String
+    - etEmail: EditText
+    - etPassword: EditText
+    - mProgressBar: ProgressDialog
+    - databaseReference: DatabaseReference
+    - database: FirebaseDatabase
+    - mAuth: FirebaseAuth
+    - fcmToken: String
+    onCreate()
+    initialise()
+    loginUser()
+    login()
+    forgotPassword()
+    register()
+}
+
+class CerrarCuentaFormActivity extends Usuarios{
+    onCreate()
+    onBackPressed()
+}
+
+class FirebaseMessaginService {
+    onMessageReceived()
+    onNewToken()
+    scheduleJob()
+    handleNow()
+    sendRegistrationToServer()
+    sendNotification()
+}
+
+class HomeActivity {
+     - appBarConfiguration: AppBarConfiguration
+     - drawer: DrawerLayout
+     - toggle: ActionBarDrawerToggle
+     - drawerLayout: DrawerLayout
+     onCreate()
+     onNavigationItemSelected()
+     onBackPressed()
+     onCreateOptionsMenu()
+     onPostCreate()
+     onConfigurationChanged()
+     onOptionsItemSelected()
+     onDrawerSlide()
+     onDrawerOpened()
+     onDrawerClosed()
+     onDrawerStateChanged()
+}
+
+@enduml
