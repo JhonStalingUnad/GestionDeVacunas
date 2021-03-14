@@ -192,7 +192,7 @@ class PlanAsociarFormActivity : AppCompatActivity() {
 
             //OCULTAMOS EL LOADING
             progressBar.hide()
-            Toast.makeText(this, "Recordatorio creado con éxito.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.plan_registered_sucesfull, Toast.LENGTH_SHORT).show()
             super.onBackPressed();
         }else{
             Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
@@ -222,7 +222,7 @@ class PlanAsociarFormActivity : AppCompatActivity() {
 
             //OCULTAMOS EL LOADING
             progressBar.hide()
-            Toast.makeText(this, "Recordatorio actualizado con exito.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.plan_modified_sucesfull, Toast.LENGTH_SHORT).show()
             super.onBackPressed();
         }else{
             Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()

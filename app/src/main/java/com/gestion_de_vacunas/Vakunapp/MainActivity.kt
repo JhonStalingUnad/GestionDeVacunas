@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
 
             //MOSTRAMOS EL LOADING
-            mProgressBar.setMessage("Iniciando sesion...")
+            mProgressBar.setMessage("Iniciando sesión...")
             mProgressBar.show()
 
             //INICIAMOS SESIÓN CON EL MÉTODO SIGNIN Y ENVIAMOS USUARIO Y CONTRASEÑA

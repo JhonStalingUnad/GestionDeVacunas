@@ -154,5 +154,7 @@
     <string name="javier_zapata">JAVIER STEVEN ZAPATA</string>
     <string name="jhon_sevillano">JHON STALING SEVILLANO</string>
     <string name="error_user_created">Error creando usuario</string>
+    <string name="plan_registered_sucesfull">Vacuna asociada con éxito</string>
+    <string name="plan_modified_sucesfull">Vacuna Asociada Modificada con éxito</string>
 
 </resources>
