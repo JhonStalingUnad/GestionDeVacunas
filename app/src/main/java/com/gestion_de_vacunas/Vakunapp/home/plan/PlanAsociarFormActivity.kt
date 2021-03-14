@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.InputType
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -175,27 +176,29 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         vacunaName = txtVacuna.getSelectedItem().toString()
         fechaAplicacion = txtFecha.text.toString()
 
+        //Valido que los campos no estén vacíos para el registro
+        if (!TextUtils.isEmpty(vacunaName) && !TextUtils.isEmpty(fechaAplicacion)) {
 
-        //MOSTRAR LOADING
-        progressBar.setMessage("Registrando usuario ...")
-        progressBar.show()
+            //MOSTRAR LOADING
+            progressBar.setMessage("Registrando recordatorio ...")
+            progressBar.show()
 
+            //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
+            val currentRememberDb = databaseReference.push()
+            currentRememberDb.child("member").setValue(memberId)
+            currentRememberDb.child("id").setValue(currentRememberDb.getKey())
+            currentRememberDb.child("vacunaName").setValue(vacunaName)
+            currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
 
-        //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-        val currentRememberDb = databaseReference.push()
-        currentRememberDb.child("member").setValue(memberId)
-        currentRememberDb.child("id").setValue(currentRememberDb.getKey())
-        currentRememberDb.child("vacunaName").setValue(vacunaName)
-        currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
-
-
-        //OCULTAMOS EL LOADING
-        progressBar.hide()
-        Toast.makeText(this, "Recordatorio creado con exito.", Toast.LENGTH_SHORT).show()
-        super.onBackPressed();
+            //OCULTAMOS EL LOADING
+            progressBar.hide()
+            Toast.makeText(this, "Recordatorio creado con éxito.", Toast.LENGTH_SHORT).show()
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+        }
 
     }
-
 
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
@@ -205,27 +208,27 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         vacunaName = txtVacuna.getSelectedItem().toString()
         fechaAplicacion = txtFecha.text.toString()
 
+        if (!TextUtils.isEmpty(vacunaName) && !TextUtils.isEmpty(fechaAplicacion)) {
 
-        //MOSTRAR LOADING
-        progressBar.setMessage("Registrando usuario ...")
-        progressBar.show()
+            //MOSTRAR LOADING
+            progressBar.setMessage("Registrando usuario ...")
+            progressBar.show()
 
+            //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
+            val currentRememberDb = databaseReference.child(planId)
+            currentRememberDb.child("member").setValue(memberId)
+            currentRememberDb.child("vacunaName").setValue(vacunaName)
+            currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
 
-        //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-        val currentRememberDb = databaseReference.child(planId)
-        currentRememberDb.child("member").setValue(memberId)
-        currentRememberDb.child("vacunaName").setValue(vacunaName)
-        currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
-
-
-        //OCULTAMOS EL LOADING
-        progressBar.hide()
-        Toast.makeText(this, "Recordatorio actualizado con exito.", Toast.LENGTH_SHORT).show()
-        super.onBackPressed();
+            //OCULTAMOS EL LOADING
+            progressBar.hide()
+            Toast.makeText(this, "Recordatorio actualizado con exito.", Toast.LENGTH_SHORT).show()
+            super.onBackPressed();
+        }else{
+            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+        }
 
     }
-
-
 
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     fun deleteRemember(idMember: String, idPlan: String) {
@@ -238,8 +241,5 @@ class PlanAsociarFormActivity : AppCompatActivity() {
         databaseReference.child(idMember).child(idPlan).removeValue()
 
     }
-
-
-
 
 }

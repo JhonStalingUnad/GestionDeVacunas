@@ -121,6 +121,7 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             //SI OCURRIO UN ERROR LOGEANDONOS LE INFORMAMOS
                             Toast.makeText(this, "Correo o contraseña incorrectos.", Toast.LENGTH_SHORT).show()
+                            mProgressBar.hide()
                         }
                     }
         } else {
