@@ -174,11 +174,11 @@ class RegistrarFormActivity : AppCompatActivity() {
                     }
                     //METODO DE CREACION FALLIDA
                     .addOnFailureListener{
-                        Toast.makeText(this, "Error creando el usuario.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.error_user_created, Toast.LENGTH_SHORT).show()
                     }
 
         } else {
-            Toast.makeText(this, "Llene todos los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
         }
     }
 

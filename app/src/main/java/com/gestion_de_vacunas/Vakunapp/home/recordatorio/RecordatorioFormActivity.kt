@@ -2,6 +2,8 @@ package com.gestion_de_vacunas.Vakunapp.home.recordatorio
 
 import android.app.DatePickerDialog
 import android.app.ProgressDialog
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
@@ -11,7 +13,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
+import com.gestion_de_vacunas.Vakunapp.MainActivity
 import com.gestion_de_vacunas.Vakunapp.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_form_recordatorio.*
 import java.util.*
@@ -239,33 +243,43 @@ class RecordatorioFormActivity : AppCompatActivity() {
     //METODO PARA CREAR UN NUEVO RECORDATORIO
     private fun createRemember() {
 
-        //CAPTURAR DATOS DEL FORMULARIO
-        miembroName = txtMiembro.getSelectedItem().toString()
-        vacunaName = txtVacuna.getSelectedItem().toString()
-        fechaAplicacion = txtFecha.text.toString()
+        if(spMiembro.selectedItem == null){
+            MaterialAlertDialogBuilder(this)
+                    .setTitle(R.string.dialog_user_empty)
+                    .setPositiveButton(R.string.dialog_carnet_confirm, DialogInterface.OnClickListener { dialogInterface, i ->
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent);
+                    })
+                    .setCancelable(false)
+                    .show()
+        }else {
+            //CAPTURAR DATOS DEL FORMULARIO
+            miembroName = txtMiembro.getSelectedItem().toString()
+            vacunaName = txtVacuna.getSelectedItem().toString()
+            fechaAplicacion = txtFecha.text.toString()
 
-        //Valido que los campos no estén vacíos para el registro
-        if (!TextUtils.isEmpty(miembroName) && !TextUtils.isEmpty(vacunaName)
-                && !TextUtils.isEmpty(fechaAplicacion)) {
+            //Valido que los campos no estén vacíos para el registro
+            if (!TextUtils.isEmpty(miembroName) && !TextUtils.isEmpty(vacunaName)
+                    && !TextUtils.isEmpty(fechaAplicacion)) {
 
-            //MOSTRAR LOADING
-            progressBar.setMessage("Registrando usuario ...")
-            progressBar.show()
+                //MOSTRAR LOADING
+                progressBar.setMessage("Registrando usuario ...")
+                progressBar.show()
 
-            //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
-            val currentRememberDb = databaseReference.push()
-            currentRememberDb.child("id").setValue(currentRememberDb.getKey())
-            currentRememberDb.child("fullName").setValue(miembroName)
-            currentRememberDb.child("vacunaName").setValue(vacunaName)
-            currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
+                //GUARDAMOS UN NUEVO ELEMENTO CON EL ID DEL USUARIO
+                val currentRememberDb = databaseReference.push()
+                currentRememberDb.child("id").setValue(currentRememberDb.getKey())
+                currentRememberDb.child("fullName").setValue(miembroName)
+                currentRememberDb.child("vacunaName").setValue(vacunaName)
+                currentRememberDb.child("aplicationDate").setValue(fechaAplicacion)
 
-            //OCULTAMOS EL LOADING
-            progressBar.hide()
-            Toast.makeText(this, R.string.remember_suscesfull, Toast.LENGTH_SHORT).show()
-            super.onBackPressed();
-        }
-        else {
-            Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+                //OCULTAMOS EL LOADING
+                progressBar.hide()
+                Toast.makeText(this, R.string.remember_suscesfull, Toast.LENGTH_SHORT).show()
+                super.onBackPressed();
+            } else {
+                Toast.makeText(this, R.string.register_all_fields, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

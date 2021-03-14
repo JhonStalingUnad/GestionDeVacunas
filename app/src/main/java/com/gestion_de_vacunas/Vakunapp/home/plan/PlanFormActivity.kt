@@ -3,6 +3,8 @@ package com.gestion_de_vacunas.Vakunapp.home.plan
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.gestion_de_vacunas.Vakunapp.AppPreferences
 import com.gestion_de_vacunas.Vakunapp.R
+import com.gestion_de_vacunas.Vakunapp.home.loading.LoadingDialog
 import com.google.firebase.database.*
 
 
@@ -67,7 +70,6 @@ class PlanFormActivity : AppCompatActivity() {
         val relation_ship = intentExtras.getString("relationship")
         val bloodtype = intentExtras.getString("bloodType")
 
-
         txtFirstName.setText(firstname)
         txtLastName.setText(lastname)
         txtDateOfBirth.setText(dateofbirth)
@@ -90,9 +92,6 @@ class PlanFormActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-
-
-
 
         //1 - REALIZAR EL QUERY A FIREBASE A LA TABLA /Users
         query = FirebaseDatabase.getInstance("https://vakunapp-default-rtdb.firebaseio.com/")
