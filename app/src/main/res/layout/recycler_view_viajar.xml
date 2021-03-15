@@ -13,23 +13,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="246dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/titTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="@dimen/margen_minima"
-            android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/rvtitle"
@@ -41,35 +27,24 @@
             android:paddingTop="@dimen/margen_minima"
             android:paddingBottom="@dimen/margen_minima"
             android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@id/titTitle"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/titdescripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:paddingLeft="@dimen/margen_minima"
-            android:paddingTop="@dimen/margen_minima"
-            android:paddingBottom="@dimen/margen_minima"
-            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/titTitle"
-            app:layout_constraintTop_toBottomOf="@id/titTitle" />
+            android:textColor="@color/colorBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/rvdescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:paddingLeft="@dimen/margen_minima"
+            android:paddingRight="@dimen/margen_default"
             android:paddingTop="@dimen/margen_minima"
             android:paddingBottom="@dimen/margen_minima"
             android:textSize="16sp"
             android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@id/titdescripcion"
-            app:layout_constraintTop_toTopOf="@id/titdescripcion" />
+            app:layout_constraintStart_toStartOf="@+id/rvtitle"
+            app:layout_constraintTop_toBottomOf="@id/rvtitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

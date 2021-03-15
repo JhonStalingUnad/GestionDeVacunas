@@ -44,6 +44,9 @@ class ViajarFormActivity : AppCompatActivity() {
                     if( it.key.toString() == "title" ){
                         rvtitle.setText(it.value.toString())
                     }
+                    if( it.key.toString() == "description" ){
+                        rvdescription.setText(it.value.toString())
+                    }
                 }
             }
         })
